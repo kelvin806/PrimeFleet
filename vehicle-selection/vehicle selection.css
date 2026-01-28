@@ -1,0 +1,434 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 1.6rem;
+}
+
+html {
+    /* this represent 16px = 1rem */
+    /* font-size: 100%; */
+    /* 10 / 16 = 0.625, 0.625 x 100 = 62.5% */
+    font-size: 62.5%;
+}
+
+/* 632px, 740px, 1024px, 1280px */
+
+@media (max-width:1280px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+* Navbar container */
+.navbar {
+    display: flex;
+    /* places items in a row */
+    justify-content: space-between;
+    /* space between logo and menu */
+    align-items: center;
+    /* vertically center items */
+    padding: 15px 30px;
+    background: #ffff;
+}
+
+.logo{
+    width: 130px;
+}
+
+/* Navigation links container */
+.nav-links {
+    list-style: none;
+    /* remove bullet points */
+    display: flex;
+    /* arrange items horizontally */
+
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 70px;
+    /* space between items */
+}
+
+/* Style the links */
+.nav-links a {
+    text-decoration: none;
+    /* remove underline */
+    color: black;
+}
+.nav-links a:hover{
+    background-color: #0a2d51;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.primary-btn{
+    background-color: #0a2d51;
+    color:white;
+    font-family: 'inter'  sans-serif;
+    padding: 10px 45px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.primary-btn:hover{
+     background-color: hsl(210, 77%, 26%);
+}
+
+/* Hamburger icon */
+.hamburger {
+    display: none;
+    /* hidden on desktop */
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
+}
+
+/* Apply these styles only when screen width is 768px or less */
+
+@media (max-width:768px) {
+
+    .nav-links {
+
+        position: absolute;
+        /* removes element from normal layout so it can float */
+
+        top: 60px;
+        /* places menu below navbar */
+
+        left: 0;
+        /* align menu to left side */
+
+        width: 100%;
+        /* make menu span entire screen width */
+
+        background: #ffff;
+
+        flex-direction: column;
+        /* stack menu items vertically */
+
+        align-items: center;
+
+        display: none;
+        /* hide menu until hamburger is clicked */
+
+        transition: 0.3s;
+
+        .nav-links li {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .nav-links.active li {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .nav-links li {
+        padding: 0px 0;
+    }
+
+    .hamburger {
+        display: block;
+        /* show hamburger icon on small screens */
+    }
+
+}
+
+/* Main section design */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eef6ff;
+    padding: 3rem 4rem;
+    border-radius: 1rem;
+}
+
+@media (max-width:800px) {
+    .hero {
+        flex-wrap: wrap;
+    }
+}
+
+
+
+.hero-text h1 {
+     font-size: 3.2rem;
+     margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.8rem;
+}
+
+@media (max-width: 900px) {
+    .hero-text {
+        text-align: center;
+    }
+    
+}
+
+@media (max-width:1024px) {
+    .hero-text p {
+        font-size: 1.4rem;
+    }
+}
+
+.hero-img img {
+    width: 80rem;
+}
+
+@media (max-width: 900px) {
+    .hero-img img {
+        width: 40rem;
+    }
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 10rem;
+}
+
+@media (max-width:800px) {
+    .filter {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width:600px) {
+    .filter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 1rem 2rem;
+    border: 1px solid #0a2d51;
+    background: white;
+    margin: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width:600px) {
+    .buttons button {
+        margin: 5px;
+    }
+}
+
+.buttons .active {
+    background: #0a2d51;
+    color: white;
+}
+
+/* Car grid */
+.cars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+@media (max-width: 900px) {
+    .cars {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:600px) {
+    .cars {
+        grid-template-columns: 1fr;
+    }
+}
+
+.car-card {
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.car-card img {
+    width: 25rem;
+    margin-bottom: 1.5rem;
+}
+
+.car-card h3 {
+    margin-bottom: 5px;
+}
+
+.car-card p {
+    font-size: 1.4rem;
+    color: grey;
+    margin-bottom: 1rem;
+}
+
+.car-card h4 {
+    margin-bottom: 1.5rem;
+}
+
+.car-card button {
+    background: #0a2d51;
+    color: white;
+    border: none;
+    padding: 1rem 4rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.car-select {
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+/* Footer design */
+.footer {
+    background: #eef6ff;
+    padding: 4rem 5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+@media (max-width:1024px) {
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.footer-col {
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-col p {
+    width: 40rem;
+}
+
+.footer-col h3 {
+    margin-bottom: 1.5rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 1rem;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.line {
+    background: #0a2d51;
+    width: 5rem;
+    height: 5px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.line2 {
+    background: #333;
+    width: 1px;
+    height: 2rem;
+    border: none;
+    margin-left: 1.5rem;
+}
+
+.social-icons {
+    margin-top: 3rem;
+}
+
+.social-icons i {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    background: #0a2d51;
+    color: white;
+    font-weight: 600;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 5rem;
+    border-radius: 5rem;
+    margin-right: 1rem;
+}
+
+.subscribe {
+    display: flex;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.subscribe input {
+    padding: 1.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    flex: 1;
+    background: #eef6ff;
+}
+
+.subscribe input:focus {
+    outline: none;
+}
+
+.subscribe button {
+    background: #0a2d51;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 0 5px 5px 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    border-top: 1px solid #ccc;
+    padding-top: 2rem;
+}
+
+@media (max-width:600px) {
+    .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+.footer-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: #333;
+}

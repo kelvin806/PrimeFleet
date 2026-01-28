@@ -24,7 +24,7 @@ html {
     }
 }
 
-* Navbar container */
+/* Navbar container */
 .navbar {
     display: flex;
     /* places items in a row */

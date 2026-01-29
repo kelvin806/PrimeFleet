@@ -1,0 +1,562 @@
+/* ================= GLOBAL STYLES ================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Inter", sans-serif;
+}
+
+
+body{
+    font-size:1.6rem;
+    background:#ffffff;
+    color:#333;
+}
+
+html {
+    /* this represent 16px = 1rem */
+    /* font-size: 100%; */
+    /* 10 / 16 = 0.625, 0.625 x 100 = 62.5% */
+    font-size: 62.5%;
+}
+
+/* 632px, 740px, 1024px, 1280px */
+
+@media (max-width:1280px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+/* Header layout */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: #fff;
+    
+}
+.logo img{
+    width: 130px;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+}
+
+/* Style the links */
+.nav-links li a{
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+.nav-links li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #0a2d51;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+.nav-links li a:hover::after{
+    width: 100%;
+
+}
+
+
+.primary-btn{
+    background-color: #0a2d51;
+    color:#fff;
+    font-family: 'inter'  sans-serif;
+    padding: 10px 45px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.primary-btn:hover{
+     background-color: rgb(15, 66, 117);
+}
+
+/* Hamburger icon */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
+}
+
+/* Apply these styles only when screen width is 768px or less */
+
+@media (max-width:768px) {
+
+    .nav-links {
+
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #ffff;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        transition: 0.3s;
+
+        .nav-links li  {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .nav-links.active li {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .nav-links li {
+        padding: 0px 0;
+    }
+
+    .hamburger {
+        display: block;
+
+    }
+
+    .primary-btn{
+        display: none;
+    }
+
+}
+
+
+
+@media (max-width:928px){
+    .header-container{
+        display: flex;
+        gap: 10px;
+    }
+}
+/* ================= CONFIRMATION ================= */
+
+
+.confirmation{
+background:#cfd8e3;
+height:320px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.confirm-box{
+max-width:500px;
+}
+
+.check-icon{
+background:green;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+margin:0 auto 20px;
+}
+
+.confirm-box h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.confirm-box p{
+font-size:1.4rem;
+color:#444;
+}
+
+
+
+/* ================= TRIP SECTION ================= */
+
+.trip{
+background:#f5f5f5;
+padding:60px 20px;
+text-align:center;
+}
+
+.trip h2{
+font-size:2.6rem;
+margin-bottom:30px;
+}
+
+
+
+/* ================= TRIP CARD ================= */
+
+.trip-card{
+background:#e9eef3;
+max-width:700px;
+margin:auto;
+padding:40px;
+border-radius:8px;
+}
+
+
+
+/* ROUTE */
+
+.route{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+margin-bottom:30px;
+}
+
+.place{
+display:flex;
+align-items:center;
+gap:6px;
+font-weight:500;
+}
+
+.place i{
+color:#0a2d51;
+}
+
+.line{
+width:120px;
+height:2px;
+background:#999;
+}
+
+.distance{
+font-weight:bold;
+}
+
+
+
+/* ================= TRIP INFO ================= */
+
+.trip-info{
+max-width:500px;
+margin:auto;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid #ddd;
+}
+
+.title{
+font-weight:600;
+color:#333;
+}
+
+.value{
+color:#555;
+}
+
+
+
+/* ================= PAYMENT ================= */
+
+.payment{
+margin-top:30px;
+text-align:right;
+}
+
+.payment h3{
+margin-bottom:10px;
+}
+
+.paid{
+display:inline-flex;
+align-items:center;
+gap:8px;
+background:white;
+padding:8px 15px;
+border-radius:20px;
+color:green;
+font-weight:bold;
+}
+
+.paid i{
+background:green;
+color:white;
+padding:5px;
+border-radius:50%;
+font-size:12px;
+}
+
+
+
+/* ================= RECEIPT BUTTON ================= */
+
+.receipt{
+margin-top:40px;
+text-align:center;
+}
+
+.receipt button{
+background:#0a2d51;
+color:white;
+border:none;
+padding:14px 40px;
+font-size:1.6rem;
+border-radius:5px;
+cursor:pointer;
+}
+
+.receipt button:hover{
+background:#081f38;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets */
+@media (max-width: 768px){
+
+.confirmation{
+height:auto;
+padding:60px 20px;
+}
+
+.confirm-box h1{
+font-size:2.6rem;
+}
+
+.confirm-box p{
+font-size:1.5rem;
+}
+
+/* Trip card */
+
+.trip-card{
+padding:25px;
+width:100%;
+}
+
+/* Route section */
+
+.route{
+flex-direction:column;
+gap:15px;
+}
+
+.line{
+width:2px;
+height:40px;
+}
+
+/* Trip information rows */
+
+.row{
+flex-direction:column;
+align-items:flex-start;
+gap:5px;
+}
+
+.payment{
+text-align:center;
+}
+
+}
+
+/* Mobile phones */
+
+@media (max-width:480px){
+
+.confirm-box{
+width:100%;
+padding:0 10px;
+}
+
+.check-icon{
+width:50px;
+height:50px;
+font-size:20px;
+}
+
+.trip{
+padding:40px 15px;
+}
+
+.trip h2{
+font-size:2.2rem;
+}
+
+.trip-card{
+padding:20px;
+}
+
+.place{
+font-size:1.4rem;
+}
+
+.distance{
+font-size:1.4rem;
+}
+
+.receipt button{
+width:100%;
+padding:12px;
+font-size:1.4rem;
+}
+
+}
+
+
+/* Footer design */
+.footer {
+    background: #eef6ff;
+    padding: 4rem 5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.footer-logo {
+    width: 130px;
+}
+
+@media (max-width:1024px) {
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.footer-coll {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+
+}
+
+.footer-col p {
+    width: 40rem;
+}
+
+.footer-coll p {
+    width: 40rem;
+}
+
+.footer-col h3 {
+    margin-bottom: 1.5rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 1rem;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.line {
+    background: #0a2d51;
+    width: 5rem;
+    height: 5px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.line2 {
+    background: #333;
+    width: 1px;
+    height: 2rem;
+    border: none;
+    margin-left: 1.5rem;
+}
+
+.social-icons {
+    margin-top: 3rem;
+}
+
+.subscribe {
+    display: flex;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.subscribe input {
+    padding: 1.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    flex: 1;
+    background: #eef6ff;
+}
+
+.subscribe input:focus {
+    outline: none;
+}
+
+.subscribe button {
+    background: #0a2d51;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    border-top: 1px solid #ccc;
+    padding-top: 2rem;
+}
+
+.footer-bottom span {
+    font-size: 24px;
+}
+
+@media (max-width:600px) {
+    .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+.footer-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: #333;
+}

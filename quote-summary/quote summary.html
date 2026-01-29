@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Summary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <link rel="stylesheet" href="quote summary.css" />
+</head>
+<body>
+    <!-- Header section-->
+    <nav class="navbar">
+
+        <!-- Logo / website name -->
+        <div>
+            <img src="images/Logo 2.png" alt="PrimeFleet LOGO" class="logo">
+        </div>
+
+        <!-- Navigation links -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Book a vechicle</a></li>
+            <li><a href="#">My bookings</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <button href="#" class="primary-btn">Admin</button>
+        </ul>
+        <!-- Hamburger icon for mobile -->
+        <div class="hamburger" id="hamburger">
+            ☰
+        </div>
+    </nav>
+
+    <!-- Main section -->
+     <main>
+        <!-- Quote Summary header -->
+         <section class="quote-container">
+            <div class="quote-header">
+            <h2>Quote Summary</h2>
+            <p>Review your trip details and estimated cost before proceeding to payment</p>
+         </div>
+         </section>
+
+         <!-- Trip Details -->
+         <section class="trip-container">
+            <h2 class="trip-header">Trip Details</h2>
+            <div class="trip-card">
+                <div class="trip-route">
+                    <i class="ph-fill ph-map-pin"></i>
+                    Lagos Airport -----------------> <i class="ph-fill ph-map-pin-area"></i> Ikoyi (120km)
+                </div>
+                <div class="details">
+                    <div><span>Service</span>Airport Transfer</div>
+                    <div><span>Vehicle</span>Lexus RX 350</div>
+                    <div><span>Date</span>December 20, 2026</div>
+                    <div><span>Time</span>12pm</div>
+                    <div><span>Duration</span>1 day</div>
+                    <div><span>No of Passengers</span>4</div>
+                    <div><span>No of Vehicles</span>2</div>
+                </div>
+            </div>
+         </section>
+         <!-- Estimated Cost -->
+          <section class="estimated-container">
+            <h2 class="estimated-header">Estimated cost</h2>
+          <div class="estimated-card">
+            <div class="cost-row">
+                <div class="cost-row-icons">
+                    <span><i class="ph ph-tag"></i></span>
+                <div>
+                    <strong>Base Price</strong><br/>
+                    <small>Flat rate per trip</small>
+                </div>
+                </div>
+                <div>#45,000</div>
+            </div>
+            <div class="cost-row">
+                <div class="cost-row-icons">
+                    <span><i class="ph ph-map-pin"></i></span>
+                <div>
+                    <strong>Distance Cost</strong><br/>
+                    <small>120km (#150km per km)</small>
+                </div>
+                </div>
+                <div>+#18,000</div>
+            </div>
+            <div class="cost-row">
+                <div class="cost-row-icons">
+                    <span><i class="ph ph-bus"></i></span>
+                <div>
+                    <strong>Booked Vehicles</strong><br/>
+                    <small>You booked 2 Lexus RX 350</small>
+                </div>
+                </div>
+                <div>+#45,000</div>
+            </div>
+            <div class="cost-row">
+                <div class="cost-row-icons">
+                    <span><i class="ph ph-calendar-dots"></i></span>
+                <div>
+                    <strong>Duration Estimate</strong><br/>
+                    <small>1 day (#500 per day)</small>
+                </div>
+                </div>
+                <div>+#500</div>
+            </div>
+            <hr/>
+            <div class="cost-row-total">
+                <strong>Total</strong>
+                <strong>#108,500</strong>
+            </div>
+            <p class="note">
+                Note: A 30% deposit is required to reserve your booking <br/>
+                Kindly proceed to deposit #32,550. 
+            </p>
+            <!-- Buttons -->
+
+            <button class="pay-btn">Proceed to pay</button>
+            <button class="modify-btn">Modify Booking</button>
+          </div>
+          </section>
+     </main>
+    
+    <!-- Footer section-->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="logo"><img src="images/Logo 2.png" alt="PrimeFleet"></div>
+                <p>PrimeFleet provides reliable, comfortable, and timely transportation
+                    solutions, ensuring every journey whether for businesses, airport transfers
+                    or group events is seamless, safe and stress free.
+                </p>
+                <div class="social-icons">
+                    <i class="ph ph-facebook-logo"></i>
+                    <i class="ph ph-instagram-logo"></i>
+                    <i class="ph ph-x-logo"></i>
+                    <i class="ph ph-linkedin-logo"></i>
+                </div>
+            </div>
+            <!-- Company -->
+            <div class="footer-col">
+                <h3>Company</h3>
+                <button class="line"></button>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">*********</a></li>
+                </ul>
+            </div>
+            <!-- Support -->
+            <div class="footer-col">
+                <h3>Support</h3>
+                <button class="line"></button>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <!-- Newsletter -->
+             <div class="footer-col">
+                <h3>Stay Connected</h3>
+                <button class="line"></button>
+                <p>Subscribe to our updates and never miss important news, 
+                    promotions or service announcements from PrimeFleet. Stay
+                    informed and connected at all times
+                </p>
+                <div class="subscribe">
+                    <input type="email" placeholder="your email address">
+                    <div class="button"><button>►</button></div>
+                </div>
+             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Prime Fleet. All rights reserved</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <button class="line2"></button>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to JavaScript -->
+    <script src="quote summary.js"></script>
+</body>
+</html>

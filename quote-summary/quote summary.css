@@ -1,0 +1,400 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 1.6rem;
+}
+
+html {
+    /* this represent 16px = 1rem */
+    /* font-size: 100%; */
+    /* 10 / 16 = 0.625, 0.625 x 100 = 62.5% */
+    font-size: 62.5%;
+}
+
+/* 632px, 740px, 1024px, 1280px */
+
+@media (max-width:1280px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    /* places items in a row */
+    justify-content: space-between;
+    /* space between logo and menu */
+    align-items: center;
+    /* vertically center items */
+    padding: 15px 30px;
+    background: #ffff;
+}
+
+.logo{
+    width: 130px;
+}
+
+/* Navigation links container */
+.nav-links {
+    list-style: none;
+    /* remove bullet points */
+    display: flex;
+    /* arrange items horizontally */
+
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 70px;
+    /* space between items */
+}
+
+/* Style the links */
+.nav-links a {
+    text-decoration: none;
+    /* remove underline */
+    color: black;
+}
+.nav-links a:hover{
+    background-color: #0a2d51;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.primary-btn{
+    background-color: #0a2d51;
+    color:white;
+    font-family: 'inter'  sans-serif;
+    padding: 10px 45px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.primary-btn:hover{
+     background-color: hsl(210, 77%, 26%);
+}
+
+/* Hamburger icon */
+.hamburger {
+    display: none;
+    /* hidden on desktop */
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
+}
+
+/* Apply these styles only when screen width is 768px or less */
+
+@media (max-width:768px) {
+
+    .nav-links {
+
+        position: absolute;
+        /* removes element from normal layout so it can float */
+
+        top: 60px;
+        /* places menu below navbar */
+
+        left: 0;
+        /* align menu to left side */
+
+        width: 100%;
+        /* make menu span entire screen width */
+
+        background: #ffff;
+
+        flex-direction: column;
+        /* stack menu items vertically */
+
+        align-items: center;
+
+        display: none;
+        /* hide menu until hamburger is clicked */
+
+        transition: 0.3s;
+
+        .nav-links li {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .nav-links.active li {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .nav-links li {
+        padding: 0px 0;
+    }
+
+    .hamburger {
+        display: block;
+        /* show hamburger icon on small screens */
+    }
+
+}
+
+/* Main section design */
+.quote-container {
+    background: #eef6ff;
+    padding: 60px 30px;
+}
+
+.quote-header {
+    text-align: center;
+    color: white;
+    background: #0a2d51;
+    padding: 60px;
+    border-radius: 5px;
+    max-width: 700px;
+    margin: 40px auto 0;   
+}
+
+.quote-header h2 {
+    margin-bottom: 10px;
+
+}
+
+.trip-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+}
+
+.trip-header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.trip-card  {
+    background: #f3f5f7;
+    padding: 50px 100px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba (0, 0, 0, 0.08);
+}
+
+.trip-route {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0a2d51;
+}
+
+.details div {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+
+.details span {
+    color: #666;
+}
+
+.estimated-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 30px;
+}
+
+.estimated-header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+.estimated-card {
+    background: #f3f5f7;
+    padding: 20px 80px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba (0, 0, 0, 0.08);
+}
+
+.cost-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+}
+
+.cost-row-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.cost-row-total {
+    font-size: 18px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.estimated-card button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.pay-btn {
+    background: #0a2d51;
+    color: white;
+}
+
+.modify-btn {
+    background: white;
+    border: 1px solid gray;
+}
+/* Footer design */
+.footer {
+    background: #eef6ff;
+    padding: 4rem 5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+@media (max-width:1024px) {
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.footer-col {
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-col p {
+    width: 40rem;
+}
+
+.footer-col h3 {
+    margin-bottom: 1.5rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 1rem;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.line {
+    background: #0a2d51;
+    width: 5rem;
+    height: 5px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.line2 {
+    background: #333;
+    width: 1px;
+    height: 2rem;
+    border: none;
+    margin-left: 1.5rem;
+}
+
+.social-icons {
+    margin-top: 3rem;
+}
+
+.social-icons i {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    background: #0a2d51;
+    color: white;
+    font-weight: 600;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 5rem;
+    border-radius: 5rem;
+    margin-right: 1rem;
+}
+
+.subscribe {
+    display: flex;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.subscribe input {
+    padding: 1.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    flex: 1;
+    background: #eef6ff;
+}
+
+.subscribe input:focus {
+    outline: none;
+}
+
+.subscribe button {
+    background: #0a2d51;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 0 5px 5px 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    border-top: 1px solid #ccc;
+    padding-top: 2rem;
+}
+
+@media (max-width:600px) {
+    .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+.footer-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: #333;
+}

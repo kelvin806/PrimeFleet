@@ -132,6 +132,10 @@ html {
         display: none;
     }
 
+    .primary-btn{
+        display: none;
+    }
+
 }
 
 
@@ -142,20 +146,11 @@ html {
     }
 }
 
-/* Main section design */
 
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #eef6ff;
-    padding: 3rem 4rem;
-    border-radius: 1rem;
-}
-
-@media (max-width:800px) {
-    .hero {
-        flex-wrap: wrap;
+@media (max-width:928px){
+    .header-container{
+        display: flex;
+        gap: 10px;
     }
 }
 

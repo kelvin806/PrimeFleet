@@ -154,6 +154,24 @@ html {
     }
 }
 
+/* Main design */
+.hero {
+    background: #eef6ff;
+    padding: 4rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center   
+    }
+    
+} 
+
 .hero-text h1 {
      font-size: 3.2rem;
      margin-bottom: 1rem;

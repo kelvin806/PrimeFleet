@@ -9,30 +9,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
     <link rel="stylesheet" href="deposit.css" />
+    <script src="desposit.js" defer></script>  
 </head>
 <body>
-    <!-- Header section-->
-    <nav class="navbar">
-
-        <!-- Logo / website name -->
-        <div>
-            <img src="images/Logo 2.png" alt="PrimeFleet LOGO" class="logo">
+    <!-- header -->
+     <header class="header-container">
+        <div class="logo">
+            <img src="images/Logo 2.png" alt="PrimeFleet Logo">
         </div>
+        <nav>
+            <ul class="nav-items nav-links" id="navLinks">
+                <li><a href="">Home</a></li>
+                <li><a href="">Book a vehicle</a></li>
+                <li><a href="">My bookings</a></li>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+        <button href="#" class="primary-btn">Admin</button>
 
-        <!-- Navigation links -->
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Book a vechicle</a></li>
-            <li><a href="#">My bookings</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
-            <button href="#" class="primary-btn">Admin</button>
-        </ul>
         <!-- Hamburger icon for mobile -->
         <div class="hamburger" id="hamburger">
             ☰
         </div>
-    </nav>
+    </header>
     <!-- Main section -->
      <main>
         <!-- Deposit header -->
@@ -48,8 +48,8 @@
          <div class="pay-container">
             <h3>Select Payment Method</h3>
             <div class="methods">
-                <label><input type="radio" name="method" checked />Pay with Card</label>
-                <label><input type="radio" name="method" />Bank Transfer</label>
+                <label><input type="radio" name="method" id="cardPayment" />Pay with Card</label>
+                <label><input type="radio" name="method" id="bankTransfer" checked />Bank Transfer</label>
             </div>
          </div>
          <h1 class="coming">Coming Soon...</h1>
@@ -76,7 +76,7 @@
 
             <div class="info">
                 <h3>Deposit Amount</h3>
-                <p class="amount">#27,150</p>
+                <p class="amount">&#8358;27,150</p>
             </div>
             </div>
             <button class="payment-btn">I have completed my transfer</button>
@@ -86,17 +86,14 @@
     <!-- Footer section-->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-col">
-                <div class="logo"><img src="images/Logo 2.png" alt="PrimeFleet"></div>
+            <div class="footer-coll">
+                <div><img src="images/Logo 2.png" alt="PrimeFleet" class="footer-logo"></div>
                 <p>PrimeFleet provides reliable, comfortable, and timely transportation
                     solutions, ensuring every journey whether for businesses, airport transfers
                     or group events is seamless, safe and stress free.
                 </p>
                 <div class="social-icons">
-                    <i class="ph ph-facebook-logo"></i>
-                    <i class="ph ph-instagram-logo"></i>
-                    <i class="ph ph-x-logo"></i>
-                    <i class="ph ph-linkedin-logo"></i>
+                    <img src="images/icon.png" alt="Social Media Icon">
                 </div>
             </div>
             <!-- Company -->
@@ -129,12 +126,12 @@
                 </p>
                 <div class="subscribe">
                     <input type="email" placeholder="your email address">
-                    <div class="button"><button>►</button></div>
+                    <div class="button"><button><i class="ph-fill ph-paper-plane-tilt"></i></button></div>
                 </div>
              </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Prime Fleet. All rights reserved</p>
+            <p><span>©</span> 2026 Prime Fleet. All rights reserved</p>
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
                 <button class="line2"></button>
@@ -142,8 +139,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Link to JavaScript -->
-    <script src="desposit.js"></script>
 </body>
 </html>

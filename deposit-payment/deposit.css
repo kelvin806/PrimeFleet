@@ -43,7 +43,8 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 70px;
+    gap: 100px;
+    font-size: 2rem;
 }
 
 /* Style the links */
@@ -70,6 +71,7 @@ html {
 
 
 .primary-btn{
+    display: none;
     background-color: #0a2d51;
     color:#fff;
     font-family: 'inter'  sans-serif;
@@ -232,6 +234,27 @@ html {
 .amount {
     font-weight: bold;
     font-size: 18px;
+}
+
+.copy-style {
+    margin-bottom: 3px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+.copy-style:hover {
+    background-color: #0a2d51;
+    color: white;
+}
+
+.amount {
+    font-weight: bold;
+    color: #0a2d51;
+    font-size: 1.2rem;
 }
 
 .payment-btn {

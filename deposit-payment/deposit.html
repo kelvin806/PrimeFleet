@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
     <link rel="stylesheet" href="deposit.css" />
+    <link rel="icon" type="images/png" href="images/Logo 2.png">
     <script src="desposit.js" defer></script>  
 </head>
 <body>
@@ -32,6 +33,8 @@
         <div class="hamburger" id="hamburger">
             ☰
         </div>
+
+       
     </header>
 
     <!-- Main section -->
@@ -62,25 +65,26 @@
             <div class="details">
                 <div class="info">
                 <h3>Bank Name</h3>
-                <p>GT Bank</p>
+                <p id="bankName">GT Bank</p>
             </div>
 
             <div class="info">
                 <h3>Account Name</h3>
-                <p>PtimeFleet Transport Services</p>
+                <p id="accountName">PtimeFleet Transport Services</p>
             </div>
 
             <div class="info">
                 <h3>Account Number</h3>
-                <p>9130395721</p>
+                <p id="accountNumber">9130395721</p>
             </div>
+            <button id="copyBtn" class="copy-style">Copy</button>
 
             <div class="info">
                 <h3>Deposit Amount</h3>
-                <p class="amount">&#8358;27,150</p>
+                <p id="depositAmount" class="amount">&#8358;27,150</p>
             </div>
             </div>
-            <button class="payment-btn">I have completed my transfer</button>
+            <button id="completeBtn" class="payment-btn">I have completed my transfer</button>
          </div>
      </main>
 

@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="images/png" href="images/Logo 2.png">
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -71,17 +71,17 @@ with your booking details has been sent to you.
 
 <div class="place">
 <i class="fa-solid fa-location-dot"></i>
-<span>Lagos Airport</span>
+<span id="pickup-val">Lagos Airport</span>
 </div>
 
 <div class="line"></div>
 
 <div class="place">
 <i class="fa-solid fa-location-dot"></i>
-<span>Ikoyi</span>
+<span id="dest-val">Ikoyi</span>
 </div>
 
-<span class="distance">(120Km)</span>
+<span class="distance">(<span id="distance-val">120km</span>)</span>
 
 </div>
 
@@ -92,37 +92,37 @@ with your booking details has been sent to you.
 
 <div class="row">
 <span class="title">Service</span>
-<span class="value">Airport Transfer</span>
+<span class="value" id="service-val">Airport Transfer</span>
 </div>
 
 <div class="row">
 <span class="title">Vehicle</span>
-<span class="value">Lexus RX 350</span>
+<span class="value" id="vehicle-val">Lexus RX 350</span>
 </div>
 
 <div class="row">
 <span class="title">Date</span>
-<span class="value">December 20, 2026</span>
+<span class="value" id="date-val">December 20, 2026</span>
 </div>
 
 <div class="row">
 <span class="title">Time</span>
-<span class="value">12pm</span>
+<span class="value" id="time-val">12pm</span>
 </div>
 
 <div class="row">
 <span class="title">Duration</span>
-<span class="value">1 day</span>
+<span class="value" id="duration-val">1 day</span>
 </div>
 
 <div class="row">
 <span class="title">No of Passengers</span>
-<span class="value">4</span>
+<span class="value" id="passengers-val"></span>
 </div>
 
 <div class="row">
 <span class="title">No of Vehicles</span>
-<span class="value">2</span>
+<span class="value" id="num-veh-val"></span>
 </div>
 
 </div>
@@ -134,9 +134,9 @@ with your booking details has been sent to you.
 
 <h3>Payment Status</h3>
 
-<div class="paid">
-<i class="fa-solid fa-check"></i>
-<span>Deposit Paid</span>
+<div class="paid" id="status-container">
+<i id="status-icon" class="fa-solid fa-check"></i>
+<span id="payment-status">Deposit Paid</span>
 </div>
 
 </div>
@@ -146,9 +146,13 @@ with your booking details has been sent to you.
 
 
 <div class="receipt">
-<button>Download Receipt</button>
+<button id="download-btn">Download Receipt</button>
 </div>
-
+<div style="margin-top: 30px; text-align: center;">
+    <button id="backHomeBtn" style="background-color: #000; color: #fff; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+        Return to Home
+    </button>
+</div>
 </section>
  <!-- Footer section-->
     <footer class="footer">
@@ -207,6 +211,7 @@ with your booking details has been sent to you.
         </div>
     </footer>    
 
+    </footer>
     <!-- Link to JavaScript -->
     <script src="main.js"></script>
 </body>

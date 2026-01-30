@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicles selection</title>
+    <title>PrimeFleet services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
-    <link rel="stylesheet" href="vehicle selection.css" />
-    <link rel="icon" type="images" href="images/Logo 2.png">
-    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="images/png" href="images/logo.png">
 </head>
-
 <body>
-    <!-- header -->
+    <!-- header --> 
+   <!-- header -->
     <header class="header-container">
         <div class="logo">
-            <img src="images/Logo 2.png" alt="PrimeFleet Logo">
+            <img src="images/logo.png" alt="PrimeFleet Logo">
         </div>
         <nav>
             <ul class="nav-items nav-links" id="navLinks">
-                <li><a href="">Home</a></li>
+                <li><a href="">Home</a></li> 
                 <li><a href="">Book a vehicle</a></li>
-                <li><a href="">My bookings</a></li>
+                <li><a href="">Services</a></li>
                 <li><a href="">FAQ</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
@@ -37,48 +33,69 @@
         <div class="hamburger" id="hamburger">
             ☰
         </div>
+
+       
     </header>
-    <!-- Main section -->
-    <main>
-        <!-- Hero section -->
-        <section class="hero">
+ 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
             <div class="hero-text">
-                <h1>Select Your Vehicle</h1>
-                <p>Choose the vehicle that best suits your trip and passenger needs</p>
+                <h1>Choose the <span class="highlight">service that fits your</span> journey</h1>
+                <p>Select from our range of transport services designed for airport trips, corporate travel and large event</p>
             </div>
-            <div class="hero-img">
-                <img src="images/hero-pict.png" alt="car">
+            <div class="hero-image">
+                <img src="images/woman.jpg" alt="Happy Customer">
+                <div class="chat-bubbles">
+                    <div class="bubble bubble-1">Safe</div>
+                    <div class="bubble bubble-2">Reliable</div>
+                    <div class="bubble bubble-3">Professional</div>
+                </div>
             </div>
-        </section>
-
-        <!-- Filter section -->
-        <section class="filter">
-            <h2>Filter By Car Type</h2>
-            <div class="buttons">
-                <button onclick="filterVehicles('all')">All</button>
-                <button onclick="filterVehicles('suv')" class="active">SUV</button>
-                <button onclick="filterVehicles('sedan')">Sedan</button>
-                <button onclick="filterVehicles('van')">Van</button>
-                <button onclick="filterVehicles('bus')">Bus</button>
-            </div>
-        </section>
-
-        <section id="vehicle-container" class="cars">
-        </section>
-
-        <div id="checkout-area" style="display:none; text-align: center; margin-top: 30px;">
-            <button onclick="goToPayment()" class="add-btn" style="padding: 15px 30px; font-size: 1.2rem;" >
-                Confirm Fleet & Proceed to Payment
-            </button>
         </div>
-        </section>
-    </main>
+    </section>
 
-    <!-- Footer section-->
+    <!-- Airport Transfer Section -->
+    <section class="service-section">
+        <div class="service-card">
+            <img src="images/people.jpg" alt="Airport Transfer">
+        </div>
+        <div class="service-content">
+            <h2>Airport Transfer</h2>
+            <p>Enjoy a smooth and comfortable ride to and from the airport to your destination with reliable service that gets you there safely and on time.</p>
+            <button class="btn" data-service="airport" href="../passenger detail/index.html">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Event Transport Section -->
+    <section class="service-section event-transport">
+        <div class="service-content">
+            <h2>Event Transport</h2>
+            <p>Coordinated transport solutions for weddings, conferences, special events and large gatherings.</p>
+            <button class="btn" data-service="Event">Get Started</button>
+        </div>
+        <div class="service-card">
+            <img src="images/food.jpg" alt="Event Transport">
+        </div>
+    </section>
+
+    <!-- Executive Hires Section -->
+    <section class="service-section">
+        <div class="service-card">
+            <img src="images/car.jpg" alt="Executive Hires">
+        </div>
+        <div class="service-content">
+            <h2>Executive Hires</h2>
+            <p>Premium vehicles with professional drivers for business and VIP travel</p>
+            <button class="btn" data-service="Executive">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-coll">
-                <div><img src="images/Logo 2.png" alt="PrimeFleet" class="footer-logo"></div>
+                <div><img src="images/logo.png" alt="PrimeFleet" class="footer-logo"></div>
                 <p>PrimeFleet provides reliable, comfortable, and timely transportation
                     solutions, ensuring every journey whether for businesses, airport transfers
                     or group events is seamless, safe and stress free.
@@ -111,7 +128,7 @@
             <div class="footer-col">
                 <h3>Stay Connected</h3>
                 <button class="line"></button>
-                <p>Subscribe to our updates and never miss important news,
+                <p>Subscribe to our updates and never miss important news, 
                     promotions or service announcements from PrimeFleet. Stay
                     informed and connected at all times
                 </p>
@@ -130,6 +147,6 @@
             </div>
         </div>
     </footer>
+    <script src="main.js"></script>
 </body>
-
-</html>
+</htm

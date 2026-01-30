@@ -43,7 +43,8 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 70px;
+    gap: 100px;
+    font-size: 2rem;
 }
 
 /* Style the links */
@@ -70,6 +71,7 @@ html {
 
 
 .primary-btn{
+    display: none;
     background-color: #0a2d51;
     color:#fff;
     font-family: 'inter'  sans-serif;

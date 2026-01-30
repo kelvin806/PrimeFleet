@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
     <link rel="stylesheet" href="quote summary.css" />
+    <link rel="icon" type="images/png" href="images/Logo 2.png">
     <script src="quote summary.js" defer></script>  
 </head>
 <body>
@@ -50,16 +51,16 @@
             <div class="trip-card">
                 <div class="trip-route">
                     <i class="ph-fill ph-map-pin"></i>
-                    Lagos Airport -----------------> <i class="ph-fill ph-map-pin-area"></i> Ikoyi (120km)
+                    <span id="pickup-val"></span>  -----------------> <i class="ph-fill ph-map-pin-area"></i><span id="dest-val"></span><span id="dist-val"></span>
                 </div>
                 <div class="details">
-                    <div><span>Service</span>Airport Transfer</div>
-                    <div><span>Vehicle</span>Lexus RX 350</div>
-                    <div><span>Date</span>December 20, 2026</div>
-                    <div><span>Time</span>12pm</div>
-                    <div><span>Duration</span>1 day</div>
-                    <div><span>No of Passengers</span>4</div>
-                    <div><span>No of Vehicles</span>2</div>
+                    <div><span>Service</span><span id="service-val"></span></div>
+                    <div><span>Vehicle</span><span id="vehicle-val"></span></div>
+                    <div><span>Date</span><span id="date-val"></span></div>
+                    <div><span>Time</span><span id="time-val"></span></div>
+                    <div><span>Duration</span><span id="duration-val"></span></div>
+                    <div><span>No of Passengers</span><span id="passengers-val"></span></div>
+                    <div><span>No of Vehicles</span><span id="num-veh-val"></span></div>
                 </div>
             </div>
          </section>
@@ -75,44 +76,44 @@
                     <small>Flat rate per trip</small>
                 </div>
                 </div>
-                <div>#45,000</div>
+                <div id="base-price-display">0</div>
             </div>
             <div class="cost-row">
                 <div class="cost-row-icons">
                     <span><i class="ph ph-map-pin"></i></span>
                 <div>
                     <strong>Distance Cost</strong><br/>
-                    <small>120km (#150km per km)</small>
+                    <small id="distance-per-km"> (#150km per km)</small>
                 </div>
                 </div>
-                <div>+#18,000</div>
+                <div id="dist-cost-display">+#0</div>
             </div>
             <div class="cost-row">
                 <div class="cost-row-icons">
                     <span><i class="ph ph-bus"></i></span>
                 <div>
                     <strong>Booked Vehicles</strong><br/>
-                    <small>You booked 2 Lexus RX 350</small>
+                    <small id="vehicle-val">You booked 2 Lexus RX 350</small>
                 </div>
                 </div>
-                <div>+#45,000</div>
+                <div id="veh-cost-display">+#45,000</div>
             </div>
             <div class="cost-row">
                 <div class="cost-row-icons">
                     <span><i class="ph ph-calendar-dots"></i></span>
                 <div>
                     <strong>Duration Estimate</strong><br/>
-                    <small>1 day (#500 per day)</small>
+                    <small id="duration-val">1 day (#500 per day)</small>
                 </div>
                 </div>
-                <div>+#500</div>
+                <div id="dur-cost-display">+#500</div>
             </div>
             <hr/>
             <div class="cost-row-total">
                 <strong>Total</strong>
-                <strong>#108,500</strong>
+                <strong id="total-price">#108,500</strong>
             </div>
-            <p class="note">
+            <p class="note" id="deposit-note">
                 Note: A 30% deposit is required to reserve your booking <br/>
                 Kindly proceed to deposit #32,550. 
             </p>

@@ -48,7 +48,8 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 70px;
+    gap: 100px;
+    font-size: 2rem;
 }
 
 /* Style the links */
@@ -75,6 +76,7 @@ html {
 
 
 .primary-btn{
+    display: none;
     background-color: #0a2d51;
     color:#fff;
     font-family: 'inter'  sans-serif;
@@ -151,7 +153,7 @@ html {
 
 
 .confirmation{
-background:#cfd8e3;
+background:#ECF6FF;
 height:320px;
 display:flex;
 justify-content:center;

@@ -5,7 +5,7 @@
 }
  
 body{
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 
@@ -14,7 +14,10 @@ body{
 .admin-header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-around; */
   padding: 10px 40px;
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
@@ -35,6 +38,11 @@ body{
   justify-content: space-between;
   gap: 20px;
 }
+
+/* .header-right {
+  display: flex;
+  align-items: center;
+} */
 .header-bookings{
      width: 20%;
     display: inline-block;
@@ -106,7 +114,9 @@ body{
 /* The Main Grid */
 .dashboard-wrapper {
   display: grid;
-  grid-template-columns: 219px 1fr 50px; /* Sidebar width | Main content takes rest */
+  grid-template-columns: 219px 1fr;
+  /* display: grid;
+  grid-template-columns: 219px 1fr 50px; Sidebar width | Main content takes rest */
   grid-gap: 20px;
   min-height: 100vh;
   top: 116px;

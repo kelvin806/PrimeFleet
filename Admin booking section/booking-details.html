@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Details | Admin</title>
+</head>
+<body>
+    <h1>Admin Section: Booking Details</h1>
+    <div id="details-container">
+        <p>You are viewing details for ID: <strong id="booking-id-display">Loading...</strong></p>
+    </div>
+
+    <script>
+        // Catch the ID from the URL (e.g., ?id=PF-20237)
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        // Put the ID on the screen
+        if (id) {
+            document.getElementById('booking-id-display').innerText = id;
+        } else {
+            document.getElementById('booking-id-display').innerText = "No ID found";
+        }
+    </script>
+</body>
+</html>

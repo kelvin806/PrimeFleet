@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create-booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <link rel="stylesheet" href="booking-create.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="header-left">
+            <img src="Assets/Logo 2.png" alt="PrimeFleet Logo" class="logo">
+        </div>
+
+        <div class="header-bookings">
+            <h3>Create new booking</h3>
+        </div>
+
+    </header>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <div class="sidebar-menu">
+                    <a href="#" class="menu-item">
+                        <img src="Assets/Vector.svg" alt="" class="menu-icon dashboard">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="menu-item active">
+                        <img src="Assets/Vector (1).svg" alt="" class="menu-icon">
+                        <span>Bookings</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/Vector (2).svg" alt="" class="menu-icon">
+                        <span>Driver</span>
+                    </a><a href="#" class="menu-item ">
+                        <img src="Assets/Vector (3).svg" alt="" class="menu-icon">
+                        <span>Vehicles</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/Vector (4).svg" alt="" class="menu-icon">
+                        <span>Payment</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main section -->
+        <main class="main-content">
+        
+            <div class="vehicle-infos-container">
+                <!-- Customer Info -->
+<div class="card">
+  <h2>Customer's Info</h2>
+
+  <label>Full Name</label>
+  <input type="text">
+
+  <label>Email Address</label>
+  <input type="email">
+
+  <label>Phone Number</label>
+  <input type="tel">
+</div>
+
+<!-- Trip Details -->
+<div class="card">
+
+  <div class="header-row">
+    <h2>Trip Details</h2>
+
+    <div class="select-options">
+      <select>
+        <option>Service Type</option>
+      </select>
+
+      <select>
+        <option>Vehicle Preference</option>
+      </select>
+    </div>
+  </div>
+
+  <label>Pick Off Location</label>
+  <input type="text">
+
+  <label>Drop Off Location</label>
+  <input type="text">
+
+  <div class="row">
+    <div>
+      <label>Date</label>
+      <input type="text">
+    </div>
+
+    <div>
+      <label>Time</label>
+      <input type="text">
+    </div>
+
+    <div>
+      <label>Duration</label>
+      <input type="text">
+    </div>
+  </div>
+
+  <label>Number of passengers</label>
+  <input type="number">
+
+  <label>Number of Vehicles</label>
+  <input type="number">
+</div>
+
+<!-- Buttons -->
+<div class="buttons">
+  <button class="cancel">Cancel</button>
+  <button class="submit">Generate Quote</button>
+</div>
+            
+            </div>
+        </main>
+</body>
+</html>

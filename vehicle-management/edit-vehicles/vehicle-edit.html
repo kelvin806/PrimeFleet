@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle-edit-page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <link rel="stylesheet" href="vehicle-edit.css">
+</head>
+<body>
+    <header class="admin-header">
+        <div class="header-left">
+            <img src="Assets/Logo 2.png" alt="PrimeFleet Logo" class="logo">
+        </div>
+
+        <h2 class="vehicle-header">Add Vehicles</h2>
+            
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <div class="sidebar-menu">
+                    <a href="#" class="menu-item">
+                        <img src="Assets/Vector.svg" alt="" class="menu-icon dashboard">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="menu-item active">
+                        <img src="Assets/Vector (1).svg" alt="" class="menu-icon">
+                        <span>Bookings</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/Vector (2).svg" alt="" class="menu-icon">
+                        <span>Driver</span>
+                    </a><a href="#" class="menu-item ">
+                        <img src="Assets/Vector (3).svg" alt="" class="menu-icon">
+                        <span>Vehicles</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/Vector.svg" alt="" class="menu-icon">
+                        <span>Payment</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+        <!-- Main section -->
+        <main class="main-content">
+            <div class="vehicle-edit-container">
+                <div class="vehicle-edit-card">
+                    
+                    <h3>Vehicle's Info</h3>
+                    <div class="view-types">
+                        <label for="">Vehicle Type</label>
+                    <div class="vehicle-types">
+                        <button type="button">SUV</button>
+                        <button type="button">Seadn</button>
+                        <button type="button">Van</button>
+                        <button type="button">Bus</button>
+                    </div>
+                    </div>
+                    
+                    <label for="">Vehicle Model</label>
+                    <input type="text" />
+
+                    <label for="">Plate Number</label>
+                    <input type="text" />
+
+                    <label for="">Passenger Capacity</label>
+                    <input type="number" />
+                </div>
+
+                <div class="vehicle-edit-card">
+                    <select name="" id="" class="driver-select">
+                        <option value="">Assigned Driver</option>
+                        <option value="">Driver 1</option>
+                        <option value="">Driver 2</option>
+                    </select>
+
+                    <h3>Vehicle's status</h3>
+
+                    <div class="status">
+                        <label for=""><input type="radio" name="status">Active</label>
+                        <label for=""><input type="radio" name="status">Inactive</label>
+                    </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="cancel">Cancel</button>
+                        <button class="add">Add Vehicle</button>
+                    </div>
+                </div>
+
+            </div>
+        
+            <header class="admin-header"></header>
+        </main>
+</body>
+</html>

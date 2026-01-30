@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle-view-page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <link rel="stylesheet" href="vehicle-view.css">
+</head>
+<body>
+    <header class="admin-header">
+        <div class="header-left">
+            <img src="Assets/Logo 2.png" alt="PrimeFleet Logo" class="logo">
+            <h2 class="vehicle-header">Vehicle Details</h2>
+        </div>  
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <div class="sidebar-menu">
+                    <a href="#" class="menu-item">
+                        <img src="Assets/Vector.svg" alt="" class="menu-icon dashboard">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="menu-item active">
+                        <img src="Assets/Vector (1).svg" alt="" class="menu-icon">
+                        <span>Bookings</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/Vector (2).svg" alt="" class="menu-icon">
+                        <span>Driver</span>
+                    </a><a href="#" class="menu-item ">
+                        <img src="Assets/Vector (3).svg" alt="" class="menu-icon">
+                        <span>Vehicles</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/Vector.svg" alt="" class="menu-icon">
+                        <span>Payment</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+        <!-- Main section -->
+        <main class="main-content">
+        <div class="top-bar">
+            <span>Vehicle ID: <strong>SUV-123</strong></span>
+            <span>Status: <strong class="key-active">Active</strong></span>
+        </div>
+
+            <div class="vehicle-infos-container">
+            <div class="vehicle-info-card">
+                <h2>Vehicle's Info</h2>
+                <div class="info-grid">
+                    <span>Vehicle Model</span>
+                    <span>Lexus RX 350</span>
+
+                    <span>Plate Number</span>
+                    <span>BXY-324-AX</span>
+
+                    <span>Passenger Capacity</span>
+                    <span>6</span>
+
+                    <span>Date added</span>
+                    <span>January 6, 2026</span>
+            </div>
+            </div>
+            <div class="vehicle-info-card">
+                <h2>Assigned Driver</h2>
+                <div class="info-grid">
+                    <span>Name</span>
+                    <span>Wale David</span>
+
+                    <span>Phone Number</span>
+                    <span>09054673216</span>
+
+                    <span>Status</span>
+                    <span class="key-active">Active</span>
+
+                    <span>Date added</span>
+                    <span>January 6, 2026</span>
+            </div>
+            </div>
+            <div class="vehicle-info-card">
+                <h2>Vehicle's Trip Usage</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Route</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PF-20237</td>
+                            <td>Agege to Ikeja</td>
+                            <td>12/3/2026</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>PF-20238</td>
+                            <td>Surulere to Ajah</td>
+                            <td>25/3/2026</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>PF-20241</td>
+                            <td>Ikorodu to Lekki</td>
+                            <td>28/3/2026</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>PF-20243</td>
+                            <td>Lagos Airport to Ikoyi</td>
+                            <td>31/3/2026</td>
+                            <td class="ongoing">Ongoing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <header class="admin-header"></header>
+        </main>
+</body>
+</html>

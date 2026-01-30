@@ -8,14 +8,12 @@ body{
     font-family: "Inter", sans-serif;
 }
 
-
    /*  ADMIN-BOOKING-SECTION HEADER*/
 
 .admin-header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 10px 40px;
+  padding: 10px 60px;
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -24,6 +22,12 @@ body{
   flex-grow: 1;
   display: flex;
   justify-content: center;
+}
+
+.vehicle-header {
+  display: inline-block;
+  text-align: center;
+
 }
 
 .logo{
@@ -35,15 +39,7 @@ body{
   justify-content: space-between;
   gap: 20px;
 }
-.header-bookings{
-     width: 20%;
-    display: inline-block;
-    gap: 30px;
-}
 
-.header-bookings h3{
-    text-align: center;
-}
 
 /* The container */
 .search-wrapper {
@@ -101,8 +97,6 @@ body{
   background-color: #254a77;
 }
 
-
-
 /* The Main Grid */
 .dashboard-wrapper {
   display: grid;
@@ -156,97 +150,106 @@ body{
   height: 24px;
 }
 
-/* Summary card design */
+/* Main design */
 
-.summary-cards {
-  display: flex;
-  justify-content: space-around;
-  padding: 50px 0;
-  margin-bottom: 25px;
-  background: #0A2d51;
-  
+.vehicle-edit-container {
+    margin: auto;
+    background: #eef6ff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.summary-card {
-  background: white;
-  padding: 30px;
-  border-radius: 14px;
-  text-align: center;
-  width: 300px;
+.vehicle-edit-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0,05);
+    width: 900px;
 }
 
-.summary-card h3 {
-  margin-top: 10px;
+.view-types {
+    display: flex;
+    gap: 50px;
 }
 
-.number {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 10px 0;
+h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-decoration: underline;
 }
 
-.card-icon {
-  background: rgba(240, 235, 235, 0.911);
-  padding: 5px;
-  border-radius: 3px;
-}
-/* Main Content Area */
-.main-content {
-  background-color: #eef6ff; /* Light grey background for the table area */
-  display: flex;
-  flex-direction: column;
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 500;
 }
 
-
-/* Table Text Styling */
-
-table{
-  width: 100%;
-  border-collapse: collapse;
-  
-}
-th{
-  font-family: 'inter' sans-serif;
-  font-weight: bold;
-  font-size: 26.53px;
-}
-td, th{
-  text-align: left;
-  font-size: 14px;
-  color: #333;
-  padding: 12px 15px;
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
 }
 
-.client-name {
-  font-weight: 500;
+.vehicle-types {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
-/* Status Badge Base Styling */
+.driver-select  {
+    margin-bottom: 30px;
+}
+.vehicle-types button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.vehicle-types button:hover {
+    background: #e6e6e6;
+}
+
 .status {
-  font-weight: bold;
-  font-size: 12px;
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
 }
 
-/* Specific Status Colors */
-
-.inactive {
-  color: #e74c3c; /* Red */
+.action {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.active {
-  color: #2ecc71; /* Green */
+.cancel {
+    padding: 12px 35px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
 }
 
-/* Action Link Styling */
-.view-details {
-  color: #1a3353;
-  text-decoration: underline;
-  font-size: 13px;
-  font-weight: 500;
+.add {
+    padding: 12px 35px;
+    border-radius: 8px;
+    border: none;
+    background: #0b2a4a;
+    color: white;
+    cursor: pointer;
 }
 
-
-
+.add:hover {
+    background: #09223d;
+}
 /* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
     
@@ -292,16 +295,4 @@ td, th{
         padding: 10px;
     }
 
-    table {
-        min-width: 600px; /* Ensures table doesn't squish too much */
-    }
-
-    /* Adjust font sizes for mobile readability */
-    th {
-        font-size: 18px !important;
-    }
-
-    td, th {
-        padding: 8px 10px;
-    }
 }

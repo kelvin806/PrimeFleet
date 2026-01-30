@@ -8,14 +8,12 @@ body{
     font-family: "Inter", sans-serif;
 }
 
-
    /*  ADMIN-BOOKING-SECTION HEADER*/
 
 .admin-header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 10px 40px;
+  padding: 10px 60px;
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -24,6 +22,18 @@ body{
   flex-grow: 1;
   display: flex;
   justify-content: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-left img {
+  margin-right: auto;
+}
+.header-left h2 {
+  margin: 0 auto;
 }
 
 .logo{
@@ -35,15 +45,7 @@ body{
   justify-content: space-between;
   gap: 20px;
 }
-.header-bookings{
-     width: 20%;
-    display: inline-block;
-    gap: 30px;
-}
 
-.header-bookings h3{
-    text-align: center;
-}
 
 /* The container */
 .search-wrapper {
@@ -101,8 +103,6 @@ body{
   background-color: #254a77;
 }
 
-
-
 /* The Main Grid */
 .dashboard-wrapper {
   display: grid;
@@ -156,93 +156,69 @@ body{
   height: 24px;
 }
 
-/* Summary card design */
+/* Main design */
 
-.summary-cards {
-  display: flex;
-  justify-content: space-around;
-  padding: 50px 0;
-  margin-bottom: 25px;
-  background: #0A2d51;
-  
+.top-bar {
+    display: flex;
+    gap: 60px;
+    padding: 20px 40px;
+    background: white;
+    font-size: 18px;
 }
 
-.summary-card {
-  background: white;
-  padding: 30px;
-  border-radius: 14px;
-  text-align: center;
-  width: 300px;
+.vehicle-infos-container {
+    margin: 30px auto;
+    padding: 40px 20px;
+    background: #eef6ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.summary-card h3 {
-  margin-top: 10px;
+.vehicle-info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    width: 600px;
+    
+}
+.vehicle-info-card h2 {
+    text-decoration: underline;
+    margin-bottom: 30px;
 }
 
-.number {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 10px 0;
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
 }
 
-.card-icon {
-  background: rgba(240, 235, 235, 0.911);
-  padding: 5px;
-  border-radius: 3px;
-}
-/* Main Content Area */
-.main-content {
-  background-color: #eef6ff; /* Light grey background for the table area */
-  display: flex;
-  flex-direction: column;
+.key-active {
+    color: green;
+    font-weight: bold;
 }
 
+.ongoing {
+    color: orange;
+    font-weight: bold;
+}
 
-/* Table Text Styling */
-
-table{
+table {
   width: 100%;
   border-collapse: collapse;
-  
 }
-th{
-  font-family: 'inter' sans-serif;
-  font-weight: bold;
-  font-size: 26.53px;
-}
-td, th{
+
+th {
   text-align: left;
-  font-size: 14px;
-  color: #333;
-  padding: 12px 15px;
+  padding-bottom: 10px;
 }
 
-.client-name {
-  font-weight: 500;
-}
-
-/* Status Badge Base Styling */
-.status {
-  font-weight: bold;
-  font-size: 12px;
-}
-
-/* Specific Status Colors */
-
-.inactive {
-  color: #e74c3c; /* Red */
-}
-
-.active {
-  color: #2ecc71; /* Green */
-}
-
-/* Action Link Styling */
-.view-details {
-  color: #1a3353;
-  text-decoration: underline;
-  font-size: 13px;
-  font-weight: 500;
+td {
+  padding: 10px 0;
+  border-top: 1px solid #eee;
 }
 
 
@@ -292,16 +268,4 @@ td, th{
         padding: 10px;
     }
 
-    table {
-        min-width: 600px; /* Ensures table doesn't squish too much */
-    }
-
-    /* Adjust font sizes for mobile readability */
-    th {
-        font-size: 18px !important;
-    }
-
-    td, th {
-        padding: 8px 10px;
-    }
 }

@@ -1,1 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Header layout */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 25px;
+    background: #fff;
+    
+}
+
+
+.nav-items {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+}
+
+.nav-items a{
+    text-decoration: none;
+    color: black;
+
+}
+
+.primary-btn{
+    background-color: #0d0d47;
+    color: white;
+    padding: 10px 45px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
 

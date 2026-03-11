@@ -9,9 +9,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 25px;
+    padding: 20px 30px;
     background: #fff;
     
+}
+.logo img{
+    width: 140px;
 }
 
 
@@ -20,7 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
     
 }
 
@@ -31,7 +34,7 @@
 }
 
 .primary-btn{
-    background-color: #0d0d47;
+    background-color: #0a2d51;
     color: white;
     padding: 10px 45px;
     border-radius: 5px;

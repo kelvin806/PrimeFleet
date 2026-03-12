@@ -1,44 +1,131 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/* Header layout */
-.header-container {
+body {
+    font-family: 'inter';
+}
+
+/* Navbar container */
+.navbar {
     display: flex;
-    align-items: center;
+    /* places items in a row */
     justify-content: space-between;
-    padding: 20px 30px;
-    background: #fff;
-    
-}
-.logo img{
-    width: 140px;
-}
-
-
-.nav-items {
-    list-style: none;
-    display: flex;
+    /* space between logo and menu */
     align-items: center;
-    justify-content: center;
-    gap: 50px;
-    
+    /* vertically center items */
+    padding: 15px 30px;
+    background: #ffff;
 }
 
-.nav-items a{
-    text-decoration: none;
-    color: black;
+.logo{
+    width: 130px;
+}
 
+/* Navigation links container */
+.nav-links {
+    list-style: none;
+    /* remove bullet points */
+    display: flex;
+    /* arrange items horizontally */
+
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 70px;
+    /* space between items */
+}
+
+/* Style the links */
+.nav-links a {
+    text-decoration: none;
+    /* remove underline */
+    color: black;
+}
+.nav-links a:hover{
+    background-color: #0a2d51;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .primary-btn{
     background-color: #0a2d51;
-    color: white;
+    color:white;
+    font-family: 'inter'  sans-serif;
     padding: 10px 45px;
     border-radius: 5px;
     text-decoration: none;
+    cursor: pointer;
+}
+.primary-btn:hover{
+     background-color: hsl(210, 77%, 26%);
+}
+
+/* Hamburger icon */
+.hamburger {
+    display: none;
+    /* hidden on desktop */
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
 }
 
 
+
+/* Apply these styles only when screen width is 768px or less */
+
+@media (max-width:768px) {
+
+    .nav-links {
+
+        position: absolute;
+        /* removes element from normal layout so it can float */
+
+        top: 60px;
+        /* places menu below navbar */
+
+        left: 0;
+        /* align menu to left side */
+
+        width: 100%;
+        /* make menu span entire screen width */
+
+        background: #ffff;
+
+        flex-direction: column;
+        /* stack menu items vertically */
+
+        align-items: center;
+
+        display: none;
+        /* hide menu until hamburger is clicked */
+
+        transition: 0.3s;
+
+        .nav-links li {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .nav-links.active li {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .nav-links li {
+        padding: 0px 0;
+    }
+
+    .hamburger {
+        display: block;
+        /* show hamburger icon on small screens */
+    }
+
+}

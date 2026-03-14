@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeFleet</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="/vehicle-selection/scripts.js" defer></script>
+    
+</head>
+<body>
+
+    <!-- header -->
+    <header class="header-container">
+        <div class="logo">
+            <img src="Assets/Logo 2.png" alt="PrimeFleet Logo">
+        </div>
+        <nav>
+            <ul class="nav-items nav-links"  id="navLinks">
+                <li class="nav-item"><a href="">Home</a></li>
+                <li class="nav-item"><a href="">Book a vehicle</a></li>
+                <li class="nav-item"><a href="">My bookings</a></li>
+                <li class="nav-item"><a href="">FAQ</a></li>
+                <li class="nav-item"><a href="">Contact</a></li>
+                <a  class="primary-btn" href="">Admin</a>
+            </ul>
+            <!-- Hamburger icon for mobile -->
+        <div class="hamburger" id="hamburger">
+            ☰
+        </div>
+
+        </nav>
+
+        
+    </header>
+
+    <!-- Form -->
+    <div class="page-wrap">
+    <div class="header-hero">
+      <div class="hero-card">
+        <h1>Passenger’s Details</h1>
+        <p>Provide the Passenger’s information required for this booking</p>
+      </div>
+    </div>
+    <div class="form-container">
+      <h2 class="section-title">Passenger’s Information</h2>
+      <form class="booking-form" novalidate>
+        <div class="field">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" placeholder="Enter full name"/>
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" type="email" placeholder="example@domain.com"/>
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" placeholder="+1 (555) 123-4567"/>
+        </div>
+        <div class="field">
+          <label for="notes">Special Notes</label>
+          <textarea id="notes" placeholder="Any special requests or requirements"></textarea>
+        </div>
+        <div class="proceed-wrap">
+          <button type="submit" class="btn-proceed">Proceed</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <!-- footer -->
+     <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h2 class="logo"></h2>
+                <p>PrimeFleet provides reliable, comfortable, and timely transportation
+                    solutions, ensuring every journey whether for businesses, airport transfers
+                    or group events is seamless, safe and stress free.
+                </p>
+                <div class="social-icons">
+                    <i class="ph ph-facebook-logo"></i>
+                    <i class="ph ph-instagram-logo"></i>
+                    <i class="ph ph-x-logo"></i>
+                    <i class="ph ph-linkedin-logo"></i>
+                </div>
+            </div>
+            <!-- Company -->
+            <div class="footer-col">
+                <h3>Company</h3>
+                <button class="line"></button>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">*********</a></li>
+                </ul>
+            </div>
+            <!-- Support -->
+            <div class="footer-col">
+                <h3>Support</h3>
+                <button class="line"></button>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <!-- Newsletter -->
+             <div class="footer-col">
+                <h3>Stay Connected</h3>
+                <button class="line"></button>
+                <p>Subscribe to our updates and never miss important news, 
+                    promotions or service announcements from PrimeFleet. Stay
+                    informed and connected at all times
+                </p>
+                <div class="subscribe">
+                    <input type="email" placeholder="your email address">
+                    <div class="button"><button>►</button></div>
+                </div>
+             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Prime Fleet. All rights reserved</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <button class="line2"></button>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

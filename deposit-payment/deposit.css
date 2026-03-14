@@ -186,12 +186,14 @@ html {
 }
 
 .coming {
+    display: none;
     text-align: center;
     margin: 20px 0;
     font-size: 48px;
 }
 
 .transfer {
+    margin: auto;
     background: #fff;
     padding: 30px 60px;
     border-radius: 12px;

@@ -3,109 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicles selection</title>
+    <title>Deposit Payment</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
-    <link rel="stylesheet" href="vehicle selection.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="deposit.css" />
 </head>
 <body>
-    <!-- header -->
-     <header class="header-container">
-        <div class="logo">
-            <img src="images/Logo 2.png" alt="PrimeFleet Logo">
-        </div>
-        <nav>
-            <ul class="nav-items nav-links" id="navLinks">
-                <li><a href="">Home</a></li>
-                <li><a href="">Book a vehicle</a></li>
-                <li><a href="">My bookings</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-        </nav>
-        <button href="#" class="primary-btn">Admin</button>
+    <!-- Header section-->
+    <nav class="navbar">
 
+        <!-- Logo / website name -->
+        <div>
+            <img src="images/Logo 2.png" alt="PrimeFleet LOGO" class="logo">
+        </div>
+
+        <!-- Navigation links -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Book a vechicle</a></li>
+            <li><a href="#">My bookings</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <button href="#" class="primary-btn">Admin</button>
+        </ul>
         <!-- Hamburger icon for mobile -->
         <div class="hamburger" id="hamburger">
             ☰
         </div>
     </nav>
-    <!-- Link to JavaScript -->
-    <script src="script.js"></script>
-
     <!-- Main section -->
      <main>
-        <!-- Hero section -->
-         <section class="hero">
-            <div class="hero-text">
-                <h1>Select Your Vehicle</h1>
-                <p>Choose the vehicle that best suits your trip and passenger needs</p>
-            </div>
-            <div class="hero-img">
-                <img src="images/select hero.png" alt="car">
-            </div>
+        <!-- Deposit header -->
+         <section class="deposit-container">
+            <div class="deposit-header">
+            <h2>Deposit Payment</h2>
+            <p>Complete your booking by paying the required deposit</p>
+         </div>
          </section>
 
-         <!-- Filter section -->
-          <section class="filter">
-            <h2>Filter By Car Type</h2>
-            <div class="buttons">
-                <button>All</button>
-                <button class="active">SUV</button>
-                <button>Sedan</button>
-                <button>Van</button>
-                <button>Bus</button>
+         <!-- Card payment -->
+
+         <div class="pay-container">
+            <h3>Select Payment Method</h3>
+            <div class="methods">
+                <label><input type="radio" name="method" checked />Pay with Card</label>
+                <label><input type="radio" name="method" />Bank Transfer</label>
             </div>
-          </section>
-          <!-- cars section -->
-           <h4 class="car-select">SUV</h4>
-           <section class="cars">
-            <div class="car-card">
-                <img src="images/select 1.png" alt="">
-                <h3>Nissan Rogue</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#45,000</h4>
-                <button>Use</button>
+         </div>
+         <h1 class="coming">Coming Soon...</h1>
+
+         <!-- Transfer payment -->
+
+         <div class="transfer">
+            <p class="top-text">Transfer your deposit to the account below</p>
+            <div class="details">
+                <div class="info">
+                <h3>Bank Name</h3>
+                <p>GT Bank</p>
             </div>
-            <div class="car-card">
-                <img src="images/select 2.png" alt="">
-                <h3>Honda Pilot</h3>
-                <p>3 Passengers ▪ 2 Luggages</p>
-                <h4>#30,000</h4>
-                <button>Use</button>
+
+            <div class="info">
+                <h3>Account Name</h3>
+                <p>PtimeFleet Transport Services</p>
             </div>
-            <div class="car-card">
-                <img src="images/select 3.png" alt="">
-                <h3>Infiniti</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#25,000</h4>
-                <button>Use</button>
+
+            <div class="info">
+                <h3>Account Number</h3>
+                <p>9130395721</p>
             </div>
-            <div class="car-card">
-                <img src="images/select 4.png" alt="">
-                <h3>Lexus RX 350</h3>
-                <p>4 Passengers ▪ 3 Luggages</p>
-                <h4>#45,000</h4>
-                <button>Use</button>
+
+            <div class="info">
+                <h3>Deposit Amount</h3>
+                <p class="amount">#27,150</p>
             </div>
-            <div class="car-card">
-                <img src="images/select 5.png" alt="">
-                <h3>BMW X5</h3>
-                <p>3 Passengers ▪ 3 Luggages</p>
-                <h4>#50,000</h4>
-                <button>Use</button>
             </div>
-            <div class="car-card">
-                <img src="images/select 6.png" alt="">
-                <h3>Nissan Rogue</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#35,000</h4>
-                <button>Use</button>
-            </div>
-           </section>
+            <button class="payment-btn">I have completed my transfer</button>
+         </div>
      </main>
 
     <!-- Footer section-->
@@ -167,7 +142,8 @@
             </div>
         </div>
     </footer>
+
     <!-- Link to JavaScript -->
-    <script src="scripts.js"></script>
+    <script src="desposit.js"></script>
 </body>
 </html>

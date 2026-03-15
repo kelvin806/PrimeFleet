@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+       <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -25,79 +27,119 @@
         </nav>
         <a  class="primary-btn" href="">Admin</a>
     </header>
-    <!-- Main section -->
-     <main>
-        <!-- Hero section -->
-         <section class="hero">
-            <div class="hero-text">
-                <h1>Select Your Vehicle</h1>
-                <p>Choose the vehicle that best suits your trip and passenger needs</p>
-            </div>
-            <div class="hero-img">
-                <img src="images/select hero.png" alt="car">
-            </div>
-         </section>
 
-         <!-- Filter section -->
-          <section class="filter">
-            <h2>Filter By Car Type</h2>
-            <div class="buttons">
-                <button>All</button>
-                <button class="active">SUV</button>
-                <button>Sedan</button>
-                <button>Van</button>
-                <button>Bus</button>
-            </div>
-          </section>
-          <!-- cars section -->
-           <h4 class="car-select">SUV</h4>
-           <section class="cars">
-            <div class="car-card">
-                <img src="images/select 1.png" alt="">
-                <h3>Nissan Rogue</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#45,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 2.png" alt="">
-                <h3>Honda Pilot</h3>
-                <p>3 Passengers ▪ 2 Luggages</p>
-                <h4>#30,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 3.png" alt="">
-                <h3>Infiniti</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#25,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 4.png" alt="">
-                <h3>Lexus RX 350</h3>
-                <p>4 Passengers ▪ 3 Luggages</p>
-                <h4>#45,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 5.png" alt="">
-                <h3>BMW X5</h3>
-                <p>3 Passengers ▪ 3 Luggages</p>
-                <h4>#50,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 6.png" alt="">
-                <h3>Nissan Rogue</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#35,000</h4>
-                <button>Use</button>
-            </div>
-           </section>
-     </main>
+<!-- Confirmation Section -->
+<section class="confirmation">
 
-    <!-- Footer section-->
+<div class="confirm-box">
+
+<img src="images/check.jpg" class="confirm-icon">
+
+<h1>Booking Confirmed</h1>
+
+<p>
+Your vehicle has been successfully reserved. A confirmation email
+with your booking details has been sent to you
+</p>
+
+</div>
+
+</section>
+
+
+<!-- Trip Details -->
+<section class="trip">
+
+<h2>Trip Details</h2>
+
+<div class="trip-card">
+
+<!-- Route -->
+<div class="route">
+
+<div class="place">
+<img src="images/location1.jpg" class="location-icon">
+<span>Lagos Airport</span>
+</div>
+
+<div class="line">----------------</div>
+
+<div class="place">
+<img src="images/lacation2.jpg" class="location-icon">
+<span>Ikoyi</span>
+</div>
+
+<span class="distance">(120Km)</span>
+
+</div>
+
+
+<!-- Trip Information -->
+<div class="trip-info">
+
+<div class="row">
+<span class="label">Service</span>
+<span class="value">Airport Transfer</span>
+</div>
+
+<div class="row">
+<span class="label">Vehicle</span>
+<span class="value">Lexus RX 350</span>
+</div>
+
+<div class="row">
+<span class="label">Date</span>
+<span class="value">December 20, 2026</span>
+</div>
+
+<div class="row">
+<span class="label">Time</span>
+<span class="value">12pm</span>
+</div>
+
+<div class="row">
+<span class="label">Duration</span>
+<span class="value">1 day</span>
+</div>
+
+<div class="row">
+<span class="label">No of Passengers</span>
+<span class="value">4</span>
+</div>
+
+<div class="row">
+<span class="label">No of Vehicles</span>
+<span class="value">2</span>
+</div>
+
+</div>
+
+
+<!-- Payment -->
+<div class="payment">
+
+<h3>Payment Status</h3>
+
+<div class="paid">
+
+<img src="images/check.jpg" class="paid-icon">
+<span>Deposit Paid</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="receipt">
+<button>Download Receipt</button>
+</div>
+
+</section>
+
+
+   <!-- Footer section-->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-col">

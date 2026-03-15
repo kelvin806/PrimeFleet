@@ -88,7 +88,7 @@ html {
 }
 
 .primary-btn:hover{
-     background-color: hsl(210, 77%, 26%);
+     background-color: rgb(15, 66, 117);
 }
 
 /* Hamburger icon */
@@ -242,7 +242,9 @@ html {
       cursor: pointer;
       transition: 0.2s ease;
     }
-    .btn-proceed:hover { background: #0a2d51; }
+    .btn-proceed:hover { 
+       background-color: rgb(15, 66, 117);
+     }
     
  /* form-wrap responsive behavior */
 @media (max-width: 768px) {

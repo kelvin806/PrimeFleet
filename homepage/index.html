@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicles selection</title>
+    <title>Quote Summary</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
-    <link rel="stylesheet" href="vehicle selection.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <!-- Header section-->
@@ -33,80 +33,59 @@
             ☰
         </div>
     </nav>
-    <!-- Link to JavaScript -->
-    <script src="script.js"></script>
-
-    <!-- Main section -->
-     <main>
-        <!-- Hero section -->
-         <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
             <div class="hero-text">
-                <h1>Select Your Vehicle</h1>
-                <p>Choose the vehicle that best suits your trip and passenger needs</p>
+                <h1>Choose the <span class="highlight">service that fits your</span> journey</h1>
+                <p>Select from our range of transport services designed for airport trips, corporate travel and large event</p>
             </div>
-            <div class="hero-img">
-                <img src="images/select hero.png" alt="car">
+            <div class="hero-image">
+                <img src="images/woman.jpg" alt="Happy Customer">
+                <div class="chat-bubbles">
+                    <div class="bubble bubble-1">Safe</div>
+                    <div class="bubble bubble-2">Reliable</div>
+                    <div class="bubble bubble-3">Professional</div>
+                </div>
             </div>
-         </section>
+        </div>
+    </section>
 
-         <!-- Filter section -->
-          <section class="filter">
-            <h2>Filter By Car Type</h2>
-            <div class="buttons">
-                <button>All</button>
-                <button class="active">SUV</button>
-                <button>Sedan</button>
-                <button>Van</button>
-                <button>Bus</button>
-            </div>
-          </section>
-          <!-- cars section -->
-           <h4 class="car-select">SUV</h4>
-           <section class="cars">
-            <div class="car-card">
-                <img src="images/select 1.png" alt="">
-                <h3>Nissan Rogue</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#45,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 2.png" alt="">
-                <h3>Honda Pilot</h3>
-                <p>3 Passengers ▪ 2 Luggages</p>
-                <h4>#30,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 3.png" alt="">
-                <h3>Infiniti</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#25,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 4.png" alt="">
-                <h3>Lexus RX 350</h3>
-                <p>4 Passengers ▪ 3 Luggages</p>
-                <h4>#45,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 5.png" alt="">
-                <h3>BMW X5</h3>
-                <p>3 Passengers ▪ 3 Luggages</p>
-                <h4>#50,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 6.png" alt="">
-                <h3>Nissan Rogue</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#35,000</h4>
-                <button>Use</button>
-            </div>
-           </section>
-     </main>
+    <!-- Airport Transfer Section -->
+    <section class="service-section">
+        <div class="service-card airport-transfer">
+            <img src="images/people.jpg" alt="Airport Transfer">
+        </div>
+        <div class="service-content">
+            <h2>Airport Transfer</h2>
+            <p>Enjoy a smooth and comfortable ride to and from the airport to your destination with reliable service that gets you there safely and on time.</p>
+            <button class="btn">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Event Transport Section -->
+    <section class="service-section event-transport">
+        <div class="service-content">
+            <h2>Event Transport</h2>
+            <p>Coordinated transport solutions for weddings, conferences, special events and large gatherings.</p>
+            <button class="btn">Get Started</button>
+        </div>
+        <div class="service-card">
+            <img src="images/food.jpg" alt="Event Transport">
+        </div>
+    </section>
+
+    <!-- Executive Hires Section -->
+    <section class="service-section">
+        <div class="service-card">
+            <img src="images/car.jpg" alt="Executive Hires">
+        </div>
+        <div class="service-content">
+            <h2>Executive Hires</h2>
+            <p>Premium vehicles with professional drivers for business and VIP travel</p>
+            <button class="btn">Get Started</button>
+        </div>
+    </section>
 
     <!-- Footer section-->
     <footer class="footer">
@@ -167,5 +146,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- Link to JavaScript -->
+    <script src="quote summary.js"></script>
 </body>
 </html>

@@ -24,8 +24,8 @@ html {
     }
 }
 
-* Navbar container */
-.navbar {
+/* Header layout */
+.header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -141,6 +141,8 @@ html {
         gap: 10px;
     }
 }
+
+
 
 .hero-text h1 {
      font-size: 3.2rem;

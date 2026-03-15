@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOOKING CONFIRMATION</title>RR
+    <title>PrimeFleet Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="homepage.css" />
 </head>
 <body>
     <!-- Header section-->
@@ -35,121 +33,95 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
             ☰
         </div>
     </nav>
- 
-<!-- CONFIRMATION SECTION -->
-<section class="confirmation">
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
 
-<div class="confirm-box">
+    <!-- HERO SECTION -->
 
-<div class="check-icon">
-<i class="fa-solid fa-check"></i>
+    <section class="hero">
+        
+        <div class="hero-text">
+            <h1>Choose the <span>service</span> that fits your journey</h1>
+            
+            <p>
+                Select from our range of transport services designed for airport trips,
+                corporate travel and large events.
+            </p>
+        </div>
+        <div class="hero-img">
+        
+            <div class="chat chat1">Safe</div>
+            <div class="chat chat2">Reliable</div>
+            <div class="chat chat3">Affordable</div>
+        
+            <img src="images/woman.jpg" alt="Woman">
+        
+        </div>
+        
+</section>
+
+
+<section class="service">
+
+<div class="service-img">
+<img src="images/people.jpg">
 </div>
 
-<h1>Booking Confirmed</h1>
+<div class="service-text">
+<h2>Airport Transfer</h2>
 
 <p>
-Your vehicle has been successfully reserved. A confirmation email
-with your booking details has been sent to you.
+Enjoy a smooth and comfortable ride to and from the airport
+with reliable service that gets you there safely and on time.
 </p>
 
+<button class="service-btn">Get Started</button>
 </div>
 
 </section>
 
 
 
-<!-- TRIP DETAILS -->
-<section class="trip">
+<section class="service reverse">
 
-<h2>Trip Details</h2>
-
-<div class="trip-card">
-
-<!-- ROUTE -->
-<div class="route">
-
-<div class="place">
-<i class="fa-solid fa-location-dot"></i>
-<span>Lagos Airport</span>
+<div class="service-img">
+<img src="images/food.jpg">
 </div>
 
-<div class="line"></div>
+<div class="service-text">
+<h2>Event Transport</h2>
 
-<div class="place">
-<i class="fa-solid fa-location-dot"></i>
-<span>Ikoyi</span>
-</div>
+<p>
+Coordinated transport solutions for weddings,
+conferences, special events and large gatherings.
+</p>
 
-<span class="distance">(120Km)</span>
-
-</div>
-
-
-
-<!-- TRIP INFORMATION -->
-<div class="trip-info">
-
-<div class="row">
-<span class="title">Service</span>
-<span class="value">Airport Transfer</span>
-</div>
-
-<div class="row">
-<span class="title">Vehicle</span>
-<span class="value">Lexus RX 350</span>
-</div>
-
-<div class="row">
-<span class="title">Date</span>
-<span class="value">December 20, 2026</span>
-</div>
-
-<div class="row">
-<span class="title">Time</span>
-<span class="value">12pm</span>
-</div>
-
-<div class="row">
-<span class="title">Duration</span>
-<span class="value">1 day</span>
-</div>
-
-<div class="row">
-<span class="title">No of Passengers</span>
-<span class="value">4</span>
-</div>
-
-<div class="row">
-<span class="title">No of Vehicles</span>
-<span class="value">2</span>
-</div>
-
-</div>
-
-
-
-<!-- PAYMENT STATUS -->
-<div class="payment">
-
-<h3>Payment Status</h3>
-
-<div class="paid">
-<i class="fa-solid fa-check"></i>
-<span>Deposit Paid</span>
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="receipt">
-<button>Download Receipt</button>
+<button class="service-btn">Get Started</button>
 </div>
 
 </section>
- <!-- Footer section-->
+
+
+
+<section class="service">
+
+<div class="service-img">
+<img src="images/car.jpg">
+</div>
+
+<div class="service-text">
+<h2>Executive Hires</h2>
+
+<p>
+Premium vehicles with professional drivers
+for business and VIP travel.
+</p>
+
+<button class="service-btn">Get Started</button>
+</div>
+</section>
+    
+    <!-- Footer section-->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-col">
@@ -208,8 +180,5 @@ with your booking details has been sent to you.
             </div>
         </div>
     </footer>
-
-    <!-- Link to JavaScript -->
-    <script src="main.js"></script>
 </body>
 </html>

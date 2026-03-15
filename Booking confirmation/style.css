@@ -1,14 +1,17 @@
+/* ================= GLOBAL STYLES ================= */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:"Inter", sans-serif;
 }
 
 
-body {
-    font-family: "Inter", sans-serif;
-    font-size: 1.6rem;
+body{
+    font-size:1.6rem;
+    background:#ffffff;
+    color:#333;
 }
 
 html {
@@ -26,42 +29,130 @@ html {
     }
 }
 
-/* Header layout */
-.header-container {
+/* Navbar container */
+.navbar {
     display: flex;
-    align-items: center;
+    /* places items in a row */
     justify-content: space-between;
-    padding: 3rem 5rem;
-    background: #fff;
-}
-
-.nav-items {
-    list-style: none;
-    display: flex;
+    /* space between logo and menu */
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    
+    /* vertically center items */
+    padding: 15px 30px;
+    background: #ffff;
 }
 
-.nav-items a{
+.logo{
+    width: 130px;
+}
+
+/* Navigation links container */
+.nav-links {
+    list-style: none;
+    /* remove bullet points */
+    display: flex;
+    /* arrange items horizontally */
+
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 70px;
+    /* space between items */
+}
+
+/* Style the links */
+.nav-links a {
     text-decoration: none;
+    /* remove underline */
     color: black;
-
 }
-
-.primary-btn {
+.nav-links a:hover{
     background-color: #0a2d51;
     color: white;
-    padding: 1rem 4.5rem;
+    padding: 10px 10px;
     border-radius: 5px;
     text-decoration: none;
+    display: inline-block;
 }
 
-/* Confirmation */
+.primary-btn{
+    background-color: #0a2d51;
+    color:white;
+    font-family: 'inter'  sans-serif;
+    padding: 10px 45px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.primary-btn:hover{
+     background-color: hsl(210, 77%, 26%);
+}
+
+/* Hamburger icon */
+.hamburger {
+    display: none;
+    /* hidden on desktop */
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
+}
+
+/* Apply these styles only when screen width is 768px or less */
+
+@media (max-width:768px) {
+
+    .nav-links {
+
+        position: absolute;
+        /* removes element from normal layout so it can float */
+
+        top: 60px;
+        /* places menu below navbar */
+
+        left: 0;
+        /* align menu to left side */
+
+        width: 100%;
+        /* make menu span entire screen width */
+
+        background: #ffff;
+
+        flex-direction: column;
+        /* stack menu items vertically */
+
+        align-items: center;
+
+        display: none;
+        /* hide menu until hamburger is clicked */
+
+        transition: 0.3s;
+
+        .nav-links li {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .nav-links.active li {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .nav-links li {
+        padding: 0px 0;
+    }
+
+    .hamburger {
+        display: block;
+        /* show hamburger icon on small screens */
+    }
+
+}
+
+/* ================= CONFIRMATION ================= */
 
 .confirmation{
-  background:#ECF6FF;
+background:#cfd8e3;
 height:320px;
 display:flex;
 justify-content:center;
@@ -69,37 +160,51 @@ align-items:center;
 text-align:center;
 }
 
-.confirm-icon{
+.confirm-box{
+max-width:500px;
+}
+
+.check-icon{
+background:green;
+color:white;
 width:60px;
-margin-bottom:15px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+margin:0 auto 20px;
 }
 
 .confirm-box h1{
-font-size:30px;
+font-size:3rem;
 margin-bottom:10px;
 }
 
 .confirm-box p{
-font-size:14px;
+font-size:1.4rem;
 color:#444;
 }
 
 
-/* Trip Section */
+
+/* ================= TRIP SECTION ================= */
 
 .trip{
 background:#f5f5f5;
-padding:60px;
+padding:60px 20px;
 text-align:center;
 }
 
 .trip h2{
+font-size:2.6rem;
 margin-bottom:30px;
-font-size:26px;
 }
 
 
-/* Card */
+
+/* ================= TRIP CARD ================= */
 
 .trip-card{
 background:#e9eef3;
@@ -110,12 +215,13 @@ border-radius:8px;
 }
 
 
-/* Route */
+
+/* ROUTE */
 
 .route{
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 gap:10px;
 margin-bottom:30px;
 }
@@ -123,11 +229,18 @@ margin-bottom:30px;
 .place{
 display:flex;
 align-items:center;
-gap:8px;
+gap:6px;
+font-weight:500;
 }
 
-.location-icon{
-width:18px;
+.place i{
+color:#0a2d51;
+}
+
+.line{
+width:120px;
+height:2px;
+background:#999;
 }
 
 .distance{
@@ -135,7 +248,8 @@ font-weight:bold;
 }
 
 
-/* Trip Info */
+
+/* ================= TRIP INFO ================= */
 
 .trip-info{
 max-width:500px;
@@ -145,11 +259,11 @@ margin:auto;
 .row{
 display:flex;
 justify-content:space-between;
-padding:8px 0;
+padding:12px 0;
 border-bottom:1px solid #ddd;
 }
 
-.label{
+.title{
 font-weight:600;
 color:#333;
 }
@@ -159,45 +273,63 @@ color:#555;
 }
 
 
-/* Payment */
+
+/* ================= PAYMENT ================= */
 
 .payment{
 margin-top:30px;
 text-align:right;
 }
 
+.payment h3{
+margin-bottom:10px;
+}
+
 .paid{
-display:flex;
+display:inline-flex;
 align-items:center;
-gap:10px;
-justify-content:flex-end;
+gap:8px;
+background:white;
+padding:8px 15px;
+border-radius:20px;
+color:green;
+font-weight:bold;
 }
 
-.paid-icon{
-width:22px;
+.paid i{
+background:green;
+color:white;
+padding:5px;
+border-radius:50%;
+font-size:12px;
 }
 
 
-/* Button */
+
+/* ================= RECEIPT BUTTON ================= */
 
 .receipt{
 margin-top:40px;
+text-align:center;
 }
 
 .receipt button{
-background:#0d2f55;
+background:#0a2d51;
 color:white;
 border:none;
 padding:14px 40px;
-font-size:16px;
+font-size:1.6rem;
 border-radius:5px;
 cursor:pointer;
 }
 
 .receipt button:hover{
-background:#0a2240;
+background:#081f38;
 }
-/* Footer design */
+
+
+
+/* ================= FOOTER ================= */
 .footer {
     background: #eef6ff;
     padding: 4rem 5rem;
@@ -216,7 +348,6 @@ background:#0a2240;
         flex-wrap: wrap;
     }
 }
-
 
 .footer-col {
     /* flex: 1; */

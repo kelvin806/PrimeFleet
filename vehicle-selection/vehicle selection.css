@@ -24,68 +24,68 @@ html {
     }
 }
 
-* Navbar container */
-.navbar {
+/* Header layout */
+.header-container {
     display: flex;
-    /* places items in a row */
-    justify-content: space-between;
-    /* space between logo and menu */
     align-items: center;
-    /* vertically center items */
-    padding: 15px 30px;
-    background: #ffff;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: #fff;
+    
 }
-
-.logo{
+.logo img{
     width: 130px;
 }
 
-/* Navigation links container */
+
 .nav-links {
     list-style: none;
-    /* remove bullet points */
     display: flex;
-    /* arrange items horizontally */
-
     align-items: center;
-    justify-content: space-around;
-
+    justify-content: center;
     gap: 70px;
-    /* space between items */
 }
 
 /* Style the links */
-.nav-links a {
+.nav-links li a{
     text-decoration: none;
-    /* remove underline */
     color: black;
+    position: relative;
 }
-.nav-links a:hover{
-    background-color: #0a2d51;
-    color: white;
-    padding: 10px 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
+
+.nav-links li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #0a2d51;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
 }
+.nav-links li a:hover::after{
+    width: 100%;
+
+}
+
 
 .primary-btn{
     background-color: #0a2d51;
-    color:white;
+    color:#fff;
     font-family: 'inter'  sans-serif;
     padding: 10px 45px;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
 }
+
 .primary-btn:hover{
-     background-color: hsl(210, 77%, 26%);
+     background-color: rgb(15, 66, 117);
 }
 
 /* Hamburger icon */
 .hamburger {
     display: none;
-    /* hidden on desktop */
     font-size: 28px;
     color: black;
     cursor: pointer;
@@ -98,30 +98,16 @@ html {
     .nav-links {
 
         position: absolute;
-        /* removes element from normal layout so it can float */
-
         top: 60px;
-        /* places menu below navbar */
-
         left: 0;
-        /* align menu to left side */
-
         width: 100%;
-        /* make menu span entire screen width */
-
         background: #ffff;
-
         flex-direction: column;
-        /* stack menu items vertically */
-
         align-items: center;
-
         display: none;
-        /* hide menu until hamburger is clicked */
-
         transition: 0.3s;
 
-        .nav-links li {
+        .nav-links li  {
             transform: translateY(-10px);
             opacity: 0;
             transition: 0.3s;
@@ -139,29 +125,22 @@ html {
 
     .hamburger {
         display: block;
-        /* show hamburger icon on small screens */
+
+    }
+
+    .primary-btn{
+        display: none;
     }
 
 }
 
-/* Main section design */
 
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #eef6ff;
-    padding: 3rem 4rem;
-    border-radius: 1rem;
-}
-
-@media (max-width:800px) {
-    .hero {
-        flex-wrap: wrap;
+@media (max-width:928px){
+    .header-container{
+        display: flex;
+        gap: 10px;
     }
 }
-
-
 
 .hero-text h1 {
      font-size: 3.2rem;

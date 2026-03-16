@@ -25,68 +25,68 @@ html {
     }
 }
 
-/* Navbar container */
-.navbar {
+/* Header layout */
+.header-container {
     display: flex;
-    /* places items in a row */
-    justify-content: space-between;
-    /* space between logo and menu */
     align-items: center;
-    /* vertically center items */
-    padding: 15px 30px;
-    background: #ffff;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: #fff;
+    
 }
-
-.logo{
+.logo img{
     width: 130px;
 }
 
-/* Navigation links container */
+
 .nav-links {
     list-style: none;
-    /* remove bullet points */
     display: flex;
-    /* arrange items horizontally */
-
     align-items: center;
-    justify-content: space-around;
-
+    justify-content: center;
     gap: 70px;
-    /* space between items */
 }
 
 /* Style the links */
-.nav-links a {
+.nav-links li a{
     text-decoration: none;
-    /* remove underline */
     color: black;
+    position: relative;
 }
-.nav-links a:hover{
-    background-color: #0a2d51;
-    color: white;
-    padding: 10px 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
+
+.nav-links li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #0a2d51;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
 }
+.nav-links li a:hover::after{
+    width: 100%;
+
+}
+
 
 .primary-btn{
     background-color: #0a2d51;
-    color:white;
+    color:#fff;
     font-family: 'inter'  sans-serif;
     padding: 10px 45px;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
 }
+
 .primary-btn:hover{
-     background-color: hsl(210, 77%, 26%);
+     background-color: rgb(15, 66, 117);
 }
 
 /* Hamburger icon */
 .hamburger {
     display: none;
-    /* hidden on desktop */
     font-size: 28px;
     color: black;
     cursor: pointer;
@@ -386,6 +386,243 @@ html {
         display: flex;
         flex-wrap: wrap;
     }
+}
+/* ================= EXTRA RESPONSIVE FIX ================= */
+
+/* ================= HERO SECTION ================= */
+
+.hero{
+background:linear-gradient(135deg,#e8f4f8 0%,#f0f8ff 100%);
+padding:80px 40px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.hero-content{
+max-width:1200px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+margin:auto;
+}
+
+.hero-text h1{
+font-size:3.5rem;
+line-height:1.2;
+margin-bottom:20px;
+font-weight:600;
+}
+
+.hero-text .highlight{
+color:#1a3a52;
+font-weight:700;
+}
+
+.hero-text p{
+font-size:1.6rem;
+color:#666;
+max-width:450px;
+}
+
+/* HERO IMAGE */
+
+.hero-image{
+position:relative;
+display:flex;
+justify-content:center;
+}
+
+.hero-image img{
+width:320px;
+height:320px;
+border-radius:50%;
+object-fit:cover;
+box-shadow:0 10px 40px rgba(0,0,0,0.1);
+}
+
+/* CHAT BUBBLES */
+
+.chat-bubbles{
+position:absolute;
+right:-20px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+.bubble{
+background:#1a3a52;
+color:white;
+padding:12px 18px;
+border-radius:20px;
+font-size:1.3rem;
+font-weight:600;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+
+
+/* ================= SERVICE SECTIONS ================= */
+
+.service-section{
+max-width:1200px;
+margin:80px auto;
+padding:0 40px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.service-card{
+overflow:hidden;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.1);
+}
+
+.service-card img{
+width:100%;
+height:350px;
+object-fit:cover;
+transition:transform 0.3s ease;
+}
+
+.service-card:hover img{
+transform:scale(1.05);
+}
+
+.service-content h2{
+font-size:2.6rem;
+color:#1a3a52;
+margin-bottom:20px;
+}
+
+.service-content p{
+font-size:1.6rem;
+color:#666;
+margin-bottom:30px;
+max-width:450px;
+}
+
+
+
+/* ================= BUTTON ================= */
+
+.btn{
+background:#1a3a52;
+color:white;
+padding:14px 30px;
+border:none;
+border-radius:6px;
+font-size:1.5rem;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#0f2235;
+transform:translateY(-2px);
+}
+
+
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets */
+
+@media (max-width:900px){
+
+.hero-content{
+grid-template-columns:1fr;
+text-align:center;
+gap:40px;
+}
+
+.hero-text p{
+margin:auto;
+}
+
+.hero-image img{
+width:260px;
+height:260px;
+}
+
+.chat-bubbles{
+position:relative;
+flex-direction:row;
+justify-content:center;
+transform:none;
+top:auto;
+right:auto;
+margin-top:20px;
+}
+
+.service-section{
+grid-template-columns:1fr;
+text-align:center;
+gap:40px;
+}
+
+.service-content p{
+margin:auto;
+}
+
+}
+
+
+
+/* Mobile */
+
+@media (max-width:500px){
+
+.hero{
+padding:60px 20px;
+}
+
+.hero-text h1{
+font-size:2.2rem;
+}
+
+.hero-text p{
+font-size:1.4rem;
+}
+
+.hero-image img{
+width:220px;
+height:220px;
+}
+
+.bubble{
+font-size:1.1rem;
+padding:8px 14px;
+}
+
+.service-section{
+margin:50px auto;
+padding:0 20px;
+}
+
+.service-card img{
+height:240px;
+}
+
+.service-content h2{
+font-size:2rem;
+}
+
+.service-content p{
+font-size:1.4rem;
+}
+
+.btn{
+width:100%;
+max-width:200px;
+}
+
 }
 
 .footer-col {

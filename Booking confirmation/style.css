@@ -148,9 +148,6 @@ html {
     }
 
 }
-
-/* ================= CONFIRMATION ================= */
-
 .confirmation{
 background:#cfd8e3;
 height:320px;
@@ -327,6 +324,99 @@ cursor:pointer;
 background:#081f38;
 }
 
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets */
+@media (max-width: 768px){
+
+.confirmation{
+height:auto;
+padding:60px 20px;
+}
+
+.confirm-box h1{
+font-size:2.6rem;
+}
+
+.confirm-box p{
+font-size:1.5rem;
+}
+
+/* Trip card */
+
+.trip-card{
+padding:25px;
+width:100%;
+}
+
+/* Route section */
+
+.route{
+flex-direction:column;
+gap:15px;
+}
+
+.line{
+width:2px;
+height:40px;
+}
+
+/* Trip information rows */
+
+.row{
+flex-direction:column;
+align-items:flex-start;
+gap:5px;
+}
+
+.payment{
+text-align:center;
+}
+
+}
+
+/* Mobile phones */
+
+@media (max-width:480px){
+
+.confirm-box{
+width:100%;
+padding:0 10px;
+}
+
+.check-icon{
+width:50px;
+height:50px;
+font-size:20px;
+}
+
+.trip{
+padding:40px 15px;
+}
+
+.trip h2{
+font-size:2.2rem;
+}
+
+.trip-card{
+padding:20px;
+}
+
+.place{
+font-size:1.4rem;
+}
+
+.distance{
+font-size:1.4rem;
+}
+
+.receipt button{
+width:100%;
+padding:12px;
+font-size:1.4rem;
+}
+
+}
 
 
 /* ================= FOOTER ================= */

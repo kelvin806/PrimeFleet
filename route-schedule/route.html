@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Route and Schedule</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
     <link rel="stylesheet" href="route.css" />
-    <script src="route.js" defer></script>  
+    <script src="route.js" defer></script>
 </head>
+
 <body>
     <!-- header -->
-     <header class="header-container">
+    <header class="header-container">
         <div class="logo">
             <img src="images/Logo 2.png" alt="PrimeFleet Logo">
         </div>
@@ -33,7 +37,7 @@
         </div>
     </header>
     <!-- Mains section -->
-     <section class="route-container">
+    <section class="route-container">
         <div class="route-text">
             <h1>Set up your trip, <span>Let's get you there</span></h1>
             <p>Enter your route details, set your schedule and get your quote</p>
@@ -41,32 +45,33 @@
         <div class="route-image">
             <img src="images/route.png" alt="Route Illustration" />
         </div>
-     </section>
+    </section>
 
-     <section class="form-section">
-        <form class="trip-form">
-            <label for="">Pick off Location</label>
-            <input type="text" />
+    <section class="form-section">
+        <form class="trip-form" id="route-form">
+            <label>Pick off Location</label>
+            <input type="text" id="pick-up" placeholder="Enter starting point" required />
 
-            <label for="">Drop off Location</label>
-            <input type="text" />
+            <label>Drop off Location</label>
+            <input type="text" id="drop-off" placeholder="Enter destination" required />
 
             <div class="form-row">
                 <div>
-                    <label for="">Date</label>
-                    <input type="text" />
+                    <label>Date</label>
+                    <input type="date" id="trip-date" required />
                 </div>
-
                 <div>
-                    <label for="">Time</label>
-                    <input type="text" />
+                    <label>Time</label>
+                    <input type="time" id="trip-time" required />
                 </div>
             </div>
-            <label for="">Number of passengers</label>
-            <input type="number" />
-            <button type="submit">Proceed</button>
+
+            <label>Number of passengers</label>
+            <input type="number" id="passenger-count" min="1" required />
+
+            <button type="submit" class="proceed-btn">Proceed</button>
         </form>
-     </section>
+    </section>
 
     <!-- Footer section-->
     <footer class="footer">
@@ -102,10 +107,10 @@
                 </ul>
             </div>
             <!-- Newsletter -->
-             <div class="footer-col">
+            <div class="footer-col">
                 <h3>Stay Connected</h3>
                 <button class="line"></button>
-                <p>Subscribe to our updates and never miss important news, 
+                <p>Subscribe to our updates and never miss important news,
                     promotions or service announcements from PrimeFleet. Stay
                     informed and connected at all times
                 </p>
@@ -113,7 +118,7 @@
                     <input type="email" placeholder="your email address">
                     <div class="button"><button><i class="ph-fill ph-paper-plane-tilt"></i></button></div>
                 </div>
-             </div>
+            </div>
         </div>
         <div class="footer-bottom">
             <p><span>©</span> 2026 Prime Fleet. All rights reserved</p>

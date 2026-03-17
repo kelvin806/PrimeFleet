@@ -11,8 +11,13 @@ body {
 }
 
 html {
+    /* this represent 16px = 1rem */
+    /* font-size: 100%; */
+    /* 10 / 16 = 0.625, 0.625 x 100 = 62.5% */
     font-size: 62.5%;
 }
+
+/* 632px, 740px, 1024px, 1280px */
 
 @media (max-width:1280px) {
     html {
@@ -20,19 +25,19 @@ html {
     }
 }
 
-/* ================= HEADER & NAVBAR ================= */
-
+/* Header layout */
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 50px;
     background: #fff;
+    
 }
-
 .logo img{
     width: 130px;
 }
+
 
 .nav-links {
     list-style: none;
@@ -42,6 +47,7 @@ html {
     gap: 70px;
 }
 
+/* Style the links */
 .nav-links li a{
     text-decoration: none;
     color: black;
@@ -58,15 +64,16 @@ html {
     bottom: -6px;
     transition: 0.5s;
 }
-
 .nav-links li a:hover::after{
     width: 100%;
+
 }
+
 
 .primary-btn{
     background-color: #0a2d51;
     color:#fff;
-    font-family: 'inter' sans-serif;
+    font-family: 'inter'  sans-serif;
     padding: 10px 45px;
     border-radius: 5px;
     text-decoration: none;
@@ -74,18 +81,23 @@ html {
 }
 
 .primary-btn:hover{
-    background-color: rgb(15, 66, 117);
+     background-color: rgb(15, 66, 117);
 }
 
+/* Hamburger icon */
 .hamburger {
     display: none;
-    font-size: 28px;
+    font-size: 30px;
     color: black;
     cursor: pointer;
 }
 
+/* Apply these styles only when screen width is 768px or less */
+
 @media (max-width:768px) {
+
     .nav-links {
+
         position: absolute;
         top: 60px;
         left: 0;
@@ -95,32 +107,35 @@ html {
         align-items: center;
         display: none;
         transition: 0.3s;
+
+        .nav-links li  {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .nav-links.active li {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 
     .nav-links li {
-        transform: translateY(-10px);
-        opacity: 0;
-        transition: 0.3s;
-        padding: 10px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links.active li {
-        transform: translateY(0);
-        opacity: 1;
+        padding: 0px 0;
     }
 
     .hamburger {
         display: block;
+
     }
 
     .primary-btn{
         display: none;
     }
+
 }
+
+
 
 @media (max-width:928px){
     .header-container{

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeFleet - Drivers</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="driver.css" />
+</head>
+<body>
+<header class="admin-header">
+        <div class="header-left">
+            <img src="Assets/Logo 2.png" alt="PrimeFleet Logo" class="logo">
+        </div>
+
+        <div class="header-bookings">
+            <h3>Drivers</h3>
+        </div>
+        <div class="search-wrapper">
+            <i class="ph ph-magnifying-glass search-icon"></i>
+            <input type="text" id="booking-search" placeholder="Search drivers">
+        </div>
+
+        <div class="header-right-container">
+            <div class="header-right">
+                <button class="btn-add-booking">Add Driver</button>
+            </div>
+            <div class="header-right">
+                <button class="btn-edit-booking">Edit Driver</button>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <div class="sidebar-menu">
+                    <a href="#" class="menu-item">
+                        <img src="Assets/Vector.png" alt="" class="menu-icon dashboard">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/Vector (1).png" alt="" class="menu-icon">
+                        <span>Bookings</span>
+                    </a>
+                    <a href="#" class="menu-item active ">
+                        <img src="Assets/Vector (2).png" alt="" class="menu-icon">
+                        <span>Driver</span>
+                    </a><a href="#" class="menu-item ">
+                        <img src="Assets/Vector (3).png" alt="" class="menu-icon">
+                        <span>Vehicles</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/ep_money.png" alt="" class="menu-icon">
+                        <span>Payment</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+    <main class="content">
+
+      <section class="status-cards">
+        <article class="card"> <img src="Assets/Group.png">
+          <span class="card-title">Total Drivers</span>
+          <strong>12</strong>
+        </article>
+        <article class="card"> <img src="Assets/Group.png">
+          <span class="card-title">Active Drivers</span>
+          <strong>5</strong>
+        </article>
+        <article class="card"> <img src="Assets/Group.png">
+          <span class="card-title">Idle Drivers</span>
+          <strong>3</strong>
+        </article>
+        <article class="card"> <img src="Assets/Group.png">
+          <span class="card-title">Suspended Drivers</span>
+          <strong>4</strong>
+        </article>
+      </section>
+
+      <article class="driver-table-card">
+
+          <table class="driver-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone No</th>
+                <th>License</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Repeat per driver -->
+              <tr>
+                <td class="name-cell">
+                  <img src="Assets/Ellipse 142.png" alt="Wale David" />
+                  Wale David
+                </td>
+                <td>09054673216</td>
+                <td><span class="label approved">Approved</span></td>
+                <td><span class="label active">Active</span></td>
+                <td><a href="#">View</a></td>
+              </tr>
+              <tr>
+                <td class="name-cell">
+                  <img src="Assets/Ellipse 143.png" alt="Victor Akin" />
+                  Victor Akin
+                </td>
+                <td>07045768213</td>
+                <td><span class="label approved">Approved</span></td>
+                <td><span class="label idle">Idle</span></td>
+                <td><a href="#">View</a></td>
+              </tr>
+              <tr>
+                <td class="name-cell">
+                  <img src="Assets/Ellipse 144.png" alt="Samuel Malik" />
+                  Samuel Malik
+                </td>
+                <td>09091534287</td>
+                <td><span class="label rejected">Rejected</span></td>
+                <td><span class="label suspended">Suspended</span></td>
+                <td><a href="#">View</a></td>
+              </tr>
+              <tr>
+                <td class="name-cell">
+                  <img src="Assets/Ellipse 145.png" alt="Alex Obi" />
+                  Alex Obi
+                </td>
+                <td>08045763901</td>
+                <td><span class="label approved">Approved</span></td>
+                <td><span class="label idle">Idle</span></td>
+                <td><a href="#">View</a></td>
+              </tr>
+              <tr>
+                <td class="name-cell">
+                  <img src="Assets/Ellipse 146.png" alt="Ben Edefa" />
+                  Ben Edefa
+                </td>
+                <td>07045768213</td>
+                <td><span class="label approved">Approved</span></td>
+                <td><span class="label idle">Idle</span></td>
+                <td><a href="#">View</a></td>
+              </tr>
+
+              <tr>
+                <td class="name-cell">
+                  <img src="Assets/Ellipse 142.png" alt="Jachob Ojo" />
+                  Jachob Ojo
+                </td>
+                <td>08054675697</td>
+                <td><span class="label approved">Approved</span></td>
+                <td><span class="label active">Active</span></td>
+                <td><a href="#">View</a></td>
+              </tr>
+
+              <tr>
+                <td class="name-cell">
+                  <img src="Assets/Ellipse 147.png" alt="Chidi Dike" />
+                  Chidi Dike
+                </td>
+                <td>09091534287</td>
+                <td><span class="label rejected">Rejected</span></td>
+                <td><span class="label suspended">Suspended</span></td>
+                <td><a href="#">View</a></td>
+              </tr>
+              <tr>
+                <tr>
+                <td class="name-cell">
+                  <img src="Assets/Ellipse 144.png" alt="Cliton joshua" />
+                  Cliton joshua
+                </td>
+                <td>09091538808</td>
+                <td><span class="label rejected">Rejected</span></td>
+                <td><span class="label suspended">Suspended</span></td>
+                <td><a href="#">View</a></td>
+              </tr>
+              <tr>
+
+            </tbody>
+          </table>
+        </article>
+
+        <article class="driver-info-card">
+          <div class="profile-photo">
+            <img src="Assets/Ellipse 142.png" alt="Wale David" />
+          </div>
+          <h2>Wale David</h2>
+          <p class="subtext">WaleDavid11@gmail.com</p>
+          <p class="subtext">09054673216</p>
+
+          <div class="license-box">
+            <div class="license-icon">🪪</div>
+            <strong>Driver’s License</strong>
+          </div>
+
+          <div class="info-rows">
+            <div>
+              <span>Status</span>
+              <strong class="actives">Active</strong>
+            </div>
+            <div>
+              <span>License</span>
+              <strong>Approved</strong>
+            </div>
+            <div>
+              <span>Car Assigned</span>
+              <strong>Lexus RX 350</strong>
+            </div>
+          </div>
+
+          <div class="profile-actions">
+            <button class="btn btn-danger">Delete Driver</button>
+            <button class="btn btn-primary">Suspend Driver</button>
+          </div>
+        </article>
+
+    </main>
+
+    </div>
+</body>
+</html>

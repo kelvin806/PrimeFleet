@@ -308,6 +308,12 @@ html {
     font-size: 2.4rem;
 }
 
+.add-btn{
+    background-color: #0a2d51;
+    color: white;
+    margin-bottom: 15px;
+}
+
 /* Footer design */
 .footer {
     background: #eef6ff;

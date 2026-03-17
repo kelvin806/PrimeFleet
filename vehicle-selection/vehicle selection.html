@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicles selection</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
     <link rel="stylesheet" href="vehicle selection.css" />
-    <script src="scripts.js" defer></script>  
+    <script src="scripts.js" defer></script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <!-- header -->
-     <header class="header-container">
+    <header class="header-container">
         <div class="logo">
             <img src="images/Logo 2.png" alt="PrimeFleet Logo">
         </div>
@@ -35,9 +39,9 @@
         </div>
     </header>
     <!-- Main section -->
-     <main>
+    <main>
         <!-- Hero section -->
-         <section class="hero">
+        <section class="hero">
             <div class="hero-text">
                 <h1>Select Your Vehicle</h1>
                 <p>Choose the vehicle that best suits your trip and passenger needs</p>
@@ -45,66 +49,30 @@
             <div class="hero-img">
                 <img src="images/hero-pict.png" alt="car">
             </div>
-         </section>
+        </section>
 
-         <!-- Filter section -->
-          <section class="filter">
+        <!-- Filter section -->
+        <section class="filter">
             <h2>Filter By Car Type</h2>
             <div class="buttons">
-                <button>All</button>
-                <button class="active">SUV</button>
-                <button>Sedan</button>
-                <button>Van</button>
-                <button>Bus</button>
+                <button onclick="filterVehicles('all')">All</button>
+                <button onclick="filterVehicles('suv')" class="active">SUV</button>
+                <button onclick="filterVehicles('sedan')">Sedan</button>
+                <button onclick="filterVehicles('van')">Van</button>
+                <button onclick="filterVehicles('bus')">Bus</button>
             </div>
-          </section>
-          <!-- cars section -->
-           <h4 class="car-select">SUV</h4>
-           <section class="cars">
-            <div class="car-card">
-                <img src="images/select 1.png" alt="">
-                <h3>Nissan Rogue</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#45,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 2.png" alt="">
-                <h3>Honda Pilot</h3>
-                <p>3 Passengers ▪ 2 Luggages</p>
-                <h4>#30,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 3.png" alt="">
-                <h3>Infiniti</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#25,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 4.png" alt="">
-                <h3>Lexus RX 350</h3>
-                <p>4 Passengers ▪ 3 Luggages</p>
-                <h4>#45,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 5.png" alt="">
-                <h3>BMW X5</h3>
-                <p>3 Passengers ▪ 3 Luggages</p>
-                <h4>#50,000</h4>
-                <button>Use</button>
-            </div>
-            <div class="car-card">
-                <img src="images/select 6.png" alt="">
-                <h3>Nissan Rogue</h3>
-                <p>5 Passengers ▪ 3 Luggages</p>
-                <h4>#35,000</h4>
-                <button>Use</button>
-            </div>
-           </section>
-     </main>
+        </section>
+
+        <section id="vehicle-container" class="cars">
+        </section>
+
+        <div id="checkout-area" style="display:none; text-align: center; margin-top: 30px;">
+            <button onclick="goToPayment()" class="add-btn" style="padding: 15px 30px; font-size: 1.2rem;" >
+                Confirm Fleet & Proceed to Payment
+            </button>
+        </div>
+        </section>
+    </main>
 
     <!-- Footer section-->
     <footer class="footer">
@@ -140,10 +108,10 @@
                 </ul>
             </div>
             <!-- Newsletter -->
-             <div class="footer-col">
+            <div class="footer-col">
                 <h3>Stay Connected</h3>
                 <button class="line"></button>
-                <p>Subscribe to our updates and never miss important news, 
+                <p>Subscribe to our updates and never miss important news,
                     promotions or service announcements from PrimeFleet. Stay
                     informed and connected at all times
                 </p>
@@ -151,7 +119,7 @@
                     <input type="email" placeholder="your email address">
                     <div class="button"><button><i class="ph-fill ph-paper-plane-tilt"></i></button></div>
                 </div>
-             </div>
+            </div>
         </div>
         <div class="footer-bottom">
             <p><span>©</span> 2026 Prime Fleet. All rights reserved</p>
@@ -163,4 +131,5 @@
         </div>
     </footer>
 </body>
+
 </html>

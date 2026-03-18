@@ -18,3 +18,25 @@ hamburger.addEventListener("click", function(){
   }
 
 })
+
+
+
+// Wait for the DOM to load
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.btn');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Get the service type from the data attribute
+            const selectedService = button.getAttribute('data-service');
+
+            // Save it to localStorage
+            localStorage.setItem('userSelection', selectedService);
+
+            console.log("Saved selection:", selectedService);
+
+            // Optional: Redirect to the next page
+            // window.location.href = 'booking.html'; 
+        });
+    });
+});

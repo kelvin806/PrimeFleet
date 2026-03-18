@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeFleet Payments Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --navy: #0A2D51;
+            --light-bg: #f8f9fa;
+            --border: #eeeeee;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            height: 70px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-section img { height: 35px; }
+
+        .header-center {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+            justify-content: center;
+            padding: 0 15px;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 8px 12px 8px 35px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .filter-btn {
+            padding: 8px 12px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 13px;
+        }
+
+        /* --- LAYOUT --- */
+        .layout {
+            display: flex;
+            flex: 1;
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            width: 220px;
+            background-color: var(--navy);
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .sidebar-item {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sidebar-item.active {
+            background: white;
+            color: var(--navy);
+            font-weight: bold;
+        }
+
+        /* --- MAIN CONTENT --- */
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #fcfcfc;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .summary-banner {
+            background-color: var(--navy);
+            border-radius: 10px;
+            padding: 30px 15px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .summary-amount { font-size: 1.2rem; font-weight: 700; margin-top: 5px; }
+        .summary-title { font-size: 12px; color: #666; }
+
+        /* --- TABLE SECTION --- */
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow-x: auto; /* CRITICAL FOR RESPONSIVE */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px; /* Prevents text wrapping in cells */
+        }
+
+        th {
+            background: #fdfdfd;
+            padding: 15px;
+            text-align: left;
+            font-size: 13px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 15px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .status-confirmed { color: #2563eb; font-weight: 600; }
+        .status-pending { color: #f59e0b; font-weight: 600; }
+        .status-paid { color: #10b981; font-weight: 600; }
+
+        /* --- MOBILE & TABLET QUERIES --- */
+        
+        /* TABLETS (Under 1024px) */
+        @media (max-width: 1024px) {
+            .sidebar { width: 70px; }
+            .sidebar-item span { display: none; }
+            .sidebar-item i { font-size: 20px; margin: 0 auto; }
+            .summary-banner { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* PHONES (Under 768px) */
+        @media (max-width: 768px) {
+            .header {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px;
+            }
+            .header-center {
+                order: 3;
+                width: 100%;
+                margin-top: 10px;
+            }
+            .layout { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                height: 60px;
+            }
+            .sidebar-item { padding: 10px; }
+            .summary-banner {
+                grid-template-columns: 1fr; /* Stack cards vertically */
+            }
+            .summary-amount { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-section">
+            <img src="Logo.png" alt="Logo">
+        </div>
+        
+        <div class="header-center">
+            <h2 style="display:none;">Payment</h2> <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+        </div>
+
+        <button class="filter-btn">
+            This month <i class="fas fa-chevron-down"></i>
+        </button>
+    </header>
+
+    <div class="layout">
+        <nav class="sidebar">
+            <a href="#" class="sidebar-item"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
+            <a href="#" class="sidebar-item"><i class="fas fa-calendar-check"></i> <span>Bookings</span></a>
+            <a href="#" class="sidebar-item"><i class="fas fa-user-tie"></i> <span>Drivers</span></a>
+            <a href="#" class="sidebar-item active"><i class="fas fa-wallet"></i> <span>Payment</span></a>
+        </nav>
+
+        <main class="content">
+            <div class="summary-banner">
+                <div class="summary-card">
+                    <div class="summary-title">Expectant Amount</div>
+                    <div class="summary-amount">#890,000</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-title">Received</div>
+                    <div class="summary-amount">#477,000</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-title">Balance</div>
+                    <div class="summary-amount">#413,000</div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Client</th>
+                            <th>Service</th>
+                            <th>Amount</th>
+                            <th>Deposit</th>
+                            <th>Balance</th>
+                            <th>Pay Mode</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PF-20237</td>
+                            <td>Ubong Eze</td>
+                            <td>Event</td>
+                            <td>#150,000</td>
+                            <td>#45,000</td>
+                            <td>#105,000</td>
+                            <td>Transfer</td>
+                            <td>12/3/2026</td>
+                            <td class="status-confirmed">Confirmed</td>
+                            <td><a href="#" style="color:#2563eb">View Receipt</a></td>
+                         </tr>
+                         <tr>
+                            <td>PF-20238</td>
+                            <td>Tola Adeyemi</td>
+                            <td>Airport</td>
+                            <td>#90,000</td>
+                            <td>#27,000</td>
+                            <td>#63,000</td>
+                            <td>Transfer</td>
+                            <td>25/3/2026</td>
+                            <td class="status status-pending">Pending</td>
+                            <td style="color:#999">Waiting</td>
+                        </tr>
+                        <tr>
+                            <td>PF-20239</td>
+                            <td>Mallam Saliu</td>
+                            <td>Airport</td>
+                            <td>#80,000</td>
+                            <td>#24,000</td>
+                            <td>#56,000</td>
+                            <td>Transfer</td>
+                            <td>28/3/2026</td>
+                            <td class="status-confirmed">Confirmed</td>
+                           <td><a href="#" class="view-receipt">View Receipt</a></td> 
+                        </tr>
+                        <tr>
+                            <td>PF-20240</td>
+                            <td>Abbey Idowu</td>
+                            <td>Event</td>
+                            <td>#120,000</td>
+                            <td>#120,000</td>
+                            <td>-</td>
+                            <td>Transfer</td>
+                            <td>31/3/2026</td>
+                            <td class="status status-paid">Fully paid</td>
+                            <td><a href="#" class="view-receipt">View Receipt</a></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>PF-20241</td>
+                            <td>Aisha Bakare</td>
+                            <td>Event</td>
+                            <td>#180,000</td>
+                            <td>#180,000</td>
+                            <td>-</td>
+                            <td>Transfer</td>
+                            <td>18/4/2026</td>
+                            <td class="status status-paid">Fully Paid</td>
+                           <td><a href="#" class="view-receipt">View Receipt</a></td>
+                        </tr>
+                        <tr>
+                            <td>PF-20242</td>
+                            <td>Funsho Dunni</td>
+                            <td>Airport</td>
+                            <td>#70,000</td>
+                            <td>#21,000</td>
+                            <td>#49,000</td>
+                            <td>Transfer</td>
+                            <td>29/4/2026</td>
+                            <td class="status-confirmed">Confirmed</td>
+                            <td><a href="#" class="view-receipt">View Receipt</a></td>
+                        </tr>
+                        <tr>
+                            <td>PF-20243</td>
+                            <td>Amaka Emeka</td>
+                            <td>Executive</td>
+                            <td>#100,000</td>
+                            <td>#30,000</td>
+                            <td>#70,000</td>
+                            <td>Transfer</td>
+                            <td>01/5/2026</td>
+                            <td class="status-pending">Pending</td>
+                            <td style="color:#999">Waiting</td>
+                        </tr>
+                        <tr>
+                            <td>PF-20244</td>
+                            <td>Joyce Roy</td>
+                            <td>Executive</td>
+                            <td>#100,000</td>
+                            <td>#30,000</td>
+                            <td>#70,000</td>
+                            <td>Transfer</td>
+                            <td>15/5/2026</td>
+                            <td class="status-confirmed">Confirmed</td>
+                            <td><a href="#" class="view-receipt">View Receipt</a></td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ 
+body{
+    font-family: 'inter' sans-serif;
+     
+    
+    
+}
+
+
+/* form-container */
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 80px;
+}
+
+    .form-container {
+      margin-top: 32px;
+      padding: 0 8px;
+     
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 30px;
+      
+    }
+   .section-title-p{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px
+    }
+    .booking-form {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 70px 70px ;
+      background-color: #d9e1ec;
+      
+    }
+    .field {
+      margin-bottom: 25px;
+    }
+    .field label {
+      display: inline-block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size:20px;
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #86868f;
+      border-radius: 8px;
+      font-size: 15px;
+      padding: 11px 12px;
+      background: #fff;
+      color: #122444;
+      outline: none;
+      transition: 0.18s ease;
+      background-color: #d9e1ec;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      border-color: #9ec1ff;
+      box-shadow: 0 0 0 4px rgba(57, 125, 255, 0.12);
+    }
+
+    .field input{
+        min-height: 60px;
+    }
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .remember{
+    display: flex;
+    justify-content: space-between;
+}
+.inner textarea{
+    background-color: #d9e1ec;
+}
+
+
+.inner{
+    display: flex;
+}
+
+.inner p{
+    margin-left: 5px;
+}
+
+.inner2{
+    font-weight: 500;
+}
+
+    
+    .proceed-wrap {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .btn-proceed {
+      border: 0;
+      border-radius: 8px;
+      background: #0a2d51;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 12px 24px;
+      width: 100%;
+      max-width: 1000px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .btn-proceed:hover { 
+       background-color: rgb(15, 66, 117);
+     }
+    

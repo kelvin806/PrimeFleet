@@ -71,17 +71,17 @@ with your booking details has been sent to you.
 
 <div class="place">
 <i class="fa-solid fa-location-dot"></i>
-<span>Lagos Airport</span>
+<span id="pickup-location">Lagos Airport</span>
 </div>
 
 <div class="line"></div>
 
 <div class="place">
 <i class="fa-solid fa-location-dot"></i>
-<span>Ikoyi</span>
+<span id="dropoff-location">Ikoyi</span>
 </div>
 
-<span class="distance">(120Km)</span>
+<span class="distance">(<span id="trip-distance">120km</span>)</span>
 
 </div>
 
@@ -92,37 +92,37 @@ with your booking details has been sent to you.
 
 <div class="row">
 <span class="title">Service</span>
-<span class="value">Airport Transfer</span>
+<span class="value" id="service-type">Airport Transfer</span>
 </div>
 
 <div class="row">
 <span class="title">Vehicle</span>
-<span class="value">Lexus RX 350</span>
+<span class="value" id="vehicle-type">Lexus RX 350</span>
 </div>
 
 <div class="row">
 <span class="title">Date</span>
-<span class="value">December 20, 2026</span>
+<span class="value" id="trip-date">December 20, 2026</span>
 </div>
 
 <div class="row">
 <span class="title">Time</span>
-<span class="value">12pm</span>
+<span class="value" id="trip-time">12pm</span>
 </div>
 
 <div class="row">
 <span class="title">Duration</span>
-<span class="value">1 day</span>
+<span class="value" id="trip-duration">1 day</span>
 </div>
 
 <div class="row">
 <span class="title">No of Passengers</span>
-<span class="value">4</span>
+<span class="value" id="passenger-count"></span>
 </div>
 
 <div class="row">
 <span class="title">No of Vehicles</span>
-<span class="value">2</span>
+<span class="value" id="vehicle-count"></span>
 </div>
 
 </div>
@@ -134,9 +134,9 @@ with your booking details has been sent to you.
 
 <h3>Payment Status</h3>
 
-<div class="paid">
-<i class="fa-solid fa-check"></i>
-<span>Deposit Paid</span>
+<div class="paid" id="status-container">
+<i id="status-icon" class="fa-solid fa-check"></i>
+<span id="payment-status">Deposit Paid</span>
 </div>
 
 </div>
@@ -146,7 +146,7 @@ with your booking details has been sent to you.
 
 
 <div class="receipt">
-<button>Download Receipt</button>
+<button id="download-btn">Download Receipt</button>
 </div>
 
 </section>

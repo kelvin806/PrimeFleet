@@ -1,375 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrimeFleet Payments Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        :root {
-            --navy: #0A2D51;
-            --light-bg: #f8f9fa;
-            --border: #eeeeee;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeFleet Payments Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+:root { --navy:#0A2D51; --light-bg:#f8f9fa; --border:#eeeeee; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#fff;display:flex;flex-direction:column;min-height:100vh}
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #fff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+.header{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:#fff;border-bottom:1px solid var(--border);height:70px;position:sticky;top:0;z-index:1000}
+.logo-section img{height:35px}
 
-        /* --- HEADER --- */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background: #fff;
-            border-bottom: 1px solid var(--border);
-            height: 70px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+.header-center{display:flex;align-items:center;gap:20px;flex:1;justify-content:center;padding:0 15px}
+.search-container{position:relative;width:100%;max-width:400px}
+.search-container i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#999}
+.search-bar{width:100%;padding:8px 12px 8px 35px;border:1px solid #ddd;border-radius:20px;outline:none}
 
-        .logo-section img { height: 35px; }
+.filter-wrapper{position:relative}
+.filter-btn{padding:8px 12px;border:1px solid #333;border-radius:6px;background:white;cursor:pointer;font-size:13px}
+.dropdown{position:absolute;top:40px;right:0;background:#fff;border:1px solid #ddd;border-radius:6px;display:none}
+.dropdown div{padding:10px;cursor:pointer}
+.dropdown div:hover{background:#f2f2f2}
 
-        .header-center {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex: 1;
-            justify-content: center;
-            padding: 0 15px;
-        }
+.layout{display:flex;flex:1}
+.sidebar{width:220px;background-color:var(--navy);color:#fff}
+.sidebar-item{padding:15px 20px;display:flex;align-items:center;gap:12px;color:#cbd5e0;text-decoration:none;font-size:14px}
+.sidebar-item.active{background:white;color:var(--navy);font-weight:bold}
 
-        .search-container {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-        }
+.content{flex:1;padding:20px;background:#fcfcfc}
 
-        .search-container i {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-        }
+/* SUMMARY */
+.summary-banner{background:var(--navy);border-radius:10px;padding:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:20px}
+.summary-card{background:white;border-radius:10px;padding:15px;text-align:center}
+.summary-title{font-size:12px;color:#666}
+.summary-amount{font-weight:bold;font-size:18px}
 
-        .search-bar {
-            width: 100%;
-            padding: 8px 12px 8px 35px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            outline: none;
-        }
+.table-container{background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:900px}
+th,td{padding:15px;font-size:13px;border-bottom:1px solid var(--border)}
 
-        .filter-btn {
-            padding: 8px 12px;
-            border: 1px solid #333;
-            border-radius: 6px;
-            background: white;
-            cursor: pointer;
-            white-space: nowrap;
-            font-size: 13px;
-        }
+.status-confirmed{color:#2563eb;font-weight:600}
+.status-pending{color:#f59e0b;font-weight:600}
+.status-fully-paid{color:#10b981;font-weight:600}
 
-        /* --- LAYOUT --- */
-        .layout {
-            display: flex;
-            flex: 1;
-        }
+/* RESPONSIVE */
+@media(max-width:1024px){
+.sidebar{width:70px}
+.sidebar-item span{display:none}
+.sidebar-item i{font-size:20px;margin:auto}
+}
 
-        /* --- SIDEBAR --- */
-        .sidebar {
-            width: 220px;
-            background-color: var(--navy);
-            color: #fff;
-            flex-shrink: 0;
-        }
-
-        .sidebar-item {
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #cbd5e0;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .sidebar-item.active {
-            background: white;
-            color: var(--navy);
-            font-weight: bold;
-        }
-
-        /* --- MAIN CONTENT --- */
-        .content {
-            flex: 1;
-            padding: 20px;
-            background-color: #fcfcfc;
-            width: 100%;
-            overflow-x: hidden;
-        }
-
-        .summary-banner {
-            background-color: var(--navy);
-            border-radius: 10px;
-            padding: 30px 15px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .summary-card {
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .summary-amount { font-size: 1.2rem; font-weight: 700; margin-top: 5px; }
-        .summary-title { font-size: 12px; color: #666; }
-
-        /* --- TABLE SECTION --- */
-        .table-container {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            overflow-x: auto; /* CRITICAL FOR RESPONSIVE */
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 900px; /* Prevents text wrapping in cells */
-        }
-
-        th {
-            background: #fdfdfd;
-            padding: 15px;
-            text-align: left;
-            font-size: 13px;
-            border-bottom: 2px solid var(--border);
-        }
-
-        td {
-            padding: 15px;
-            font-size: 13px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .status-confirmed { color: #2563eb; font-weight: 600; }
-        .status-pending { color: #f59e0b; font-weight: 600; }
-        .status-paid { color: #10b981; font-weight: 600; }
-
-        /* --- MOBILE & TABLET QUERIES --- */
-        
-        /* TABLETS (Under 1024px) */
-        @media (max-width: 1024px) {
-            .sidebar { width: 70px; }
-            .sidebar-item span { display: none; }
-            .sidebar-item i { font-size: 20px; margin: 0 auto; }
-            .summary-banner { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        /* PHONES (Under 768px) */
-        @media (max-width: 768px) {
-            .header {
-                flex-wrap: wrap;
-                height: auto;
-                padding: 10px;
-            }
-            .header-center {
-                order: 3;
-                width: 100%;
-                margin-top: 10px;
-            }
-            .layout { flex-direction: column; }
-            .sidebar {
-                width: 100%;
-                display: flex;
-                justify-content: space-around;
-                height: 60px;
-            }
-            .sidebar-item { padding: 10px; }
-            .summary-banner {
-                grid-template-columns: 1fr; /* Stack cards vertically */
-            }
-            .summary-amount { font-size: 1.5rem; }
-        }
-    </style>
+@media(max-width:768px){
+.layout{flex-direction:column}
+.sidebar{width:100%;display:flex;justify-content:space-around}
+.summary-banner{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
 
-    <header class="header">
-        <div class="logo-section">
-            <img src="Logo.png" alt="Logo">
-        </div>
-        
-        <div class="header-center">
-            <h2 style="display:none;">Payment</h2> <div class="search-container">
-                <i class="fas fa-search"></i>
-                <input type="text" class="search-bar" placeholder="Search...">
-            </div>
-        </div>
+<header class="header">
+<div class="logo-section"><img src="Logo.png"></div>
 
-        <button class="filter-btn">
-            This month <i class="fas fa-chevron-down"></i>
-        </button>
-    </header>
+<div class="header-center">
+<div class="search-container">
+<i class="fas fa-search"></i>
+<input type="text" class="search-bar" placeholder="Search...">
+</div>
+</div>
 
-    <div class="layout">
-        <nav class="sidebar">
-            <a href="#" class="sidebar-item"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
-            <a href="#" class="sidebar-item"><i class="fas fa-calendar-check"></i> <span>Bookings</span></a>
-            <a href="#" class="sidebar-item"><i class="fas fa-user-tie"></i> <span>Drivers</span></a>
-            <a href="#" class="sidebar-item active"><i class="fas fa-wallet"></i> <span>Payment</span></a>
-        </nav>
+<div class="filter-wrapper">
+<button class="filter-btn">This Month <i class="fas fa-chevron-down"></i></button>
+<div class="dropdown">
+<div data-filter="all">All</div>
+<div data-filter="thisMonth">This Month</div>
+<div data-filter="lastMonth">Last Month</div>
+<div data-filter="thisWeek">This Week</div>
+<div data-filter="lastWeek">Last Week</div>
+</div>
+</div>
+</header>
 
-        <main class="content">
-            <div class="summary-banner">
-                <div class="summary-card">
-                    <div class="summary-title">Expectant Amount</div>
-                    <div class="summary-amount">#890,000</div>
-                </div>
-                <div class="summary-card">
-                    <div class="summary-title">Received</div>
-                    <div class="summary-amount">#477,000</div>
-                </div>
-                <div class="summary-card">
-                    <div class="summary-title">Balance</div>
-                    <div class="summary-amount">#413,000</div>
-                </div>
-            </div>
+<div class="layout">
+<nav class="sidebar">
+<a href="#" class="sidebar-item"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+<a href="#" class="sidebar-item"><i class="fas fa-calendar-check"></i><span>Bookings</span></a>
+<a href="#" class="sidebar-item"><i class="fas fa-user-tie"></i><span>Drivers</span></a>
+<a href="#" class="sidebar-item active"><i class="fas fa-wallet"></i><span>Payment</span></a>
+</nav>
 
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Booking ID</th>
-                            <th>Client</th>
-                            <th>Service</th>
-                            <th>Amount</th>
-                            <th>Deposit</th>
-                            <th>Balance</th>
-                            <th>Pay Mode</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>PF-20237</td>
-                            <td>Ubong Eze</td>
-                            <td>Event</td>
-                            <td>#150,000</td>
-                            <td>#45,000</td>
-                            <td>#105,000</td>
-                            <td>Transfer</td>
-                            <td>12/3/2026</td>
-                            <td class="status-confirmed">Confirmed</td>
-                            <td><a href="#" style="color:#2563eb">View Receipt</a></td>
-                         </tr>
-                         <tr>
-                            <td>PF-20238</td>
-                            <td>Tola Adeyemi</td>
-                            <td>Airport</td>
-                            <td>#90,000</td>
-                            <td>#27,000</td>
-                            <td>#63,000</td>
-                            <td>Transfer</td>
-                            <td>25/3/2026</td>
-                            <td class="status status-pending">Pending</td>
-                            <td style="color:#999">Waiting</td>
-                        </tr>
-                        <tr>
-                            <td>PF-20239</td>
-                            <td>Mallam Saliu</td>
-                            <td>Airport</td>
-                            <td>#80,000</td>
-                            <td>#24,000</td>
-                            <td>#56,000</td>
-                            <td>Transfer</td>
-                            <td>28/3/2026</td>
-                            <td class="status-confirmed">Confirmed</td>
-                           <td><a href="#" class="view-receipt">View Receipt</a></td> 
-                        </tr>
-                        <tr>
-                            <td>PF-20240</td>
-                            <td>Abbey Idowu</td>
-                            <td>Event</td>
-                            <td>#120,000</td>
-                            <td>#120,000</td>
-                            <td>-</td>
-                            <td>Transfer</td>
-                            <td>31/3/2026</td>
-                            <td class="status status-paid">Fully paid</td>
-                            <td><a href="#" class="view-receipt">View Receipt</a></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>PF-20241</td>
-                            <td>Aisha Bakare</td>
-                            <td>Event</td>
-                            <td>#180,000</td>
-                            <td>#180,000</td>
-                            <td>-</td>
-                            <td>Transfer</td>
-                            <td>18/4/2026</td>
-                            <td class="status status-paid">Fully Paid</td>
-                           <td><a href="#" class="view-receipt">View Receipt</a></td>
-                        </tr>
-                        <tr>
-                            <td>PF-20242</td>
-                            <td>Funsho Dunni</td>
-                            <td>Airport</td>
-                            <td>#70,000</td>
-                            <td>#21,000</td>
-                            <td>#49,000</td>
-                            <td>Transfer</td>
-                            <td>29/4/2026</td>
-                            <td class="status-confirmed">Confirmed</td>
-                            <td><a href="#" class="view-receipt">View Receipt</a></td>
-                        </tr>
-                        <tr>
-                            <td>PF-20243</td>
-                            <td>Amaka Emeka</td>
-                            <td>Executive</td>
-                            <td>#100,000</td>
-                            <td>#30,000</td>
-                            <td>#70,000</td>
-                            <td>Transfer</td>
-                            <td>01/5/2026</td>
-                            <td class="status-pending">Pending</td>
-                            <td style="color:#999">Waiting</td>
-                        </tr>
-                        <tr>
-                            <td>PF-20244</td>
-                            <td>Joyce Roy</td>
-                            <td>Executive</td>
-                            <td>#100,000</td>
-                            <td>#30,000</td>
-                            <td>#70,000</td>
-                            <td>Transfer</td>
-                            <td>15/5/2026</td>
-                            <td class="status-confirmed">Confirmed</td>
-                            <td><a href="#" class="view-receipt">View Receipt</a></td>
-                        </tr>
-                        </tbody>
-                </table>
-            </div>
-        </main>
-    </div>
+<main class="content">
 
-<script src="script.js"></script>
+<div class="summary-banner">
+<div class="summary-card"><div class="summary-title">Expected Amount</div><div id="expected" class="summary-amount">#0</div></div>
+<div class="summary-card"><div class="summary-title">Received</div><div id="received" class="summary-amount">#0</div></div>
+<div class="summary-card"><div class="summary-title">Outstanding Balance</div><div id="balance" class="summary-amount">#0</div></div>
+</div>
+
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Booking ID</th><th>Client</th><th>Service</th><th>Amount</th><th>Deposit</th><th>Balance</th><th>Pay Mode</th><th>Date</th><th>Status</th><th>Action</th>
+</tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+</div>
+</main>
+</div>
+
+<script>
+let bookings=[
+{ id:'PF-20237', client:'Ubong Eze', service:'Event', amount:150000, deposit:45000, balance:105000, mode:'Transfer', date:'2026-03-12', status:'Confirmed'},
+{ id:'PF-20238', client:'Tola Adeyemi', service:'Airport', amount:90000, deposit:27000, balance:63000, mode:'Transfer', date:'2026-03-25', status:'Pending'},
+{ id:'PF-20239', client:'Mallam Saliu', service:'Airport', amount:80000, deposit:24000, balance:56000, mode:'Transfer', date:'2026-03-28', status:'Confirmed'},
+{ id:'PF-20240', client:'Abbey Idowu', service:'Event', amount:120000, deposit:120000, balance:0, mode:'Transfer', date:'2026-03-31', status:'Fully Paid'}
+];
+
+const tbody=document.getElementById('tbody');
+const btn=document.querySelector('.filter-btn');
+const dropdown=document.querySelector('.dropdown');
+const search=document.querySelector('.search-bar');
+
+btn.onclick=()=> dropdown.style.display= dropdown.style.display==='block'?'none':'block';
+
+function filterData(type){
+const now=new Date();
+return bookings.filter(b=>{
+const d=new Date(b.date);
+if(type==='all') return true;
+if(type==='thisMonth') return d.getMonth()===now.getMonth();
+if(type==='lastMonth'){
+  const lastMonthDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+
+  // filter last month
+  const lastMonthData = bookings.filter(b=>{
+    const d = new Date(b.date);
+    return d.getMonth() === lastMonthDate.getMonth() && d.getFullYear() === lastMonthDate.getFullYear();
+  });
+
+  // make all fully paid (no debt)
+  return lastMonthData.map(b=>({
+    ...b,
+    deposit: b.amount,
+    balance: 0,
+    status: 'Fully Paid'
+  }));
+}
+
+const startWeek=new Date(now);
+startWeek.setDate(now.getDate()-now.getDay());
+const lastWeek=new Date(startWeek);
+lastWeek.setDate(startWeek.getDate()-7);
+
+if(type==='thisWeek') return d>=startWeek;
+if(type==='lastWeek') return d>=lastWeek && d<startWeek;
+});
+}
+
+function render(data){
+tbody.innerHTML='';
+let expected=0, received=0, balance=0;
+
+data.forEach(b=>{
+expected+=b.amount;
+received+=b.deposit;
+balance+=b.balance;
+
+tbody.innerHTML+=`<tr>
+<td>${b.id}</td>
+<td>${b.client}</td>
+<td>${b.service}</td>
+<td>#${b.amount.toLocaleString()}</td>
+<td>#${b.deposit.toLocaleString()}</td>
+<td>${b.balance===0?'-':'#'+b.balance.toLocaleString()}</td>
+<td>${b.mode}</td>
+<td>${new Date(b.date).toLocaleDateString()}</td>
+<td class="status-${b.status.toLowerCase().replace(' ','-')}">${b.status}</td>
+<td><a href="#" style="color:#2563eb">View Receipt</a></td>
+</tr>`;
+});
+
+// UPDATE SUMMARY
+
+document.getElementById('expected').textContent='#'+expected.toLocaleString();
+document.getElementById('received').textContent='#'+received.toLocaleString();
+document.getElementById('balance').textContent='#'+balance.toLocaleString();
+}
+
+// FILTER CLICK
+
+document.querySelectorAll('.dropdown div').forEach(item=>{
+item.onclick=()=>{
+btn.innerHTML=item.textContent+' <i class="fas fa-chevron-down"></i>';
+dropdown.style.display='none';
+render(filterData(item.dataset.filter));
+};
+});
+
+// SEARCH
+search.addEventListener('input',e=>{
+const val=e.target.value.toLowerCase();
+const filtered=bookings.filter(b=>
+b.id.toLowerCase().includes(val)||b.client.toLowerCase().includes(val)
+);
+render(filtered);
+});
+
+// AUTO UPDATE
+setInterval(()=>{
+bookings.push({
+id:'PF-'+Math.floor(Math.random()*9999),
+client:'New Client',
+service:'Event',
+amount:Math.floor(Math.random()*200000),
+deposit:20000,
+balance:50000,
+mode:'Transfer',
+date:new Date().toISOString().split('T')[0],
+status:'Confirmed'
+});
+render(bookings);
+},6000);
+
+render(bookings);
+</script>
+
 </body>
 </html>

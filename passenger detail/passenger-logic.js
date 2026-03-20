@@ -33,15 +33,19 @@ proceedBtn.addEventListener('click', (e) => {
         return;
     }
 
-    // 3. Save to Session (Bridge to the next page)
-    sessionStorage.setItem('currentPassenger', JSON.stringify(passengerData));
+    // 3. // 3. Save to the Snowball (Bridge to the next page)
+    // Get the existing data (Service + Vehicle)
+    let bookingData = JSON.parse(localStorage.getItem('bookingData')) || {};
 
-    console.log("Data saved! Ready for API:", passengerData);
+    // Add the new passenger data into it
+    Object.assign(bookingData, passengerData);
 
-    //  Move to the next page (Quote Summary)
-    // window.location.href = "../homepage/homepage.html"; 
+    // Save it all back together
+    localStorage.setItem('bookingData', JSON.stringify(bookingData));
 
-    // Show a success message instead
-    alert("Passenger details saved successfully! Navigation will be linked after the merge.");
-    console.log("READY FOR MERGE: Data is stored in session.");
+    console.log("Snowball updated with passenger info:", bookingData);
+    //  Move to the next page
+    window.location.href = "../route-schedule/route.html";
+
+
 });

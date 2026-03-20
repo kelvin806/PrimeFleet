@@ -18,111 +18,118 @@ hamburger.addEventListener("click", function () {
   }
 
 })
-
-
-// Select the radio buttons
-const card = document.getElementById("cardPayment");
-const bank = document.getElementById("bankTransfer");
-
-// Select the sections we want to show or hide
-const coming = document.querySelector(".coming");
-const transfer = document.querySelector(".transfer");
-
-
-// When CARD payment is selected
-card.addEventListener("change", function () {
-
-  // Show the coming soon message
-  coming.style.display = "block";
-
-  // Hide the bank transfer section
-  transfer.style.display = "none";
-
-});
-
-
-// When BANK TRANSFER is selected
-bank.addEventListener("change", function () {
-
-  // Hide the coming soon message
-  coming.style.display = "none";
-
-  // Show the bank transfer section
-  transfer.style.display = "block";
-
-});
-
 /**
- * PrimeFleet Payment Logic
- * Handles display, copying, and simulated API verification.
+ * PrimeFleet Deposit Page Logic
+ * Features: Payment method toggle, 30% deposit display, and transfer verification
  */
 
-// 1. Function to fill the details dynamically
+// --- 1. GLOBAL HELPERS ---
+function formatNaira(amount) {
+    const val = parseFloat(amount);
+    if (isNaN(val)) return "₦0.00";
+    return "₦" + val.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
+// --- 2. CORE FUNCTIONS ---
+
 function displayPaymentInfo() {
-  // These would eventually come from the previous page or an API
-  const accountNum = "9130395721";
-  const totalAmount = "27,150";
+    // Get the data saved from the Quote Summary page bridge
+    const savedData = JSON.parse(localStorage.getItem('bookingData'));
+    const amtElem = document.getElementById('depositAmount');
+    const accElem = document.getElementById('accountNumber');
 
-  const accElem = document.getElementById('accountNumber');
-  const amtElem = document.getElementById('depositAmount');
+    // Display static account number from your HTML
+    if (accElem) accElem.innerText = "9130395721";
 
-  if (accElem) accElem.innerText = accountNum;
-  if (amtElem) amtElem.innerText = "₦" + totalAmount;
-}
-
-// 2. Simple Copy to Clipboard Feature
-function setupCopyBtn() {
-  const btn = document.getElementById('copyBtn');
-
-  if (btn) {
-    btn.addEventListener('click', () => {
-      const num = document.getElementById('accountNumber').innerText;
-      navigator.clipboard.writeText(num);
-
-      // Visual feedback for the user
-      const originalText = btn.innerText;
-      btn.innerText = "Saved!";
-      setTimeout(() => { btn.innerText = originalText; }, 2000);
-    });
-  }
-}
-
-// 3. The "Completed" Button with Simulated API Check
-function handleTransferCompletion() {
-  const mainBtn = document.getElementById('completeBtn');
-
-  if (mainBtn) {
-    mainBtn.addEventListener('click', () => {
-      // Show the user we are "talking" to the server
-      mainBtn.innerText = "Checking Server...";
-      mainBtn.disabled = true;
-
-      /**
-       * This 'apiResponse' simulates a real backend check.
-       * Change it to "fail" to see how the code protects the app!
-       */
-      const apiResponse = "fail";
-
-      // Simulate the time it takes for a server to respond (2 seconds)
-      setTimeout(() => {
-        if (apiResponse === "success") {
-          alert("Success! PrimeFleet has received your payment notification.");
-          // Move to the next page
-          window.location.href = "../Booking confirmation/index.html";
+    // Display the dynamic 30% deposit amount calculated on the summary page
+    if (amtElem) {
+        if (savedData && savedData.depositAmount) {
+            amtElem.innerText = formatNaira(savedData.depositAmount);
         } else {
-          // This blocks the user if the "server" says no
-          alert("Verification Failed: We haven't seen the transfer yet. Please try again in a few minutes.");
-          mainBtn.innerText = "I have completed my transfer";
-          mainBtn.disabled = false;
+            amtElem.innerText = "₦0.00";
+            console.warn("No deposit amount found. Ensure you clicked 'Proceed' on the summary page.");
         }
-      }, 2000);
-    });
-  }
+    }
 }
 
-// Run everything once the page is fully loaded
-window.onload = () => {
-  displayPaymentInfo();
-  setupCopyBtn();
-  handleTransferCompletion();
-};
+function setupPaymentToggle() {
+    const cardRadio = document.getElementById('cardPayment');
+    const bankRadio = document.getElementById('bankTransfer');
+    const comingSoon = document.querySelector('.coming'); // Matches your class "coming"
+    const transferSection = document.querySelector('.transfer'); // Matches your class "transfer"
+
+    const updateVisibility = () => {
+        if (cardRadio && cardRadio.checked) {
+            if (comingSoon) comingSoon.style.display = "block";
+            if (transferSection) transferSection.style.display = "none";
+        } else if (bankRadio && bankRadio.checked) {
+            if (comingSoon) comingSoon.style.display = "none";
+            if (transferSection) transferSection.style.display = "block";
+        }
+    };
+
+    // Add listeners to radio buttons
+    if (cardRadio) cardRadio.addEventListener('change', updateVisibility);
+    if (bankRadio) bankRadio.addEventListener('change', updateVisibility);
+
+    // Run once on load to set default (Card = Coming Soon)
+    updateVisibility();
+}
+
+async function handleCompletion() {
+    const savedData = JSON.parse(localStorage.getItem('bookingData'));
+    if (!savedData || !savedData.depositAmount) {
+        alert("Booking data missing. Please restart from the home page.");
+        return;
+    }
+
+    const required = parseFloat(savedData.depositAmount);
+    const userEntry = prompt("Please enter the exact amount you transferred:");
+    
+    if (!userEntry) return;
+
+    // Clean input: remove ₦, commas, and spaces
+    const entryNumber = parseFloat(userEntry.replace(/[^\d.]/g, ''));
+
+    if (isNaN(entryNumber)) {
+        alert("Please enter a valid number.");
+        return;
+    }
+
+    // Verification check (allowing for tiny rounding differences)
+    if (Math.abs(entryNumber - required) < 1) {
+        alert(`Success! Your payment of ${formatNaira(required)} is being verified.`);
+        window.location.href = '../Booking%20Confirmation/booking-confirmation.html?status=paid';
+    } else {
+        alert(`Amount mismatch! Expected: ${formatNaira(required)}\nYou entered: ${formatNaira(entryNumber)}`);
+    }
+}
+
+// --- 3. PAGE INITIALIZATION ---
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Display the calculated money
+    displayPaymentInfo();
+
+    // 2. Setup the Card vs Bank Transfer toggle
+    setupPaymentToggle();
+
+    // 3. Setup Copy Button
+    const copyBtn = document.getElementById('copyBtn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            const num = document.getElementById('accountNumber').innerText;
+            navigator.clipboard.writeText(num).then(() => {
+                alert("Account number copied!");
+            });
+        });
+    }
+
+    // 4. Setup "I have done the payment" button
+    const completeBtn = document.getElementById('completeBtn');
+    if (completeBtn) {
+        completeBtn.addEventListener('click', handleCompletion);
+    }
+});

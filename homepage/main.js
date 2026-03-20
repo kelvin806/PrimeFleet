@@ -5,15 +5,15 @@ const hamburger = document.getElementById("hamburger")
 const navLinks = document.getElementById("navLinks")
 
 // When hamburger is clicked
-hamburger.addEventListener("click", function(){
+hamburger.addEventListener("click", function () {
 
   // If the menu is already visible
-  if(navLinks.style.display === "flex"){
+  if (navLinks.style.display === "flex") {
     navLinks.style.display = "none"  // hide it
   }
 
   // If the menu is hidden
-  else{
+  else {
     navLinks.style.display = "flex"  // show it
   }
 
@@ -23,20 +23,29 @@ hamburger.addEventListener("click", function(){
 
 // Wait for the DOM to load
 document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.btn');
+  const buttons = document.querySelectorAll('.btn');
 
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Get the service type from the data attribute
-            const selectedService = button.getAttribute('data-service');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedService = button.getAttribute('data-service');
 
-            // Save it to localStorage
-            localStorage.setItem('userSelection', selectedService);
+      // The Snowball Logic
+      let bookingData = JSON.parse(localStorage.getItem('bookingData')) || {};
+      bookingData.service = selectedService;
+      localStorage.setItem('bookingData', JSON.stringify(bookingData));
 
-            console.log("Saved selection:", selectedService);
-
-            // Optional: Redirect to the next page
-            // window.location.href = 'booking.html'; 
-        });
+      // Redirect
+      window.location.href = '../passenger detail/passenger.html';
     });
+  });
+
+  
 });
+
+
+
+// document.querySelectorAll('.move-btn').forEach(button => {
+//   button.addEventListener('click', () => {
+//     window.location.href = '../passenger detail/index.html';
+//   });
+// });

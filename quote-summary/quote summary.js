@@ -5,113 +5,102 @@ const hamburger = document.getElementById("hamburger")
 const navLinks = document.getElementById("navLinks")
 
 // When hamburger is clicked
-hamburger.addEventListener("click", function(){
+hamburger.addEventListener("click", function () {
 
-  // If the menu is already visible
-  if(navLinks.style.display === "flex"){
-    navLinks.style.display = "none"  // hide it
-  }
+    // If the menu is already visible
+    if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none"  // hide it
+    }
 
-  // If the menu is hidden
-  else{
-    navLinks.style.display = "flex"  // show it
-  }
+    // If the menu is hidden
+    else {
+        navLinks.style.display = "flex"  // show it
+    }
 
 })
 
+
 /**
- * PrimeFleet Quote Summary Logic
- * Professional, Design-Safe, and API-Ready
+ * PrimeFleet Quote Summary Logic - FINAL FIXED
  */
 
-const CONFIG = {
-    USE_API: false, // Set to true when backend is ready
-    API_URL: "https://api.primefleet.com/v1/get-quote",
-    CURRENCY: "₦" 
-};
+const formatNaira = (num) => `₦${Number(num).toLocaleString()}`;
 
-// Mock data matches your teammate's design exactly
-const mockData = {
-    pickup: "Lagos Airport",
-    destination: "Ikoyi",
-    distance: "(120)",
-    service: "Airport Transfer",
-    vehicle: "Lexus RX 350",
-    date: "December 20, 2026",
-    time: "12pm",
-    duration: "1 day",
-    passengers: "4",
-    numvehicles: "3",
-    prices: {
-        base: 45000,
-        distance: 18000,
-        vehicles: 45000,
-        duration: 500,
-        total: 108500
-    }
-};
-
-async function loadQuoteData() {
-    let data = mockData;
-
-    if (CONFIG.USE_API) {
-        try {
-            const response = await fetch(CONFIG.API_URL);
-            if (!response.ok) throw new Error("API issues");
-            data = await response.json();
-        } catch (error) {
-            console.error("Backend unreachable, using mock data.", error);
-        }
-    }
-
-    renderQuote(data);
-}
-
-function renderQuote(data) {
-    // Helper to format currency
-    const formatPrice = (num) => `${CONFIG.CURRENCY}${num.toLocaleString()}`;
-
-    // 1. Update Route and Header Details
-    updateElement("pickup-val", data.pickup);
-    updateElement("dest-val", data.destination);
-    updateElement("dist-val", data.distance);
-    updateElement("service-val", data.service);
-    updateElement("vehicle-val", data.vehicle);
-    updateElement("date-val", data.date);
-    updateElement("time-val", data.time);
-    updateElement("duration-val", data.duration)
-    updateElement("passengers-val", data.passengers);
-    updateElement("num-veh-val", data.numvehicles);
-
-    // 2. Update Pricing Table
-    updateElement("base-price-display", formatPrice(data.prices.base));
-    updateElement("dist-cost-display", `+${formatPrice(data.prices.distance)}`);
-    updateElement("veh-cost-display", `+${formatPrice(data.prices.vehicles)}`);
-    updateElement("dur-cost-display", `+${formatPrice(data.prices.duration)}`);
-    
-    // 3. Update Total and Deposit Note
-    const totalEl = document.getElementById("total-price");
-    if (totalEl) totalEl.innerText = formatPrice(data.prices.total);
-
-    const noteEl = document.getElementById("deposit-note");
-    if (noteEl) {
-        const deposit = data.prices.total * 0.30;
-        noteEl.innerHTML = `Note: A 30% deposit is required to reserve your booking <br> Kindly proceed to deposit ${formatPrice(deposit)}`;
-    }
-}
-
-// Safety wrapper to ensure code doesn't break if an ID is missing
-function updateElement(id, value) {
+const updateText = (id, value) => {
     const el = document.getElementById(id);
     if (el) {
-        el.innerText = value;
+        el.innerText = value || "N/A";
+    } else {
+        console.warn(`Element with ID "${id}" not found in HTML.`);
     }
+};
+
+function renderQuote(data) {
+    if (!data) return;
+
+    // 1. Math Calculations
+    // Ensure data.prices.base exists, otherwise default to 0
+    const basePrice = (data.prices && data.prices.base) ? Number(data.prices.base) : 0;
+    
+    // Parse distance (removes "km" if present) and calculate cost (150 per km)
+    const distanceKM = parseFloat(data.distance) || 0;
+    const distCost = distanceKM * 150;
+
+    // Parse duration and calculate cost (500 per day)
+    const durationDays = parseInt(data.duration) || 1;
+    const durationCost = durationDays * 500;
+
+    // Totals
+    const total = basePrice + distCost + durationCost;
+    const deposit = total * 0.30;
+
+    // 2. Update Pricing UI
+    updateText("base-price-display", formatNaira(basePrice));
+    updateText("dist-cost-display", `+${formatNaira(distCost)}`);
+    updateText("dur-cost-display", `+${formatNaira(durationCost)}`);
+    updateText("veh-cost-display", `+${formatNaira(basePrice)}`); // Or specific vehicle cost
+    updateText("total-price", formatNaira(total));
+
+    // 3. Update Detail Labels (Ensure these IDs exist in your HTML)
+    updateText("service-val", data.service);
+    updateText("pickup-val", data.pickup);
+    updateText("dest-val", data.destination);
+    updateText("vehicle-val", data.vehicle); // This updates the "Booked Vehicles" small tag
+    updateText("duration-val", data.duration); // This updates the "Duration Estimate" small tag
+    updateText("date-val", data.date);
+    updateText("time-val", data.time);
+    updateText("passengers-val", data.passengers);
+    updateText("num-veh-val", data.numvehicles);
+
+    // 4. Update Deposit Note
+    const depositNote = document.getElementById("deposit-note");
+    if (depositNote) {
+        depositNote.innerHTML = `Note: A 30% deposit of <strong>${formatNaira(deposit)}</strong> is required to reserve your booking. Kindly proceed to deposit <strong>${formatNaira(deposit)}</strong>.`;
+    }
+
+    // 5. Save Calculated Totals back to Storage for the Payment Page
+    data.totalAmount = total;
+    data.depositAmount = deposit;
+    localStorage.setItem("bookingData", JSON.stringify(data));
 }
 
-// Initialize
-document.addEventListener("DOMContentLoaded", loadQuoteData);
+// Initialization Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const rawData = localStorage.getItem('bookingData');
+    const data = rawData ? JSON.parse(rawData) : null;
 
-// Button Handlers
-document.querySelector(".pay-btn")?.addEventListener("click", () => {
-    alert("Initiating secure payment...");
+    if (data) {
+        renderQuote(data);
+    } else {
+        console.error("No booking data found in localStorage.");
+    }
+
+    // Fix: Redirection Logic for Payment Button
+    const payBtn = document.querySelector('.pay-btn');
+    if (payBtn) {
+        payBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = '../deposit-payment/deposit.html';
+        });
+    }
 });

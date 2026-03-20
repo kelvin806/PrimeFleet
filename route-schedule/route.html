@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Route and Schedule</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -12,6 +14,7 @@
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
     <link rel="stylesheet" href="route.css" />
+    <link rel="icon" type="images/png" href="images/Logo 2.png">
     <script src="route.js" defer></script>
 </head>
 
@@ -46,7 +49,6 @@
             <img src="images/route.png" alt="Route Illustration" />
         </div>
     </section>
-
     <section class="form-section">
         <form class="trip-form" id="route-form">
             <label>Pick off Location</label>
@@ -54,6 +56,8 @@
 
             <label>Drop off Location</label>
             <input type="text" id="drop-off" placeholder="Enter destination" required />
+            <label>Duration</label>
+            <input type="text" id="trip-duration" placeholder="How long is the trip?" required />
 
             <div class="form-row">
                 <div>
@@ -68,7 +72,9 @@
 
             <label>Number of passengers</label>
             <input type="number" id="passenger-count" min="1" required />
-
+            <div id="map"
+                style="height: 300px; width: 100%; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc;">
+            </div>
             <button type="submit" class="proceed-btn">Proceed</button>
         </form>
     </section>

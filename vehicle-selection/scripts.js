@@ -5,17 +5,17 @@ const hamburger = document.getElementById("hamburger")
 const navLinks = document.getElementById("navLinks")
 
 // When hamburger is clicked
-hamburger.addEventListener("click", function(){
+hamburger.addEventListener("click", function () {
 
-  // If the menu is already visible
-  if(navLinks.style.display === "flex"){
-    navLinks.style.display = "none"  // hide it
-  }
+    // If the menu is already visible
+    if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none"  // hide it
+    }
 
-  // If the menu is hidden
-  else{
-    navLinks.style.display = "flex"  // show it
-  }
+    // If the menu is hidden
+    else {
+        navLinks.style.display = "flex"  // show it
+    }
 
 })
 
@@ -38,7 +38,7 @@ let selectedFleet = [];
 function displayVehicles(cars) {
     const container = document.getElementById('vehicle-container');
     if (!container) return; // Safety check
-    
+
     container.innerHTML = ""; // Clear the section first
 
     cars.forEach(car => {
@@ -72,25 +72,37 @@ function filterVehicles(category) {
 }
 
 // 4. ADD TO FLEET LOGIC
+// Keep your global array at the top of scripts.js
 function addToFleet(vehicleId) {
     const car = vehicleData.find(v => v.id === vehicleId);
-    selectedFleet.push(car);
     
-    // Save to LocalStorage so the Deposit Page can see it
-    localStorage.setItem('userFleet', JSON.stringify(selectedFleet));
-    
-    // Make the "Confirm Fleet" button visible
-    const checkoutArea = document.getElementById('checkout-area');
-    if (checkoutArea) checkoutArea.style.display = 'block';
-    
-    alert(`${car.brand} added to fleet! Total: ${selectedFleet.length}`);
-}
+    // 1. Get the snowball
+    let bookingData = JSON.parse(localStorage.getItem('bookingData')) || {};
 
+    // 2. Get the distance we saved from the map (default to 1 if not found)
+    const distance = bookingData.distance || 1;
+
+    // 3. Simple Calculation: Car Price x Distance
+    // (You can change this formula to fit your business needs)
+    const calculatedPrice = car.price * distance;
+
+    // 4. Update Snowball
+    bookingData.vehicle = `${car.brand} ${car.model}`;
+    bookingData.prices = {
+        base: car.price, // Original car price
+        total: calculatedPrice // Price after distance math
+    };
+
+    localStorage.setItem('bookingData', JSON.stringify(bookingData));
+    
+    document.getElementById('checkout-area').style.display = 'block';
+    alert(`${car.brand} added! Total for ${distance}km: $${calculatedPrice}`);
+}
 // 5. INITIALIZE: Run this when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     displayVehicles(vehicleData);
 });
 
 function goToPayment() {
-    window.location.href = "../deposit-payment/deposit.html";
+    window.location.href = "../quote-summary/quote summary.html";
 }

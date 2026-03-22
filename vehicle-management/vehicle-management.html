@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle-management-section</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <link rel="stylesheet" href="vehicle-management.css">
+    <script src="vehicle-management.js" defer></script>
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="header-left">
+            <img src="Assets/Logo 2.png" alt="PrimeFleet Logo" class="logo">
+        </div>
+
+        <div class="header-bookings">
+            <h3>Vehicles</h3>
+        </div>
+        <div class="search-wrapper">
+            <i class="ph ph-magnifying-glass search-icon"></i>
+            <input type="text" id="vehicle-search" placeholder="Search vehicle">
+        </div>
+        <div class="header-right-container">
+            <div class="header-right">
+                <button class="btn-add-booking">Add Vehicle</button>
+            </div>
+            <div class="header-right">
+                <button class="btn-edit-booking">Edit Vehicle</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+                <div class="sidebar-menu">
+                    <a href="#" class="menu-item">
+                        <img src="Assets/Vector.svg" alt="" class="menu-icon dashboard">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="menu-item active">
+                        <img src="Assets/Vector (1).svg" alt="" class="menu-icon">
+                        <span>Bookings</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/Vector (2).svg" alt="" class="menu-icon">
+                        <span>Driver</span>
+                    </a><a href="#" class="menu-item ">
+                        <img src="Assets/Vector (3).svg" alt="" class="menu-icon">
+                        <span>Vehicles</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="Assets/Vector.svg" alt="" class="menu-icon">
+                        <span>Payment</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <!-- Summary Cards -->
+             <div class="summary-cards">
+                <div class="summary-card">
+                    <i class="ph ph-jeep card-icon"></i>
+                    <h3>Total Vehicles</h3>
+                    <p class="number">10</p>
+                    <small>3 SUV, 2 Sedan, 3 Vans, 2 Buses</small>
+                </div>
+                <div class="summary-card">
+                    <i class="ph ph-jeep card-icon" ></i>
+                    <h3>Active Vehicles</h3>
+                    <p class="number">7</p>
+                    <small>3 SUV, 3 Vans, 2 Buses</small>
+                </div>
+                <div class="summary-card">
+                    <i class="ph ph-jeep card-icon"></i>
+                    <h3>Inactive Vehicles</h3>
+                    <p class="number">3</p>
+                    <small>2 Sedans, 1 Bus</small>
+                </div>
+             </div>
+            <section class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vehicle ID</th>
+                            <th>Type</th>
+                            <th>Vehicle's Status</th>
+                            <th>Driver</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="booking-table-body">
+                        <tr>
+                            <td>SUV-123</td>
+                            <td>SUV</td>
+                            <td class="active">Active</td>
+                            <td>Wale David</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>SED-567</td>
+                            <td class="client-name">SEDAN</td>
+                            <td class="inactive">Inactive</td>
+                            <td>-</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>VAN-458</td>
+                            <td class="client-name">VAN</td>
+                            <td class="active">Active</td>
+                            <td>Clinton Joshua</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>BUS-890</td>
+                            <td class="client-name">BUS</td>
+                            <td class="inactive">Inactive</td>
+                            <td>-</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>BUS-675</td>
+                            <td class="client-name">BUS</td>
+                            <td class="active">Active</td>
+                            <td>Benjamin Edefa</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>VAN-345</td>
+                            <td class="client-name">VAN</td>
+                            <td class="active">Active</td>
+                            <td>Samuel Malik</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>VAN-657</td>
+                            <td class="client-name">VAN</td>
+                            <td class="active">Active</td>
+                            <td>Alex Obichukwu</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>SED-431</td>
+                            <td class="client-name">SEDAN</td>
+                            <td class="inactive">Inactive</td>
+                            <td>-</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>SUV-897</td>
+                            <td class="client-name">SUV</td>
+                            <td class="active">Active</td>
+                            <td>Chidi Dike</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>SUV-546</td>
+                            <td class="client-name">SUV</td>
+                            <td class="active">Active</td>
+                            <td>Fred Okocha</td>
+                            <td><a href="#" class="view-details">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

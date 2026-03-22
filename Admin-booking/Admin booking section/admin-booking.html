@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-boooking-section</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="booking-style.css">
+</head>
+
+<body>
+
+    <header class="admin-header">
+        <div class="header-left">
+            <img src="Assets/Logo 2.png" alt="PrimeFleet Logo" class="logo">
+        </div>
+
+        <div class="header-bookings">
+            <h3>Bookings</h3>
+        </div>
+        <div class="search-wrapper">
+            <i class="ph ph-magnifying-glass search-icon"></i>
+            <input type="text" id="booking-search" placeholder="Search bookings">
+        </div>
+
+        </div>
+
+        <div class="header-right-container">
+            <div class="header-right">
+                <button class="btn-add-booking">Add Booking</button>
+            </div>
+            <div class="header-right">
+                <button class="btn-edit-booking">Edit Booking</button>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <div class="sidebar-menu">
+                    <a href="#" class="menu-item">
+                        <img src="/Admin booking section/Assets/Vector.svg" alt="" class="menu-icon dashboard">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="menu-item active">
+                        <img src="/Admin booking section/Assets/Vector (1).svg" alt="" class="menu-icon">
+                        <span>Bookings</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="/Admin booking section/Assets/Vector (2).svg" alt="" class="menu-icon">
+                        <span>Driver</span>
+                    </a><a href="#" class="menu-item ">
+                        <img src="/Admin booking section/Assets/Vector (3).svg" alt="" class="menu-icon">
+                        <span>Vehicles</span>
+                    </a>
+                    <a href="#" class="menu-item ">
+                        <img src="/Admin booking section/Assets/Vector (4).svg" alt="" class="menu-icon">
+                        <span>Payment</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="admin-header"></header>
+
+            <section class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Client</th>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Deposit</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="booking-table-body">
+                        <tr>
+                            <td>PF-20237</td>
+                            <td class="client-name">Ubong Eze</td>
+                            <td>Event</td>
+                            <td>12/3/2026</td>
+                            <td>03:25PM</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><span class="deposit-status">Pending</span></td>
+                            <td><a href="#" class="view-details">Booking Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>PF-20238</td>
+                            <td class="client-name">Tola Adeyemi</td>
+                            <td>Airport</td>
+                            <td>25/3/2026</td>
+                            <td>07:00AM</td>
+                            <td><span class="status cancelled">Cancelled</span></td>
+                            <td><span class="deposit-status">Pending</span></td>
+                            <td><a href="#" class="view-details">Booking Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="booking.js"></script>
+</body>
+
+
+
+</html>

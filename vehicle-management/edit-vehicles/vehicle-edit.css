@@ -1,0 +1,298 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ 
+body{
+    font-family: "Inter", sans-serif;
+}
+
+   /*  ADMIN-BOOKING-SECTION HEADER*/
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.vehicle-header {
+  display: inline-block;
+  text-align: center;
+
+}
+
+.logo{
+    width: 130px;
+}
+
+.header-right-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+
+/* The container */
+.search-wrapper {
+  position: relative; 
+  width: 450px; /* Adjust this width based on your design */
+}
+
+/* The Icon */
+.search-icon {
+  position: absolute;
+  left: 15px;         /* Distance from the left edge */
+  top: 50%;           /* Move down to the middle */
+  transform: translateY(-50%); /* Centers it perfectly vertical */
+  color: #888;        /* Grey color for the icon */
+  font-size: 18px;    /* Icon size */
+  pointer-events: none; /* User clicks "through" the icon to type */
+}
+
+/* The Input Field */
+.search-wrapper input {
+  width: 100%;
+  padding: 10px 15px 10px 45px; /* Note the 45px padding-left! This makes room for the icon */
+  border: 1px solid #e0e0e0;
+  border-radius: 25px; /* Makes it a pill shape */
+  background-color: #f9f9f9;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Change border color when typing */
+.search-wrapper input:focus {
+  border-color: #1a3353;
+}
+
+.btn-add-booking {
+  background-color: #1a3353;/* The dark navy from your image */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-edit-booking {
+  background-color: #fff;/* The dark navy from your image */
+  color: black;
+  padding: 10px 20px;
+  border:1px solid #1a3353;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-add-booking:hover {
+  background-color: #254a77;
+}
+
+/* The Main Grid */
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: 219px 1fr 50px; /* Sidebar width | Main content takes rest */
+  grid-gap: 20px;
+  min-height: 100vh;
+  top: 116px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background-color: #0A2d51; /* Match your dark navy */
+  color: white;
+  padding: 20px 0;
+}
+
+.sidebar-menu a {
+  font-family: 'inter' sans-serif;
+  font-weight: 400;
+  display: block;
+  padding: 10px 20px;
+  color: #ffffff; /* Slightly faded white/grey */
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 100%;
+}
+
+
+.sidebar-menu a:hover{
+     background-color: #254a77;
+  color: white;
+  border-left: 4px solid #fff;
+}
+
+/* This applies to the item when you hover OR when it has the .active class */
+.menu-item:hover, 
+.menu-item.active {
+    background-color: #254a77; /* The darker blue highlight */
+    color: white;              /* Make text white */
+    border-radius: 8px;       /* Optional: rounds the corners of the highlight */
+}
+
+/* Make sure the icon also turns white when active */
+.menu-item:hover i,
+.menu-item.active i {
+    color: white;
+}
+
+.menu-icon.dashboard{
+  width: 20px;
+  height: 24px;
+}
+
+/* Main design */
+
+.vehicle-edit-container {
+    margin: auto;
+    background: #eef6ff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.vehicle-edit-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0,05);
+    width: 900px;
+}
+
+.view-types {
+    display: flex;
+    gap: 50px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.vehicle-types {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.driver-select  {
+    margin-bottom: 30px;
+}
+.vehicle-types button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.vehicle-types button:hover {
+    background: #e6e6e6;
+}
+
+.status {
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
+}
+
+.action {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cancel {
+    padding: 12px 35px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+}
+
+.add {
+    padding: 12px 35px;
+    border-radius: 8px;
+    border: none;
+    background: #0b2a4a;
+    color: white;
+    cursor: pointer;
+}
+
+.add:hover {
+    background: #09223d;
+}
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Stack the Main Grid */
+    .dashboard-wrapper {
+        grid-template-columns: 1fr; /* Sidebar and Content stack vertically */
+        grid-gap: 10px;
+    }
+
+    /* 2. Adjust Header (Logo, Search, Buttons) */
+    .admin-header {
+        flex-direction: column;
+        padding: 15px;
+        height: auto;
+    }
+
+    .header-center, .header-right-container {
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .search-wrapper {
+        width: 100% !important; /* Make search bar full width */
+    }
+
+    /* 3. Handle the Sidebar */
+    .sidebar {
+        display: flex; /* Change vertical menu to horizontal icons/text on mobile */
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+
+    .sidebar-menu a {
+        display: inline-block;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    /* 4. Make the Table Scrollable */
+    .main-content {
+        overflow-x: auto; /* Adds horizontal scroll to the table area */
+        padding: 10px;
+    }
+
+}

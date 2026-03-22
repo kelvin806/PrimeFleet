@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fb;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.logo img {
+  width: 140px;
+}
+
+/* FORM CONTAINER */
+.form-container {
+  margin-top: 30px;
+  padding: 0 16px;
+}
+
+/* FORM CARD */
+.booking-form {
+  max-width: 500px;
+  margin: auto;
+  background: #d9e1ec;
+  padding: 40px 30px;
+  border-radius: 12px;
+}
+
+/* TITLES */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.section-title-p {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+/* INPUT FIELD */
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.field input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #86868f;
+  background: #fff;
+  outline: none;
+}
+
+.field input:focus {
+  border-color: #ECF6FF66;
+}
+
+/* PASSWORD */
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap span {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* ERROR TEXT */
+.error {
+  color: red;
+  font-size: 13px;
+}
+
+/* REMEMBER */
+.remember {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inner2 {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* BUTTON */
+.proceed-wrap {
+  margin-top: 25px;
+}
+
+.btn-proceed {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background: #0a2d51;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-proceed:hover {
+  background: #124a86;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .booking-form {
+    padding: 30px 20px;
+  }
+}

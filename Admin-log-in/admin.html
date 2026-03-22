@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+  <div class="page-wrap">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="Assets/Logo 2.png" alt="Logo">
+    </div>
+
+    <!-- FORM -->
+    <div class="form-container">
+      <form id="loginForm" class="booking-form" novalidate>
+
+        <h2 class="section-title">Admin Login</h2>
+        <p class="section-title-p">
+          Login to manage bookings, vehicles and payments.
+        </p>
+
+        <!-- EMAIL -->
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" type="email" placeholder="youremail@gmail.com">
+          <small class="error" id="emailError"></small>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="password" placeholder="Enter your password">
+            <span id="togglePassword">👁️</span>
+          </div>
+          <small class="error" id="passwordError"></small>
+        </div>
+
+        <!-- REMEMBER -->
+        <div class="remember">
+          <label class="inner">
+            <input type="checkbox" id="rememberMe">
+            <span>Remember me</span>
+          </label>
+
+          <div class="inner2">
+            <p>Forgot password?</p>
+          </div>
+        </div>
+
+        <!-- BUTTON -->
+        <div class="proceed-wrap">
+          <button type="submit" class="btn-proceed">
+            Login
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script src="admin.js"></script>
+
+</body>
+</html>

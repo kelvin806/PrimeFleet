@@ -7,21 +7,24 @@ const navLinks = document.getElementById("navLinks")
 // When hamburger is clicked
 hamburger.addEventListener("click", function () {
 
-  // If the menu is already visible
-  if (navLinks.style.display === "flex") {
-    navLinks.style.display = "none"  // hide it
-  }
+    // If the menu is already visible
+    if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none"  // hide it
+    }
 
-  // If the menu is hidden
-  else {
-    navLinks.style.display = "flex"  // show it
-  }
+    // If the menu is hidden
+    else {
+        navLinks.style.display = "flex"  // show it
+    }
 
 })
 /**
  * PrimeFleet Deposit Page Logic
  * Features: Payment method toggle, 30% deposit display, and transfer verification
  */
+
+
+// const API_URL = "https://primefleet-mvp.onrender.com/api/v1";
 
 // --- 1. GLOBAL HELPERS ---
 function formatNaira(amount) {
@@ -88,7 +91,7 @@ async function handleCompletion() {
 
     const required = parseFloat(savedData.depositAmount);
     const userEntry = prompt("Please enter the exact amount you transferred:");
-    
+
     if (!userEntry) return;
 
     // Clean input: remove ₦, commas, and spaces
@@ -126,10 +129,64 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+});
 
-    // 4. Setup "I have done the payment" button
-    const completeBtn = document.getElementById('completeBtn');
-    if (completeBtn) {
-        completeBtn.addEventListener('click', handleCompletion);
-    }
+const API_URL = "https://primefleet-mvp.onrender.com/api/v1";
+
+document.addEventListener('DOMContentLoaded', () => {
+    const confirmBtn = document.querySelector('.payment-btn');
+
+    confirmBtn.addEventListener('click', async () => {
+        const bookingData = JSON.parse(localStorage.getItem('bookingData'));
+
+        if (!bookingData || !bookingData.vehicles || bookingData.vehicles.length === 0) {
+            alert("No booking found.");
+            return;
+        }
+
+        // 🔥 GET REFERENCE FROM FIRST VEHICLE
+        const reference = bookingData.vehicles[0].reference;
+
+        if (!reference) {
+            alert("Booking reference not found.");
+            console.log("bookingData:", bookingData);
+            return;
+        }
+        const deposit = bookingData.depositAmount;
+
+        const input = prompt(`Enter amount you sent (Deposit: N${Math.round(deposit).toLocaleString()})`);
+        const amount = Number(input?.replace(/,/g, ''));
+
+        if (isNaN(amount)) {
+            alert("Invalid amount.");
+            return;
+        }
+
+        if (amount < deposit) {
+            alert(`Amount is less than required deposit of N${Math.round(deposit).toLocaleString()}`);
+            return;
+        }
+
+        // 🔥 THIS IS THE REAL BACKEND CALL YOU HAVE
+        try {
+            const res = await fetch(`${API_URL}/bookings/reference/${reference}`);
+            const data = await res.json();
+
+            console.log("Booking lookup:", data);
+
+            if (res.ok && data.success) {
+                alert("Payment submitted. Booking is being processed.");
+                localStorage.removeItem('bookingData');
+
+                // 👉 Move to confirmation page
+                window.location.href = "../Booking confirmation/booking-confirmation.html";
+            } else {
+                alert("Could not verify booking. Try again.");
+            }
+
+        } catch (err) {
+            console.error(err);
+            alert("Network error. Try again.");
+        }
+    });
 });

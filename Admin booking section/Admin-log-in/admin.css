@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background: #f5f7fb;
 }
 
@@ -69,7 +69,7 @@ body {
 }
 
 .field input:focus {
-  border-color: #ECF6FF66;
+  border-color: #ecf6ff66;
 }
 
 /* PASSWORD */
@@ -89,6 +89,18 @@ body {
 .error {
   color: red;
   font-size: 13px;
+}
+
+/* ERROR ALERT */
+.error-alert {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
 }
 
 /* REMEMBER */
@@ -128,6 +140,12 @@ body {
 
 .btn-proceed:hover {
   background: #124a86;
+}
+
+.btn-proceed:disabled {
+  background: #6b7c8f;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* RESPONSIVE */

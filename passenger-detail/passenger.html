@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrimeFleet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="passenger-logic.js" defer></script>
+    <link rel="icon" type="Assets/png" href="Assets/Logo 2.png" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header-container">
+      <div class="logo">
+        <img src="Assets/Logo 2.png" alt="PrimeFleet Logo" />
+      </div>
+      <nav>
+        <ul class="nav-items nav-links" id="navLinks">
+          <li><a href="">Home</a></li>
+          <li>
+            <a href="../vehicle-selection/vehicle-selection.html"
+              >Book a vehicle</a
+            >
+          </li>
+          <li><a href="">Services</a></li>
+          <li><a href="">FAQ</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </nav>
+      <button href="#" class="primary-btn">Admin</button>
+
+      <!-- Hamburger icon for mobile -->
+      <div class="hamburger" id="hamburger">☰</div>
+    </header>
+
+    <!-- Form -->
+    <div class="page-wrap">
+      <div class="header-hero">
+        <div class="hero-card">
+          <h1>Passenger’s Details</h1>
+          <p>Provide the Passenger’s information required for this booking</p>
+        </div>
+      </div>
+      <div class="form-container">
+        <h2 class="section-title">Passenger’s Information</h2>
+        <form class="booking-form" id="passengerForm" novalidate>
+          <!-- Loading/Error Message -->
+          <div
+            id="formMessage"
+            class="form-message"
+            style="display: none"
+          ></div>
+
+          <!-- Full Name -->
+          <div class="field">
+            <label for="fullName"
+              >Full Name<span class="required">*</span></label
+            >
+            <input id="fullName" type="text" placeholder="Enter full name" />
+            <small class="error" id="fullNameError"></small>
+          </div>
+
+          <!-- Email -->
+          <div class="field">
+            <label for="email"
+              >Email Address<span class="required">*</span></label
+            >
+            <input id="email" type="email" placeholder="youremail@gmail.com" />
+            <small class="error" id="emailError"></small>
+          </div>
+
+          <!-- Phone -->
+          <div class="field">
+            <label for="phone"
+              >Phone Number<span class="required">*</span></label
+            >
+            <input id="phone" type="tel" placeholder="+234 812 345 679" />
+            <small class="error" id="phoneError"></small>
+          </div>
+
+          <!-- Number of Passengers -->
+          <div class="field">
+            <label for="numPassengers"
+              >Number of Passengers<span class="required">*</span></label
+            >
+            <input
+              id="numPassengers"
+              type="number"
+              min="1"
+              placeholder="e.g., 1"
+              value="1"
+            />
+            <small class="error" id="numPassengersError"></small>
+          </div>
+
+          <!-- Pickup Location -->
+          <div class="field">
+            <label for="pickupLocation"
+              >Pickup Location<span class="required">*</span></label
+            >
+            <input id="pickupLocation" type="text" placeholder="e.g., Lekki" />
+            <small class="error" id="pickupLocationError"></small>
+          </div>
+
+          <!-- Dropoff Location -->
+          <div class="field">
+            <label for="dropoffLocation"
+              >Dropoff Location<span class="required">*</span></label
+            >
+            <input
+              id="dropoffLocation"
+              type="text"
+              placeholder="e.g., Victoria Island"
+            />
+            <small class="error" id="dropoffLocationError"></small>
+          </div>
+
+          <!-- Start Date & Time -->
+          <div class="field">
+            <label for="startDateTime"
+              >Start Date & Time<span class="required">*</span></label
+            >
+            <input id="startDateTime" type="datetime-local" />
+            <small class="error" id="startDateTimeError"></small>
+          </div>
+
+          <!-- End Date & Time -->
+          <div class="field">
+            <label for="endDateTime"
+              >End Date & Time<span class="required">*</span></label
+            >
+            <input id="endDateTime" type="datetime-local" />
+            <small class="error" id="endDateTimeError"></small>
+          </div>
+
+          <!-- Special Instructions -->
+          <div class="field">
+            <label for="instructions">Special Instructions</label>
+            <textarea
+              id="instructions"
+              placeholder="Any special requests or requirements"
+            ></textarea>
+          </div>
+
+          <!-- Button -->
+          <div class="proceed-wrap">
+            <button type="submit" class="btn-proceed" id="proceedBtn">
+              Get Quote
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer section-->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-coll">
+          <div>
+            <img
+              src="Assets//Logo 2.png"
+              alt="PrimeFleet"
+              class="footer-logo"
+            />
+          </div>
+          <p>
+            PrimeFleet provides reliable, comfortable, and timely transportation
+            solutions, ensuring every journey whether for businesses, airport
+            transfers or group events is seamless, safe and stress free.
+          </p>
+          <div class="social-icons">
+            <img src="Assets/icon.png" alt="Social Media Icon" />
+          </div>
+        </div>
+        <!-- Company -->
+        <div class="footer-col">
+          <h3>Company</h3>
+          <button class="line"></button>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">How it works</a></li>
+            <li><a href="#">*********</a></li>
+          </ul>
+        </div>
+        <!-- Support -->
+        <div class="footer-col">
+          <h3>Support</h3>
+          <button class="line"></button>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <div class="footer-col">
+          <h3>Stay Connected</h3>
+          <button class="line"></button>
+          <p>
+            Subscribe to our updates and never miss important news, promotions
+            or service announcements from PrimeFleet. Stay informed and
+            connected at all times
+          </p>
+          <div class="subscribe">
+            <input type="email" placeholder="your email address" />
+            <div class="button">
+              <button><i class="ph-fill ph-paper-plane-tilt"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p><span>©</span> 2026 Prime Fleet. All rights reserved</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <button class="line2"></button>
+          <a href="#">Terms & Conditions</a>
+        </div>
+      </div>
+    </footer>
+    <script src="passenger-logic.js"></script>
+  </body>
+</html>

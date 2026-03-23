@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrimeFleet</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Vehicles selection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
-    <link rel="stylesheet" href="style.css">
-    <script src="/vehicle-selection/scripts.js" defer></script>
-    <link rel="icon" type="Assets/png" href="Assets/Logo 2.png">
-    
+    <link rel="stylesheet" href="vehicle selection.css" />
+    <link rel="icon" type="images" href="images/Logo 2.png">
+    <script src="scripts.js" defer></script>
 </head>
-<body>
 
+<body>
     <!-- header -->
-     <header class="header-container">
+    <header class="header-container">
         <div class="logo">
-            <img src="Assets/Logo 2.png" alt="PrimeFleet Logo">
+            <img src="images/Logo 2.png" alt="PrimeFleet Logo">
         </div>
         <nav>
             <ul class="nav-items nav-links" id="navLinks">
@@ -35,56 +37,60 @@
         <div class="hamburger" id="hamburger">
             ☰
         </div>
-
-       
     </header>
-    
+    <!-- Main section -->
+    <main>
+        <!-- Hero section -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Select Your Vehicle</h1>
+                <p>Choose the vehicle that best suits your trip and passenger needs</p>
+            </div>
+            <div class="hero-img">
+                <img src="images/hero-pict.png" alt="car">
+            </div>
+        </section>
 
-    <!-- Form -->
-    <div class="page-wrap">
-    <div class="header-hero">
-      <div class="hero-card">
-        <h1>Passenger’s Details</h1>
-        <p>Provide the Passenger’s information required for this booking</p>
-      </div>
-    </div>
-    <div class="form-container">
-      <h2 class="section-title">Passenger’s Information</h2>
-      <form class="booking-form" novalidate>
-        <div class="field">
-          <label for="fullName">Full Name</label>
-          <input id="fullName" type="text" placeholder="Enter full name"/>
+        <!-- Filter section -->
+        <section class="filter">
+            <h2>Filter By Car Type</h2>
+            <div class="buttons">
+                <button onclick="filterVehicles('all')">All</button>
+                <button onclick="filterVehicles('suv')" class="active">SUV</button>
+                <button onclick="filterVehicles('sedan')">Sedan</button>
+                <button onclick="filterVehicles('van')">Van</button>
+                <button onclick="filterVehicles('bus')">Bus</button>
+            </div>
+        </section>
+
+        <div id="vehicles-loading" class="vehicles-loading" aria-live="polite">Loading vehicles...</div>
+        <section id="vehicle-container" class="cars">
+        </section>
+
+        <div id="fleet-summary">
+            <p>Cars Selected: <span id="car-count">0</span></p>
+            <p>Total Price: ₦<span id="total-price">0</span></p>
         </div>
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input id="email" type="email" placeholder="youremail@gmail.com"/>
+
+        <div id="checkout-area" style="display:none; text-align: center; margin-top: 30px;">
+            <button onclick="goToPayment()" class="add-btn" style="padding: 15px 30px; font-size: 1.2rem;">
+                Confirm Fleet & Proceed to Payment
+            </button>
         </div>
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input id="phone" type="tel" placeholder="+234 812 345 679"/>
-        </div>
-        <div class="field">
-          <label for="notes">Special Notes</label>
-          <textarea id="notes" placeholder="Any special requests or requirements"></textarea>
-        </div>
-        <div class="proceed-wrap">
-          <button type="submit" class="btn-proceed">Proceed</button>
-        </div>
-      </form>
-    </div>
-  </div>
+        </section>
+    </main>
 
     <!-- Footer section-->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-coll">
-                <div><img src="Assets//Logo 2.png" alt="PrimeFleet" class="footer-logo"></div>
+                <div><img src="images/Logo 2.png" alt="PrimeFleet" class="footer-logo"></div>
                 <p>PrimeFleet provides reliable, comfortable, and timely transportation
                     solutions, ensuring every journey whether for businesses, airport transfers
                     or group events is seamless, safe and stress free.
                 </p>
                 <div class="social-icons">
-                    <img src="Assets/icon.png" alt="Social Media Icon">
+                    <img src="images/icon.png" alt="Social Media Icon">
                 </div>
             </div>
             <!-- Company -->
@@ -108,10 +114,10 @@
                 </ul>
             </div>
             <!-- Newsletter -->
-             <div class="footer-col">
+            <div class="footer-col">
                 <h3>Stay Connected</h3>
                 <button class="line"></button>
-                <p>Subscribe to our updates and never miss important news, 
+                <p>Subscribe to our updates and never miss important news,
                     promotions or service announcements from PrimeFleet. Stay
                     informed and connected at all times
                 </p>
@@ -119,7 +125,7 @@
                     <input type="email" placeholder="your email address">
                     <div class="button"><button><i class="ph-fill ph-paper-plane-tilt"></i></button></div>
                 </div>
-             </div>
+            </div>
         </div>
         <div class="footer-bottom">
             <p><span>©</span> 2026 Prime Fleet. All rights reserved</p>
@@ -129,7 +135,7 @@
                 <a href="#">Terms & Conditions</a>
             </div>
         </div>
-    </footer>    
-    <script src="passenger-logic.js"></script>
+    </footer>
 </body>
+
 </html>

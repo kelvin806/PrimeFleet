@@ -1,29 +1,29 @@
 // Select the hamburger icon
-const hamburger = document.getElementById("hamburger")
+const hamburger = document.getElementById("hamburger");
 
 // Select the navigation menu
-const navLinks = document.getElementById("navLinks")
+const navLinks = document.getElementById("navLinks");
 
 // When hamburger is clicked
 hamburger.addEventListener("click", function () {
+  // If the menu is already visible
+  if (navLinks.style.display === "flex") {
+    navLinks.style.display = "none"; // hide it
+  }
 
-    // If the menu is already visible
-    if (navLinks.style.display === "flex") {
-        navLinks.style.display = "none"  // hide it
-    }
+  // If the menu is hidden
+  else {
+    navLinks.style.display = "flex"; // show it
+  }
+});
 
-    // If the menu is hidden
-    else {
-        navLinks.style.display = "flex"  // show it
-    }
+const API_URL = "https://primefleet-mvp.onrender.com/api/v1/vehicles";
+const FALLBACK_IMAGE = "images/select 1.png";
 
-})
-
-
-// 1. MOCK DATA: This is the data the API will eventually provide
 let vehicleData = [];
+let currentCategory = "all";
 
-const API_URL = "https://primefleet-mvp.onrender.com/api/v1";
+// const API_URL = "https://primefleet-mvp.onrender.com/api/v1";
 
 async function loadVehicles() {
     try {
@@ -61,150 +61,130 @@ async function loadVehicles() {
 // This array stores the cars the user selects
 let selectedFleet = [];
 
+function setLoadingState(isLoading, message = "Loading vehicles...") {
+  const loadingEl = document.getElementById("vehicles-loading");
+  if (!loadingEl) return;
+
+  loadingEl.textContent = message;
+  loadingEl.style.display = isLoading ? "block" : "none";
+}
+
+function showEmptyState(message) {
+  const container = document.getElementById("vehicle-container");
+  if (!container) return;
+
+  container.innerHTML = `<p class="status-message">${message}</p>`;
+}
+
 // 2. RENDER FUNCTION: This builds the HTML cards dynamically
 function displayVehicles(cars) {
-    const container = document.getElementById('vehicle-container');
-    if (!container) return;
+  const container = document.getElementById("vehicle-container");
+  if (!container) return; // Safety check
 
-    container.innerHTML = "";
+  if (!cars.length) {
+    showEmptyState("No vehicles found for this category.");
+    return;
+  }
 
-    cars.forEach(car => {
+  container.innerHTML = ""; // Clear the section first
 
-        const imageUrl = car.img && car.img !== "null"
-            ? car.img
-            : "./images/select 2.png";
+  cars.forEach((car) => {
+    const title = `${car.make} ${car.model}`;
+    const vehicleImage = car.photoUrl || FALLBACK_IMAGE;
+    const formattedType = car.vehicleType || "UNKNOWN";
 
-        const cardHTML = `
+    const cardHTML = `
             <div class="car-card">
-                <img src="${imageUrl}" alt="${car.brand} ${car.model}">
-                <h3>${car.brand} ${car.model}</h3>
-                <p>${car.passengers} Passengers • ${car.luggages} Luggages</p>
-                <h4>N${car.price.toLocaleString()}</h4>
+                <a class="car-image-link" href="vehicle-detail.html?id=${encodeURIComponent(car.id)}" aria-label="View ${title} details">
+                  <img src="${vehicleImage}" alt="${title}">
+                </a>
+                <h3>${title}</h3>
+                <p>${car.year} • ${formattedType}</p>
+                <h4>₦${Number(car.pricePerDay || 0).toLocaleString()}/day</h4>
                 <button class="add-btn" onclick="addToFleet('${car.id}')">Add</button>
             </div>
         `;
-
-        container.innerHTML += cardHTML;
-    });
+    container.innerHTML += cardHTML;
+  });
 }
 
 // 3. FILTER LOGIC: Triggered by your All, SUV, Sedan, Van, Bus buttons
 function filterVehicles(category) {
-    // Update button visual state
-    const buttons = document.querySelectorAll('.buttons button');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+  currentCategory = category;
 
-    if (category === 'all') {
-        displayVehicles(vehicleData);
-    } else {
-        const filtered = vehicleData.filter(car => car.type === category);
-        displayVehicles(filtered);
-    }
+  // Update button visual state
+  const buttons = document.querySelectorAll(".buttons button");
+  buttons.forEach((btn) => {
+    const buttonCategory = btn.textContent.trim().toLowerCase();
+    const normalizedButtonCategory =
+      buttonCategory === "all" ? "all" : buttonCategory;
+    btn.classList.toggle("active", normalizedButtonCategory === category);
+  });
+
+  if (category === "all") {
+    displayVehicles(vehicleData);
+  } else {
+    const filtered = vehicleData.filter(
+      (car) => (car.vehicleType || "").toLowerCase() === category,
+    );
+    displayVehicles(filtered);
+  }
 }
 
 // 4. ADD TO FLEET LOGIC
 // Keep your global array at the top of scripts.js
+function addToFleet(vehicleId) {
+  const car = vehicleData.find((v) => v.id === vehicleId);
+  if (!car) return;
 
-async function addToFleet(vehicleId) {
-    // Find the car object
-    const car = vehicleData.find(v => v.id === vehicleId);
-    if (!car) return alert("Car not found!");
+  // 1. Get the snowball
+  let bookingData = JSON.parse(localStorage.getItem("bookingData")) || {};
 
-    // Ensure token exists
-    const token = localStorage.getItem("token");
-    if (!token) return alert("No token found. Please login.");
+  // 2. Store the vehicle ID and details
+  bookingData.vehicleId = car.id;
+  bookingData.vehicle = `${car.make} ${car.model}`;
+  bookingData.vehicleType = car.vehicleType;
+  bookingData.pricePerDay = Number(car.pricePerDay || 0);
 
+  localStorage.setItem("bookingData", JSON.stringify(bookingData));
 
-    // Load bookingData safely
-    let bookingData = JSON.parse(localStorage.getItem('bookingData')) || {};
-    if (!Array.isArray(bookingData.vehicles)) bookingData.vehicles = [];
-    if (typeof bookingData.total !== 'number') bookingData.total = 0;
-
-    const distance = bookingData.distance || 1;
-    const pickupLocation = bookingData.pickupLocation || "Lekki";
-
-    console.log("updated bookingData:", bookingData);
-    localStorage.setItem('bookingData', JSON.stringify(bookingData));
-
-    try {
-        // Fetch quote from API
-        const res = await fetch(`${API_URL}/bookings/quote`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                vehicleId: car.id,
-                distance: distance,
-                pickupLocation: pickupLocation
-            })
-        });
-
-        const quote = await res.json();
-        console.log("Quote response:", quote);
-
-        const price = quote.data?.total ?? 0;
-
-        console.log(quote.data);
-
-        // Add car to vehicles array with actual price
-        bookingData.vehicles.push({
-            vehicle: `${car.brand} ${car.model}`,
-            vehicleId: car.id,
-            price: price,
-            basePrice : quote.data.basePrice,
-            distanceCost: quote.data.distanceCost,
-            durationCost: quote.datatimeSurcharge || 0
-        });
-
-        // Recalculate total
-        bookingData.total = bookingData.vehicles.reduce((sum, v) => sum + v.price, 0);
-
-        // Save updated bookingData
-        localStorage.setItem('bookingData', JSON.stringify(bookingData));
-
-        // Show checkout area
-        document.getElementById('checkout-area').style.display = 'block';
-
-        updateFleetSummary(bookingData);
-
-    } catch (err) {
-        console.error("Quote error:", err);
-        alert("Failed to calculate price. Try again.");
-    }
+  document.getElementById("checkout-area").style.display = "block";
+  alert(`${car.make} selected! Click the button below to proceed.`);
 }
 
+function goToPayment() {
+  window.location.href = "../passenger-detail/passenger.html";
+}
 
-function updateFleetSummary(bookingData) {
-    const countEl = document.getElementById('car-count');
-    const totalEl = document.getElementById('total-price');
+async function fetchVehicleData() {
+  try {
+    setLoadingState(true);
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
 
-    const totalCars = bookingData.vehicles.length;
-    const totalPrice = bookingData.total;
+    const result = await response.json();
+    const vehicles = Array.isArray(result.data) ? result.data : [];
 
-    if (countEl) countEl.textContent = totalCars;
-    if (totalEl) totalEl.textContent = totalPrice.toLocaleString();
+    // Keep only vehicles the user can currently select.
+    vehicleData = vehicles.filter((vehicle) => vehicle.isAvailable);
+
+    if (!vehicleData.length) {
+      showEmptyState("No available vehicles at the moment.");
+      return;
+    }
+
+    filterVehicles(currentCategory);
+  } catch (error) {
+    console.error("Error fetching vehicle data:", error);
+    showEmptyState("Could not load vehicles right now. Please try again.");
+  } finally {
+    setLoadingState(false);
+  }
 }
 
 // 5. INITIALIZE: Run this when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    loadVehicles();
-
-    let bookingData = JSON.parse(localStorage.getItem('bookingData')) || {};
-
-    bookingData.vehicles = [];
-    bookingData.total = 0;
-
-    localStorage.setItem('bookingData', JSON.stringify(bookingData));
-
-    updateFleetSummary(bookingData);
-
-    document.getElementById('checkout-area').style.display = 'block';
-
+document.addEventListener("DOMContentLoaded", () => {
+  fetchVehicleData();
 });
-
-function goToPayment() {
-    window.location.href = "../quote-summary/quote summary.html";
-}

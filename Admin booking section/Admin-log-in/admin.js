@@ -5,8 +5,12 @@ const rememberMe = document.getElementById("rememberMe");
 
 const emailError = document.getElementById("emailError");
 const passwordError = document.getElementById("passwordError");
+const generalError = document.getElementById("generalError");
+const loginBtn = document.getElementById("loginBtn");
 
 const togglePassword = document.getElementById("togglePassword");
+
+const LOGIN_API = "https://primefleet-mvp.onrender.com/api/v1/auth/login";
 
 /* SHOW / HIDE PASSWORD */
 togglePassword.addEventListener("click", () => {
@@ -27,15 +31,31 @@ window.addEventListener("load", () => {
   }
 });
 
+/* SHOW ERROR MESSAGE */
+const showError = (message) => {
+  generalError.textContent = message;
+  generalError.style.display = "block";
+  setTimeout(() => {
+    generalError.style.display = "none";
+  }, 5000);
+};
+
+/* SET LOADING STATE */
+const setLoading = (isLoading) => {
+  loginBtn.disabled = isLoading;
+  loginBtn.textContent = isLoading ? "Logging in..." : "Login";
+};
+
 /* FORM SUBMIT */
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   let isValid = true;
 
-  // Reset errors
+  // Reset all errors
   emailError.textContent = "";
   passwordError.textContent = "";
+  generalError.style.display = "none";
 
   // Validate email
   if (email.value.trim() === "") {
@@ -51,18 +71,51 @@ form.addEventListener("submit", (e) => {
 
   if (!isValid) return;
 
-  // Save email
-  if (rememberMe.checked) {
-    localStorage.setItem("adminEmail", email.value);
-  } else {
-    localStorage.removeItem("adminEmail");
-  }
+  setLoading(true);
 
-  // FAKE LOGIN
-  if (email.value === "admin@gmail.com" && password.value === "123456") {
-    alert("Login successful!");
-    window.location.href = "dashboard.html";
-  } else {
-    alert("Invalid login details");
+  try {
+    const response = await fetch(LOGIN_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email.value.trim(),
+        password: password.value,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      // Handle API errors
+      const errorMessage =
+        data.message || data.error || "Login failed. Please try again.";
+      showError(errorMessage);
+      setLoading(false);
+      return;
+    }
+
+    // Save email if remember me is checked
+    if (rememberMe.checked) {
+      localStorage.setItem("adminEmail", email.value);
+    } else {
+      localStorage.removeItem("adminEmail");
+    }
+
+    // Save token if provided
+    if (data.token) {
+      localStorage.setItem("adminToken", data.token);
+    }
+
+    // Redirect to dashboard
+    showError("Login successful! Redirecting...");
+    setTimeout(() => {
+      window.location.href = "../../admin-booking-section/admin-booking.html";
+    }, 1000);
+  } catch (error) {
+    console.error("Login error:", error);
+    showError("Network error. Please check your connection and try again.");
+    setLoading(false);
   }
 });

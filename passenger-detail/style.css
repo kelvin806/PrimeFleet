@@ -5,25 +5,20 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  line-height: 1.4;
   font-size: 1.6rem;
 }
 
 html {
-  /* this represent 16px = 1rem */
-  /* font-size: 100%; */
-  /* 10 / 16 = 0.625, 0.625 x 100 = 62.5% */
   font-size: 62.5%;
 }
-
-/* 632px, 740px, 1024px, 1280px */
 
 @media (max-width: 1280px) {
   html {
     font-size: 50%;
   }
 }
-
 /* Header layout */
 .header-container {
   display: flex;
@@ -134,132 +129,234 @@ html {
     gap: 10px;
   }
 }
-/* Main section design */
-.deposit-container {
-  background: #eef6ff;
-  padding: 60px 30px;
+
+/* passenger */
+
+.header-hero {
+  margin-top: 5px;
+  background: #e9f6ff;
+  padding: 80px 20px 45px;
+  min-height: 320px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.deposit-header {
-  text-align: center;
-  /* color: white;
-    background: #0a2d51;
-    padding: 60px;
-    border-radius: 5px;
-    max-width: 600px;
-    margin: 40px auto 0;   */
+.hero-card {
   background-color: #0a2d51;
   border-radius: 10px;
   color: #fff;
   margin: 0 auto;
-  width: 60%;
-
   width: 75%;
-
   padding: 70px 0px;
 }
 
-.deposit-header h2 {
-  margin-bottom: 10px;
+.hero-card h1 {
+  font-size: 4rem;
 }
 
-.pay-container {
-  background: white;
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
+.hero-card p {
+  font-size: 1.6rem;
 }
 
-.methods {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 20px;
+/* form-container */
+.form-container {
+  margin-top: 32px;
+  padding: 0 8px;
 }
-
-.coming {
-  display: none;
+.section-title {
   text-align: center;
-  margin: 20px 0;
-  font-size: 48px;
+  margin-bottom: 20px;
+  font-size: 30px;
 }
-
-.transfer {
-  margin: auto;
+.booking-form {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   background: #fff;
-  padding: 30px 60px;
-  border-radius: 12px;
-  max-width: 500px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 20px 22px 30px;
 }
-
-.top-text {
-  margin-bottom: 25px;
-  color: #555;
-}
-
-.info {
+.field {
   margin-bottom: 25px;
 }
-
-.info h3 {
-  margin: 0;
+.field label {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-weight: 600;
   font-size: 16px;
-  font-weight: 700;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid #d9e3f1;
+  border-radius: 8px;
+  font-size: 15px;
+  padding: 11px 12px;
+  background: #fff;
+  color: #122444;
+  outline: none;
+  transition: 0.18s ease;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: #9ec1ff;
+  box-shadow: 0 0 0 4px rgba(57, 125, 255, 0.12);
 }
 
-.info p {
-  margin: 6px 0 0;
-  font-size: 16px;
-  color: #333;
+.field input {
+  min-height: 60px;
 }
-
-.amount {
-  font-weight: bold;
-  font-size: 18px;
+.field textarea {
+  min-height: 110px;
+  resize: vertical;
 }
-
-.copy-style {
-  margin-bottom: 3px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 4px 8px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: 0.3s;
+.proceed-wrap {
+  margin-top: 14px;
+  text-align: center;
 }
-.copy-style:hover {
-  background-color: #0a2d51;
-  color: white;
-}
-
-.amount {
-  font-weight: bold;
-  color: #0a2d51;
-  font-size: 1.2rem;
-}
-
-.payment-btn {
-  padding: 10px 50px;
+.btn-proceed {
+  border: 0;
+  border-radius: 8px;
   background: #0a2d51;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
   font-size: 16px;
+  padding: 12px 24px;
+  width: 100%;
+  max-width: 1000px;
   cursor: pointer;
-  margin-top: 20px;
+  transition: 0.2s ease;
+}
+.btn-proceed:hover {
+  background-color: rgb(15, 66, 117);
 }
 
-.payment-btn:hover {
-  background: hsl(210, 77%, 26%);
+/* form-wrap responsive behavior */
+@media (max-width: 768px) {
+  .header-hero {
+    padding: 60px 16px 35px;
+    height: auto;
+    min-height: 240px;
+  }
+
+  .hero-card {
+    padding: 36px 20px;
+    width: min(100%, 100%);
+  }
+
+  .form-container {
+    margin-top: 22px;
+    padding: 0 12px;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+  }
+
+  .booking-form {
+    padding: 16px 14px 22px;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  .field label {
+    font-size: 1.4rem;
+  }
+
+  .field input,
+  .field textarea {
+    font-size: 1.4rem;
+    padding: 10px 11px;
+  }
+
+  .btn-proceed {
+    max-width: 100%;
+    font-size: 1.4rem;
+    padding: 12px 16px;
+  }
+}
+
+/* Error and Message Styles */
+.error {
+  color: #d32f2f;
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+}
+
+.required {
+  color: #d32f2f;
+  margin-left: 3px;
+}
+
+.form-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.form-message.error {
+  background-color: #ffebee;
+  border: 1px solid #ef5350;
+  color: #c62828;
+}
+
+.form-message.success {
+  background-color: #e8f5e9;
+  border: 1px solid #66bb6a;
+  color: #2e7d32;
+}
+
+.form-message.info {
+  background-color: #e3f2fd;
+  border: 1px solid #42a5f5;
+  color: #1565c0;
+}
+
+.btn-proceed:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  .header-hero {
+    padding: 45px 12px 28px;
+  }
+
+  .hero-card h1 {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .form-container {
+    padding: 0 8px;
+  }
+
+  .booking-form {
+    padding: 14px 12px 20px;
+  }
+
+  .field label {
+    font-size: 1.3rem;
+  }
+
+  .btn-proceed {
+    padding: 10px 14px;
+  }
+  html {
+    font-size: 50%;
+  }
 }
 
 /* Footer design */
@@ -397,38 +494,4 @@ html {
   margin-left: 2rem;
   text-decoration: none;
   color: #333;
-}
-
-/* Payment Message Styles */
-.payment-message {
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.payment-message-error {
-  background-color: #ffebee;
-  border: 1px solid #ef5350;
-  color: #c62828;
-}
-
-.payment-message-success {
-  background-color: #e8f5e9;
-  border: 1px solid #66bb6a;
-  color: #2e7d32;
-}
-
-.payment-message-info {
-  background-color: #e3f2fd;
-  border: 1px solid #42a5f5;
-  color: #1565c0;
-}
-
-/* Button Loading State */
-.payment-btn:disabled {
-  background-color: #9e9e9e;
-  cursor: not-allowed;
-  opacity: 0.7;
 }

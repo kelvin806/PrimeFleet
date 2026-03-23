@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="vehicle-detail.css" />
+    <link rel="icon" type="images" href="images/Logo 2.png" />
+    <script src="vehicle-detail.js" defer></script>
+  </head>
+
+  <body>
+    <main class="detail-page">
+      <a href="vehicle-selection.html" class="back-link">Back to vehicles</a>
+
+      <section id="vehicle-loading" class="status loading" aria-live="polite">
+        Loading vehicle details...
+      </section>
+
+      <section
+        id="vehicle-error"
+        class="status error"
+        style="display: none"
+      ></section>
+
+      <section
+        id="vehicle-detail"
+        class="vehicle-detail"
+        style="display: none"
+      ></section>
+    </main>
+  </body>
+</html>

@@ -119,7 +119,13 @@
             </p>
             <!-- Buttons -->
 
-            <button class="pay-btn">Proceed to pay</button>
+            <button class="pay-btn" id="payBtn">Proceed to pay</button>
+
+<script>
+  document.getElementById("payBtn").addEventListener("click", function() {
+    window.location.href = "Booking confirmation/booking-confirmation.html"; // change to your next page
+  });
+</script>
             <button class="modify-btn">Modify Booking</button>
           </div>
           </section>

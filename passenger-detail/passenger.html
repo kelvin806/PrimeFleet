@@ -150,12 +150,18 @@
           </div>
 
           <!-- Button -->
-          <div class="proceed-wrap">
-            <button type="submit" class="btn-proceed" id="proceedBtn">
-              Get Quote
-            </button>
-          </div>
-        </form>
+         <div class="proceed-wrap">
+  <button type="button" class="btn-proceed" id="proceedBtn">
+    Get Quote
+  </button>
+</div>
+
+<script>
+  document.getElementById("proceedBtn").addEventListener("click", function() {
+    window.location.href = "../quote-summary/quote summary.html" // change to your actual page
+  });
+</script>
+</form>
       </div>
     </div>
 

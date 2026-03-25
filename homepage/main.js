@@ -31,8 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("bookingData", JSON.stringify(bookingData));
 
       // Redirect
-      window.location.href = "../vehicle-selection/vehicle-selection.html";
-    });
+ homepage/main.js
+      window.location.href = "./vehicle-selection/vehicle-selection.html";
+   });
   });
 });
 
